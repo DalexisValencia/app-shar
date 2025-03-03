@@ -1,6 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shar/components/header.dart';
-import 'package:shar/screen/Home.dart';
+import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Products.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/screen/Comments.dart';
@@ -9,7 +11,7 @@ import 'package:shar/screen/Splash.dart';
 void main() {
   runApp(const MyApp());
 }
-
+/*
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -25,24 +27,43 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       home: const Splash(),
-      /*home: Scaffold(
-        appBar: AppBar(
-          toolbarHeight: 130, // Set this height
-          flexibleSpace: const AppMainHeader(),
+    );
+  }
+}
+*/
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool splashScreen = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Timer(const Duration(seconds: 2), () {
+      setState(() {
+        splashScreen = false;
+      });
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'SHAR APP',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.deepPurple,
         ),
-        // body: const Products(),
-        body: const Comments(),
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.business), label: 'Business'),
-            BottomNavigationBarItem(icon: Icon(Icons.school), label: 'School'),
-          ],
-          currentIndex: 0,
-          selectedItemColor: Colors.amber[800],
-        ),
-      ),*/
+        useMaterial3: true,
+      ),
+      home:splashScreen ? const Splash() : const Tabswrapper(),
     );
   }
 }
