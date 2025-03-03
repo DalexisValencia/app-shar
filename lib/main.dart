@@ -63,7 +63,7 @@ class _MyAppState extends State<MyApp> {
         ),
         useMaterial3: true,
       ),
-      home:splashScreen ? const Splash() : const Tabswrapper(),
+      home: splashScreen ? const Splash() : const Tabswrapper(),
     );
   }
 }
