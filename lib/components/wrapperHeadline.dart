@@ -17,7 +17,8 @@ class Wrapperheadline extends StatelessWidget {
             mainTitle,
             style: const TextStyle(
               fontSize: 14,
-              fontWeight: FontWeight.bold
+              fontWeight: FontWeight.bold,
+              fontFamily: "Cocogoose"
             ),
           ),
         ],
