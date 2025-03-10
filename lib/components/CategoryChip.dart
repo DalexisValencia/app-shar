@@ -16,14 +16,15 @@ class Categorychip extends StatelessWidget {
           label: Text(
             name,
             style: const TextStyle(
-              fontSize: 13,
+              fontSize: 11,
               color: Colors.black38,
+              fontWeight: FontWeight.w400,
             ),
           ),
-          backgroundColor: const Color.fromARGB(255, 215, 215, 215),
+          backgroundColor: const Color.fromRGBO(217, 217, 217, 0.7),
           shape: RoundedRectangleBorder(
             side: const BorderSide(
-              color: Color.fromARGB(255, 116, 116, 116),
+              color: Color.fromRGBO(217, 217, 217, 0.7),
             ),
             borderRadius: BorderRadius.circular(
               20,

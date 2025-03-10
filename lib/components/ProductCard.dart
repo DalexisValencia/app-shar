@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 
-class PromotionItem extends StatelessWidget {
-  const PromotionItem({super.key});
+class ProductCard extends StatelessWidget {
+  final bool isMiddlePage;
+  const ProductCard({super.key, required this.isMiddlePage});
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    var screenWidth = (mediaQuery.size.width - 40);
+    double cardWidth = isMiddlePage ? screenWidth * 0.50 : 250;
+    double cardHeight = isMiddlePage ? screenWidth * 0.355 : 177.3;
     return GestureDetector(
       child: Container(
-        width: 250,
+        width: cardWidth,
         child: Card(
           elevation: 2,
           color: Colors.white,
@@ -15,17 +20,14 @@ class PromotionItem extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                height: 185,
+                height: cardHeight,
                 width: double.infinity,
                 decoration: const BoxDecoration(
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
-                  /*image: DecorationImage(
-                    image: AssetImage('images/base-product.png'),
-                    fit: BoxFit.fill,
-                  ),*/
+                  // color: Colors.red
                 ),
                 child: Stack(
                   children: [
@@ -41,9 +43,9 @@ class PromotionItem extends StatelessWidget {
                     ),
                     Positioned(
                       top: 0,
-                      width: 250,
+                      width: cardWidth,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        padding: const EdgeInsets.symmetric(horizontal: 10,),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

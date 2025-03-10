@@ -8,7 +8,7 @@ class Fallbacks extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(
-        vertical: 10,
+        vertical: 25,
         horizontal: 50,
       ),
       child: Text(

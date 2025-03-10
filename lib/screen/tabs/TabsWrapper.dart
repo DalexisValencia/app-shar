@@ -80,7 +80,13 @@ class _TabswrapperState extends State<Tabswrapper> {
               fit: BoxFit.cover,
             ),
             icon: Badge(
-              label: Text('2'),
+              label: Text(
+                '2',
+                style: TextStyle(
+                  fontSize: 11,
+                  fontFamily: "Inter-SemiBold",
+                ),
+              ),
               child: Image(
                 image: AssetImage('images/icons/cart-white.png'),
                 fit: BoxFit.cover,

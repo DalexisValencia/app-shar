@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shar/components/promotionItem.dart';
+import 'package:shar/components/ProductCard.dart';
 import 'package:shar/components/wrapperHeadline.dart';
 
 class PromotionWrapper extends StatelessWidget {
@@ -12,21 +12,21 @@ class PromotionWrapper extends StatelessWidget {
         vertical: 20,
         horizontal: 20,
       ),
-      child: Column(
+      child: const Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Wrapperheadline(mainTitle: 'Promociones' ),
-          const SingleChildScrollView(
+           Wrapperheadline(mainTitle: 'Promociones' ),
+           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
           child: Row(
             children: [
-              PromotionItem(),
-              PromotionItem(),
-              PromotionItem(),
-              PromotionItem(),
-              PromotionItem(),
-              PromotionItem(),
+              ProductCard(isMiddlePage: false,),
+              ProductCard(isMiddlePage: false,),
+              ProductCard(isMiddlePage: false,),
+              ProductCard(isMiddlePage: false,),
+              ProductCard(isMiddlePage: false,),
+              ProductCard(isMiddlePage: false,),
             ],
           ),
         ),
