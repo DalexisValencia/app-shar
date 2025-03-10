@@ -18,7 +18,7 @@ class Avatarcirclewrapper extends StatelessWidget {
         backgroundImage: NetworkImage(
           "https://avatars.githubusercontent.com/u/61495501?v=4",
         ),
-        radius: 20,
+        radius: 22,
       ),
     );
   }

@@ -1,32 +1,13 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
 
 void main() {
   runApp(const MyApp());
 }
-/*
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'SHAR APP',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
-        useMaterial3: true,
-      ),
-      home: const Splash(),
-    );
-  }
-}
-*/
 
 class MyApp extends StatefulWidget {
   const MyApp({super.key});
@@ -61,7 +42,8 @@ class _MyAppState extends State<MyApp> {
         ),
         useMaterial3: true,
       ),
-      home: splashScreen ? const Splash() : const Tabswrapper(),
+      // home: splashScreen ? const Splash() : const Tabswrapper(),
+      home: const ProductsDetailed(),
     );
   }
 }
