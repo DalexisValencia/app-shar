@@ -14,7 +14,7 @@ class CartCard extends StatelessWidget {
       ),
       child: GestureDetector(
         child: Card(
-          elevation: 1,
+          elevation: 1.5,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -22,10 +22,16 @@ class CartCard extends StatelessWidget {
                 children: [
                   Container(
                     width: screenWidth * 0.2,
-                    color: Colors.blue,
-                    child: const Image(
-                      image: AssetImage('images/logo.png'),
-                      fit: BoxFit.cover,
+                    height: 105,
+                    decoration: const BoxDecoration(
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(10),
+                    bottomLeft: Radius.circular(10),
+                  ),
+                      image: DecorationImage(
+                        image: AssetImage("images/base-product.png"),
+                        fit: BoxFit.cover,
+                      ),
                     ),
                   ),
                   Positioned(
@@ -41,21 +47,31 @@ class CartCard extends StatelessWidget {
               ),
 
               Container(
-                color: Colors.red,
                 padding: const EdgeInsets.symmetric(
                   vertical: 10,
                   horizontal: 10,
                 ),
-                width: screenWidth * 0.7,
+                width: screenWidth * 0.60,
                 // child: const Expanded(
-                child: Column(
+                child: const Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Product name"),
                     Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius congue finibus. Interdum et malesuada fames ac ante ipsum primis in faucibus.",
+                      "Product name",
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 12.5,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Text(
+                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius congue finibus. Interdum et ...",
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
                       ),
                     )
                   ],
@@ -63,17 +79,48 @@ class CartCard extends StatelessWidget {
               ),
               //),
               Container(
+                height: 90,
+                margin: const EdgeInsets.only(
+                  right: 10,
+                ),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5
+                ),
                 child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     IconButton(
+                      padding: EdgeInsets.all(5),
+                      constraints: const BoxConstraints(maxHeight: 40),
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
                       onPressed: () {},
                       icon: const Icon(
                         Icons.add,
                         size: 15,
                       ),
                     ),
-                    const Text("1"),
-                    IconButton(
+                    const Text(
+                      "1",
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontFamily: "Inter-SemiBold",
+                      ),
+                    ),
+                     IconButton(
+                      padding: EdgeInsets.all(5),
+                      constraints: const BoxConstraints(maxHeight: 40),
+                      style: IconButton.styleFrom(
+                        backgroundColor: Colors.grey,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
                       onPressed: () {},
                       icon: const Icon(
                         Icons.remove,
