@@ -9,7 +9,8 @@ class PromotionItem extends StatelessWidget {
       child: Container(
         width: 250,
         child: Card(
-          color: Colors.green,
+          elevation: 2,
+          color: Colors.white,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -17,66 +18,75 @@ class PromotionItem extends StatelessWidget {
                 height: 185,
                 width: double.infinity,
                 decoration: const BoxDecoration(
-                  color: Colors.red,
                   borderRadius: BorderRadius.only(
                     topLeft: Radius.circular(10),
                     topRight: Radius.circular(10),
                   ),
-                  image: DecorationImage(
+                  /*image: DecorationImage(
                     image: AssetImage('images/base-product.png'),
                     fit: BoxFit.fill,
-                  ),
+                  ),*/
                 ),
                 child: Stack(
                   children: [
+                    const ClipRRect(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(5),
+                        topRight: Radius.circular(5),
+                      ),
+                      child: Image(
+                        image: AssetImage('images/base-product.png'),
+                        fit: BoxFit.contain,
+                      ),
+                    ),
                     Positioned(
                       top: 0,
                       width: 250,
                       child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: 2,
-                              horizontal: 10,
-                            ),
-                            decoration: const BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(50)
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Container(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 2,
+                                horizontal: 10,
+                              ),
+                              decoration: const BoxDecoration(
+                                color: Colors.white,
+                                borderRadius:
+                                    BorderRadius.all(Radius.circular(50)),
+                              ),
+                              child: const Row(
+                                children: [
+                                  Text(
+                                    "4",
+                                    style: TextStyle(
+                                      fontSize: 11,
+                                      fontFamily: "Inter-SemiBold",
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    width: 3,
+                                  ),
+                                  Icon(
+                                    Icons.star,
+                                    size: 14,
+                                    color: Colors.yellow,
+                                  )
+                                ],
                               ),
                             ),
-                            child: const Row(
-                              children: [
-                                Text(
-                                  "4",
-                                  style: TextStyle(
-                                    fontSize: 11,
-                                  ),
-                                ),
-                                SizedBox(
-                                  width: 3,
-                                ),
-                                Icon(
-                                  Icons.star,
-                                  size: 12,
-                                )
-                              ],
-                            ),
-                          ),
-                          IconButton(
-                            color: Colors.white,
-                            icon: const Icon(Icons.favorite),
-                            onPressed: () {},
-                          )
-                        ],
+                            IconButton(
+                              color: Colors.white,
+                              icon: const Icon(Icons.favorite),
+                              onPressed: () {},
+                            )
+                          ],
+                        ),
                       ),
-                      ), 
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -90,8 +100,10 @@ class PromotionItem extends StatelessWidget {
                   children: [
                     Text(
                       "Manómetro Presostato",
+                      overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                     SizedBox(
@@ -100,7 +112,8 @@ class PromotionItem extends StatelessWidget {
                     Text(
                       "Mide la presión de un fluido en un sistema hidráulico y al mismo tiempo, activa o desactiva un circuito ...",
                       style: TextStyle(
-                        fontSize: 12,
+                        fontSize: 10,
+                        fontWeight: FontWeight.w400,
                       ),
                     ),
                   ],
@@ -118,18 +131,22 @@ class PromotionItem extends StatelessWidget {
                           bottomLeft: Radius.circular(10),
                           bottomRight: Radius.circular(10),
                         ),
-                        side: BorderSide(color: Colors.red),
+                        side: BorderSide(color: Colors.black),
                       ),
                     ),
-                    foregroundColor:
-                        WidgetStateProperty.all<Color>(Colors.blue),
-                    backgroundColor: WidgetStateProperty.all<Color>(Colors.red),
+                    foregroundColor: WidgetStateProperty.all<Color>(
+                      Colors.blue,
+                    ),
+                    backgroundColor: WidgetStateProperty.all<Color>(
+                      Colors.black,
+                    ),
                   ),
                   onPressed: () {},
                   child: const Text(
                     'AÑADIR AL CARRITO',
                     style: TextStyle(
                       color: Colors.white,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                 ),

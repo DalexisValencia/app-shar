@@ -28,11 +28,11 @@ class CategoryItem extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: EdgeInsets.only(top: screenWidth * 0.01),
+                margin: EdgeInsets.only(top: screenWidth * 0.02),
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
                 child: const Text(
                   "category name",
-                  textScaler: TextScaler.linear(0.9),
+                  textScaler: TextScaler.linear(0.67),
                   textAlign: TextAlign.center,
                 ),
               ),
