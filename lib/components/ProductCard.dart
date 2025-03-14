@@ -44,9 +44,12 @@ class ProductCard extends StatelessWidget {
                         topLeft: Radius.circular(5),
                         topRight: Radius.circular(5),
                       ),
-                      child: Image(
-                        image: AssetImage('images/base-product.png'),
-                        fit: BoxFit.contain,
+                      child: Hero(
+                        tag: 'imageProductHero',
+                        child: Image(
+                          image: AssetImage('images/base-product.png'),
+                          fit: BoxFit.contain,
+                        ),
                       ),
                     ),
                     Positioned(

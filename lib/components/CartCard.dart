@@ -28,17 +28,20 @@ class CartCard extends StatelessWidget {
             children: [
               Stack(
                 children: [
-                  Container(
-                    width: screenWidth * 0.2,
-                    height: 105,
-                    decoration: const BoxDecoration(
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(10),
-                        bottomLeft: Radius.circular(10),
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage("images/base-product.png"),
-                        fit: BoxFit.cover,
+                  Hero(
+                    tag: 'imageProductHero',
+                    child: Container(
+                      width: screenWidth * 0.2,
+                      height: 105,
+                      decoration: const BoxDecoration(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                        image: DecorationImage(
+                          image: AssetImage("images/base-product.png"),
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                   ),

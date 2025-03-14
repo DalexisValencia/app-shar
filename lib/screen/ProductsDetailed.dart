@@ -30,9 +30,12 @@ class ProductsDetailed extends StatelessWidget {
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
-                        child: Image(
-                          image: AssetImage('images/base-product.png'),
-                          fit: BoxFit.fitWidth,
+                        child: Hero(
+                          tag: 'imageProductHero',
+                          child: Image(
+                            image: AssetImage('images/base-product.png'),
+                            fit: BoxFit.fitWidth,
+                          ),
                         ),
                       ),
                       Positioned(
@@ -231,7 +234,8 @@ class ProductsDetailed extends StatelessWidget {
                                             Container(
                                               height: MediaQuery.of(context)
                                                       .size
-                                                      .height * 0.91,
+                                                      .height *
+                                                  0.91,
                                               child: const Comments(),
                                             )
 
