@@ -35,13 +35,16 @@ class Commentcard extends StatelessWidget {
                       style: TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
+                        color: Color.fromRGBO(114, 114, 114, 1),
                       ),
                     ),
                     Text(
                       "26/10/2024",
                       style: TextStyle(
-                        fontSize: 9,
+                        fontSize: 10,
+                        color: Color.fromRGBO(114, 114, 114, 0.5),
                         fontWeight: FontWeight.bold,
+                        fontFamily: "Inter-SemiBold",
                       ),
                     ),
                     SizedBox(
@@ -49,7 +52,11 @@ class Commentcard extends StatelessWidget {
                     ),
                     Text(
                       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique bibendum sagittis. Maecenas tincidunt a enim at finibus. Integer ipsum nulla, ornare quis diam ut, aliquam mollis lacus.",
-                      style: TextStyle(fontSize: 12),
+                      style: TextStyle(
+                        fontSize: 11,
+                        fontWeight: FontWeight.w400,
+                        color: Color.fromRGBO(0, 0, 0, 0.8),
+                      ),
                     )
                   ],
                 ),
@@ -62,11 +69,26 @@ class Commentcard extends StatelessWidget {
           const Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Icon(Icons.star, size: 15,),
-              Icon(Icons.star, size: 15,),
-              Icon(Icons.star, size: 15,),
-              Icon(Icons.star, size: 15,),
-              Icon(Icons.star, size: 15,)
+              Icon(
+                Icons.star,
+                size: 15,
+              ),
+              Icon(
+                Icons.star,
+                size: 15,
+              ),
+              Icon(
+                Icons.star,
+                size: 15,
+              ),
+              Icon(
+                Icons.star,
+                size: 15,
+              ),
+              Icon(
+                Icons.star,
+                size: 15,
+              )
             ],
           ),
         ],

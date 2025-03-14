@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shar/components/header.dart';
+import 'package:shar/components/AppMainHeader.dart';
 import 'package:shar/screen/Cart.dart';
 import 'package:shar/screen/Favorites.dart';
 import 'package:shar/screen/Home.dart';

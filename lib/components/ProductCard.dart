@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/screen/ProductsDetailed.dart';
 
 class ProductCard extends StatelessWidget {
   final bool isMiddlePage;
@@ -11,6 +12,13 @@ class ProductCard extends StatelessWidget {
     double cardWidth = isMiddlePage ? screenWidth * 0.50 : 250;
     double cardHeight = isMiddlePage ? screenWidth * 0.355 : 177.3;
     return GestureDetector(
+      onTap: () {
+        Navigator.of(context).push(
+          MaterialPageRoute(
+            builder: (context) => const ProductsDetailed(),
+          ),
+        );
+      },
       child: Container(
         width: cardWidth,
         child: Card(
@@ -45,7 +53,9 @@ class ProductCard extends StatelessWidget {
                       top: 0,
                       width: cardWidth,
                       child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 10,),
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 10,
+                        ),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [

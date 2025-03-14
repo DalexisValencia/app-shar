@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
+import 'package:shar/screen/LoginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -42,8 +43,8 @@ class _MyAppState extends State<MyApp> {
         ),
         useMaterial3: true,
       ),
-      // home: splashScreen ? const Splash() : const Tabswrapper(),
-      home: const ProductsDetailed(),
+      home: splashScreen ? const Splash() : const Tabswrapper(),
+      // home: LoginPage(),
     );
   }
 }

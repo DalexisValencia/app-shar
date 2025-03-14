@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/screen/ProductsDetailed.dart';
 
 class CartCard extends StatelessWidget {
   const CartCard({super.key});
@@ -13,6 +14,13 @@ class CartCard extends StatelessWidget {
         bottom: 10,
       ),
       child: GestureDetector(
+        onTap: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const ProductsDetailed(),
+            ),
+          );
+        },
         child: Card(
           elevation: 1.5,
           child: Row(
@@ -24,10 +32,10 @@ class CartCard extends StatelessWidget {
                     width: screenWidth * 0.2,
                     height: 105,
                     decoration: const BoxDecoration(
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(10),
-                    bottomLeft: Radius.circular(10),
-                  ),
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(10),
+                        bottomLeft: Radius.circular(10),
+                      ),
                       image: DecorationImage(
                         image: AssetImage("images/base-product.png"),
                         fit: BoxFit.cover,
@@ -83,9 +91,7 @@ class CartCard extends StatelessWidget {
                 margin: const EdgeInsets.only(
                   right: 10,
                 ),
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5
-                ),
+                padding: const EdgeInsets.symmetric(vertical: 5),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,7 +118,7 @@ class CartCard extends StatelessWidget {
                         fontFamily: "Inter-SemiBold",
                       ),
                     ),
-                     IconButton(
+                    IconButton(
                       padding: EdgeInsets.all(5),
                       constraints: const BoxConstraints(maxHeight: 40),
                       style: IconButton.styleFrom(

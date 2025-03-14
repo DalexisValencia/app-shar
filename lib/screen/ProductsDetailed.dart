@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/AvatarCircleWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
+import 'package:shar/screen/Comments.dart';
 
 class ProductsDetailed extends StatelessWidget {
   const ProductsDetailed({super.key});
@@ -40,7 +41,9 @@ class ProductsDetailed extends StatelessWidget {
                         child: IconButton(
                           color: Colors.black,
                           icon: const Icon(Icons.close),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                         ),
                       ),
                     ],
@@ -141,61 +144,110 @@ class ProductsDetailed extends StatelessWidget {
                                 ],
                               ),
                             ),
-                            Container(
-                              width: screenWidth,
-                              margin: const EdgeInsets.only(
-                                top: 10,
-                              ),
-                              child: Row(
-                                children: [
-                                  Container(
-                                    margin: const EdgeInsets.only(
-                                      right: 5,
-                                    ),
-                                    width: 100,
-                                    child: Expanded(
-                                      child: Row(
-                                        children: [
-                                          Stack(
-                                            children: [
-                                              Container(
-                                                width: 100,
-                                              ),
-                                              const Avatarcirclewrapper(
-                                                avatarUrl: "",
-                                              ),
-                                              const Positioned(
-                                                left: 10,
-                                                child: Avatarcirclewrapper(
+                            GestureDetector(
+                              child: Container(
+                                width: screenWidth,
+                                margin: const EdgeInsets.only(
+                                  top: 10,
+                                ),
+                                child: Row(
+                                  children: [
+                                    Container(
+                                      margin: const EdgeInsets.only(
+                                        right: 5,
+                                      ),
+                                      width: 100,
+                                      child: Expanded(
+                                        child: Row(
+                                          children: [
+                                            Stack(
+                                              children: [
+                                                Container(
+                                                  width: 100,
+                                                ),
+                                                const Avatarcirclewrapper(
                                                   avatarUrl: "",
                                                 ),
-                                              ),
-                                              const Positioned(
-                                                left: 20,
-                                                child: Avatarcirclewrapper(
-                                                  avatarUrl: "",
+                                                const Positioned(
+                                                  left: 10,
+                                                  child: Avatarcirclewrapper(
+                                                    avatarUrl: "",
+                                                  ),
                                                 ),
-                                              ),
-                                              const Positioned(
-                                                left: 30,
-                                                child: Avatarcirclewrapper(
-                                                  avatarUrl: "",
+                                                const Positioned(
+                                                  left: 20,
+                                                  child: Avatarcirclewrapper(
+                                                    avatarUrl: "",
+                                                  ),
                                                 ),
-                                              ),
-                                            ],
-                                          )
-                                        ],
+                                                const Positioned(
+                                                  left: 30,
+                                                  child: Avatarcirclewrapper(
+                                                    avatarUrl: "",
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                  const Flexible(
-                                    child: Text(
-                                      "Otros compradores han opinado sobre este producto, también puedes dejar tus comentarios y preguntas.",
-                                      style: TextStyle(fontSize: 10),
+                                    const Flexible(
+                                      child: Text(
+                                        "Otros compradores han opinado sobre este producto, también puedes dejar tus comentarios y preguntas.",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
                               ),
+                              onTap: () {
+                                showModalBottomSheet<void>(
+                                  context: context,
+                                  isScrollControlled: true,
+                                  builder: (BuildContext context) {
+                                    return SizedBox(
+                                      height:
+                                          MediaQuery.of(context).size.height *
+                                              0.95,
+                                      child: DraggableScrollableSheet(
+                                        initialChildSize: 1,
+                                        builder: (context, scrollController) =>
+                                            Column(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.center,
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: <Widget>[
+                                            Container(
+                                              margin:
+                                                  const EdgeInsets.symmetric(
+                                                vertical: 10,
+                                              ),
+                                              child: const Text(
+                                                'Comentarios',
+                                                style: TextStyle(fontSize: 10),
+                                              ),
+                                            ),
+                                            Container(
+                                              height: MediaQuery.of(context)
+                                                      .size
+                                                      .height * 0.91,
+                                              child: const Comments(),
+                                            )
+
+                                            /*ElevatedButton(
+                                              child: const Text(
+                                                  'Close BottomSheet'),
+                                              onPressed: () =>
+                                                  Navigator.pop(context),
+                                            ),*/
+                                          ],
+                                        ),
+                                      ),
+                                    );
+                                  },
+                                );
+                              },
                             ),
                           ],
                         ),

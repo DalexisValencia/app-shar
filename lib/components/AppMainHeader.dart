@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shar/screen/MapScreen.dart';
+import 'package:shar/screen/LoginPage.dart';
 
 class AppMainHeader extends StatelessWidget {
   const AppMainHeader({super.key});
@@ -30,13 +32,16 @@ class AppMainHeader extends StatelessWidget {
                 children: [
                   const Text(
                     'Ubicación',
-                    style: TextStyle(
-                      fontSize: 13,
-                      fontWeight: FontWeight.bold
-                    ),
+                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
                   ),
                   TextButton.icon(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => const MapScreen(),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.pin_drop),
                     label: const Text('Bogotá, Colombia'),
                   ),
@@ -57,7 +62,11 @@ class AppMainHeader extends StatelessWidget {
                       ),
                       icon: const Icon(Icons.person),
                       onPressed: () {
-                        // ...
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const LoginPage(),
+                          ),
+                        );
                       },
                     ),
                   ),
@@ -79,14 +88,23 @@ class AppMainHeader extends StatelessWidget {
               )
             ],
           ),
-          Container(
-            margin: const EdgeInsets.only(
-              top: 10,
+          GestureDetector(
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const LoginPage(),
+                ),
+              );
+            },
+            child: Container(
+              margin: const EdgeInsets.only(
+                top: 10,
+              ),
+              child: Text('adsdfsf'),
+              color: Colors.amber[600],
+              width: double.infinity,
+              height: 33,
             ),
-            child: Text('adsdfsf'),
-            color: Colors.amber[600],
-            width: double.infinity,
-            height: 33,
           )
         ],
       ),
