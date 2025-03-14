@@ -12,7 +12,7 @@ class AppMainHeader extends StatelessWidget {
         horizontal: 20,
         vertical: 15,
       ),
-      color: const Color.fromARGB(255, 218, 231, 238),
+      color: const Color.fromARGB(255, 255, 255, 255),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -21,7 +21,7 @@ class AppMainHeader extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               const SizedBox(
-                width: 55,
+                width: 45,
                 child: Image(
                   image: AssetImage('images/logo.png'),
                   fit: BoxFit.cover,
@@ -30,9 +30,13 @@ class AppMainHeader extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    'Ubicación',
-                    style: TextStyle(fontSize: 13, fontWeight: FontWeight.bold),
+                  Container(
+                    transform: Matrix4.translationValues(0.0, 10.0, 0.0),
+                    child: const Text(
+                      'Ubicación',
+                      style:
+                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                    ),
                   ),
                   TextButton.icon(
                     onPressed: () {
@@ -42,8 +46,14 @@ class AppMainHeader extends StatelessWidget {
                         ),
                       );
                     },
-                    icon: const Icon(Icons.pin_drop),
-                    label: const Text('Bogotá, Colombia'),
+                    icon:
+                        const Icon(Icons.pin_drop, size: 16, color: Colors.red),
+                    label: const Text(
+                      'Bogotá, Colombia',
+                      style: TextStyle(
+                        fontSize: 10,
+                      ),
+                    ),
                   ),
                 ],
               ),
@@ -98,12 +108,45 @@ class AppMainHeader extends StatelessWidget {
             },
             child: Container(
               margin: const EdgeInsets.only(
-                top: 10,
+                top: 8,
               ),
-              child: Text('adsdfsf'),
-              color: Colors.amber[600],
-              width: double.infinity,
-              height: 33,
+              child: Card(
+                elevation: 2,
+                shape: BeveledRectangleBorder(
+                  borderRadius: BorderRadius.circular(2.0),
+                  side: const BorderSide(
+                    color: Color.fromARGB(255, 201, 201, 201),
+                    width: 0.3,
+                  ),
+                ),
+                color: Colors.white,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  width: double.infinity,
+                  height: 34.5,
+                  child: const Row(
+                    children: [
+                      SizedBox(
+                        width: 20,
+                        child: Image(
+                          image: AssetImage('images/icons/search-black.png'),
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      Text(
+                        "Ingresa la Búsqueda...",
+                        style: TextStyle(
+                          fontSize: 11,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ),
           )
         ],

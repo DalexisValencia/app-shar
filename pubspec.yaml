@@ -70,6 +70,7 @@ flutter:
     - images/icons/store-white.png
     - images/icons/store-active.png
     - images/icons/search-white.png
+    - images/icons/search-black.png
     - images/icons/search-active.png
     - images/icons/cart-white.png
     - images/icons/cart-active.png
