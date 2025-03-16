@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:shar/interfaces/Category.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 
 class CategoryItem extends StatelessWidget {
-  final Category category;
+  final CategoryInterface category;
   const CategoryItem({
     super.key,
     required this.category,

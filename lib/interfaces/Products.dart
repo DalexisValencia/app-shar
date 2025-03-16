@@ -1,4 +1,4 @@
-import 'package:shar/interfaces/Category.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 import 'package:shar/interfaces/Comments.dart';
 
 class Products {
@@ -10,7 +10,7 @@ class Products {
   final int? rating;
   final List<Comments>? comments;
   final List<String>? categories;
-  final List<Category>? tagsMenu;
+  final List<CategoryInterface>? tagsMenu;
 
   Products({
     this.id,

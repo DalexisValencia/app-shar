@@ -1,10 +1,10 @@
 
-class Category {
+class CategoryInterface {
   final String id;
   final String name;
   final String image;
 
-  Category({
+  CategoryInterface({
     required this.id,
     required this.name,
     required this.image,
