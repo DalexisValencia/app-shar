@@ -37,15 +37,15 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
       child: Column(
         children: [
           Fadetransitionwrapper(
-            durationTime: 1500,
+            durationTime: 800,
             widgetChild: Sliders(),
           ),
           Fadetransitionwrapper(
-            durationTime: 1500,
+            durationTime: 1000,
             widgetChild: CategoryWrapper(),
           ),
           Fadetransitionwrapper(
-            durationTime: 1500,
+            durationTime: 1000,
             widgetChild: PromotionWrapper(),
           ),
         ],

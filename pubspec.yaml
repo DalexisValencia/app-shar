@@ -66,6 +66,8 @@ flutter:
     - images/white-logo.png
     - images/Logo-bg.png
     - images/Logo-bg-full.png
+    - images/icons/star-filled.png
+    - images/icons/star-outlined.png
     - images/icons/home-white.png
     - images/icons/home-active.png
     - images/icons/store-white.png

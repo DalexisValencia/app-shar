@@ -2,9 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:shar/components/CommentCard.dart';
 import 'package:shar/components/barPercentageRating.dart';
+import 'package:shar/components/ratingStarts.dart';
+import 'package:shar/interfaces/CommentsInterface.dart';
 
 class Comments extends StatelessWidget {
-  const Comments({super.key});
+  final List<CommentsInterface> comments;
+  const Comments({
+    super.key,
+    required this.comments,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -46,34 +52,15 @@ class Comments extends StatelessWidget {
                                   ),
                                   Container(
                                     transform: Matrix4.translationValues(
-                                        0.0, -20.0, 0.0),
+                                        0.0, -10.0, 0.0),
                                     child: const Column(
                                       children: [
-                                        Row(
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.center,
-                                          children: [
-                                            Icon(
-                                              Icons.star,
-                                              size: 22,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              size: 22,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              size: 22,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              size: 22,
-                                            ),
-                                            Icon(
-                                              Icons.star,
-                                              size: 22,
-                                            )
-                                          ],
+                                        Ratingstarts(
+                                          stars: 3,
+                                          size: 20,
+                                        ),
+                                        SizedBox(
+                                          height: 5,
                                         ),
                                         Text(
                                           "400 compradores",
@@ -108,20 +95,25 @@ class Comments extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
-                        child: const Column(
-                          children: [
-                            Commentcard(),
-                            Commentcard(),
-                            Commentcard(),
-                            Commentcard(),
-                            Commentcard(),
-                          ],
+                        child: Builder(
+                          builder: (BuildContext context) {
+                            List<Widget> allComments = [];
+                            comments.asMap().entries.map((e) {
+                              allComments.add(
+                                Commentcard(
+                                  comments: e.value,
+                                ),
+                              );
+                            }).toList();
+                            return Column(
+                              children: allComments,
+                            );
+                          },
                         ),
                       ),
                     ],
                   ),
                 ),
-                
               ],
             ),
           ),
@@ -174,8 +166,8 @@ class Comments extends StatelessWidget {
                     margin: const EdgeInsets.only(
                       left: 10,
                     ),
-                  child: TextFormField(),
-                ),
+                    child: TextFormField(),
+                  ),
                 ],
               ),
             ],

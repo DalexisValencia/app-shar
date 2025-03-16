@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/AvatarCircleWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
+import 'package:shar/components/ratingStarts.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/Comments.dart';
 
 class ProductsDetailed extends StatelessWidget {
-  const ProductsDetailed({super.key});
+  final ProductsInterface product;
+  const ProductsDetailed({
+    super.key,
+    required this.product,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,15 +31,15 @@ class ProductsDetailed extends StatelessWidget {
                   height: screenWidth * 0.73,
                   child: Stack(
                     children: [
-                      const ClipRRect(
-                        borderRadius: BorderRadius.only(
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
                         child: Hero(
                           tag: 'imageProductHero',
                           child: Image(
-                            image: AssetImage('images/base-product.png'),
+                            image: AssetImage(product.image),
                             fit: BoxFit.fitWidth,
                           ),
                         ),
@@ -62,20 +68,20 @@ class ProductsDetailed extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const Column(
+                      Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "ProductName",
+                            product.name,
                             overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
                           Text(
-                            "Product Detailed",
-                            style: TextStyle(
+                            product.shortDescription,
+                            style: const TextStyle(
                               fontSize: 11,
                               color: Color.fromRGBO(114, 114, 114, 0.7),
                             ),
@@ -86,18 +92,17 @@ class ProductsDetailed extends StatelessWidget {
                         margin: const EdgeInsets.symmetric(
                           vertical: 10,
                         ),
-                        child: const Row(
+                        child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            Icon(Icons.star),
-                            SizedBox(
+                            Ratingstarts(
+                              stars: product.rating,
+                              size: 18,
+                            ),
+                            const SizedBox(
                               width: 5,
                             ),
-                            Text(
+                            const Text(
                               "400 Compradores",
                               style: TextStyle(
                                 fontFamily: "Inter-SemiBold",
@@ -109,9 +114,9 @@ class ProductsDetailed extends StatelessWidget {
                       ),
                       Container(
                         margin: const EdgeInsets.only(top: 10),
-                        child: const Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin efficitur risus id nulla iaculis suscipit. Maecenas aliquam erat ut purus tincidunt luctus. ",
-                          style: TextStyle(
+                        child: Text(
+                          product.longDescription,
+                          style: const TextStyle(
                             fontWeight: FontWeight.w300,
                           ),
                         ),
@@ -126,20 +131,20 @@ class ProductsDetailed extends StatelessWidget {
                               margin: const EdgeInsets.symmetric(
                                 vertical: 10,
                               ),
-                              child: const Row(
+                              child: Row(
                                 children: [
-                                  Text(
+                                  const Text(
                                     "Opiniones",
                                     style: TextStyle(
                                       fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  SizedBox(
+                                  const SizedBox(
                                     width: 5,
                                   ),
                                   Text(
-                                    "400 comentarios",
-                                    style: TextStyle(
+                                    "${product.comments.length} comentarios",
+                                    style: const TextStyle(
                                       fontFamily: "Inter-SemiBold",
                                       fontSize: 10,
                                     ),
@@ -236,7 +241,9 @@ class ProductsDetailed extends StatelessWidget {
                                                       .size
                                                       .height *
                                                   0.91,
-                                              child: const Comments(),
+                                              child: Comments(
+                                                comments: product.comments,
+                                              ),
                                             )
 
                                             /*ElevatedButton(

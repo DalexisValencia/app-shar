@@ -2,7 +2,7 @@ import 'package:shar/Lists/CategoriesList.dart';
 import 'package:shar/Lists/CommentsList.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 
-List<ProductsInterface> sliderList = [
+List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-1",
     name: "Primer producto con texto largo",
@@ -52,7 +52,7 @@ List<ProductsInterface> sliderList = [
       categoryList[7],
       categoryList[8],
     ],
-    promotion: false,
+    promotion: true,
   ),
   ProductsInterface(
     id: "product-4",
@@ -69,7 +69,7 @@ List<ProductsInterface> sliderList = [
       categoryList[2],
       categoryList[3],
     ],
-    promotion: false,
+    promotion: true,
   ),
   ProductsInterface(
     id: "product-5",

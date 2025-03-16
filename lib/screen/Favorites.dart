@@ -15,7 +15,7 @@ class Favorites extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: const Wrap(
               children: [
-                ProductCard(
+                /*ProductCard(
                   isMiddlePage: true,
                 ),
                 ProductCard(
@@ -35,7 +35,7 @@ class Favorites extends StatelessWidget {
                 ),
                 ProductCard(
                   isMiddlePage: true,
-                ),
+                ),*/
               ],
             ),
           ),

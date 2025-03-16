@@ -18,7 +18,7 @@ class _SearchState extends State<Search> {
       child: Column(
         children: [
           const Fadetransitionwrapper(
-            durationTime: 1500,
+            durationTime: 800,
             widgetChild: Categorychipwrapper(),
           ),
           const Fallbacks(
@@ -33,7 +33,7 @@ class _SearchState extends State<Search> {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: const Wrap(
               children: [
-                ProductCard(
+                /*ProductCard(
                   isMiddlePage: true,
                 ),
                 ProductCard(
@@ -53,7 +53,7 @@ class _SearchState extends State<Search> {
                 ),
                 ProductCard(
                   isMiddlePage: true,
-                ),
+                ),*/
               ],
             ),
           ),

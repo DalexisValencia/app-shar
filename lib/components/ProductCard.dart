@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 
 class ProductCard extends StatelessWidget {
   final bool isMiddlePage;
-  const ProductCard({super.key, required this.isMiddlePage});
+  final ProductsInterface product;
+  const ProductCard({
+    super.key,
+    required this.isMiddlePage,
+    required this.product,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,15 +25,17 @@ class ProductCard extends StatelessWidget {
         onTap: () {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => const ProductsDetailed(),
+              builder: (context) => ProductsDetailed(
+                product: product,
+              ),
             ),
           );
         },
         child: Container(
+          color: Colors.white,
           width: cardWidth,
           child: Card(
             elevation: 2,
-            color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -39,19 +47,18 @@ class ProductCard extends StatelessWidget {
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
-                    // color: Colors.red
                   ),
                   child: Stack(
                     children: [
-                      const ClipRRect(
-                        borderRadius: BorderRadius.only(
+                      ClipRRect(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
                         child: Hero(
                           tag: 'imageProductHero',
                           child: Image(
-                            image: AssetImage('images/base-product.png'),
+                            image: AssetImage(product.image),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -73,27 +80,30 @@ class ProductCard extends StatelessWidget {
                                 ),
                                 decoration: const BoxDecoration(
                                   color: Colors.white,
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(50)),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(50),
+                                  ),
                                 ),
-                                child: const Row(
+                                child: Row(
                                   children: [
                                     Text(
-                                      "4",
-                                      style: TextStyle(
+                                      product.rating.toString(),
+                                      style: const TextStyle(
                                         fontSize: 11,
                                         fontFamily: "Inter-SemiBold",
                                         fontWeight: FontWeight.w600,
                                       ),
                                     ),
-                                    SizedBox(
+                                    const SizedBox(
                                       width: 3,
                                     ),
-                                    Icon(
-                                      Icons.star,
-                                      size: 14,
-                                      color: Colors.yellow,
-                                    )
+                                    const SizedBox(
+                                      width: 10,
+                                      child: Image(
+                                        image: AssetImage("images/icons/star-filled.png"),
+                                        fit: BoxFit.cover,
+                                      ),
+                                    ),
                                   ],
                                 ),
                               ),
@@ -114,23 +124,25 @@ class ProductCard extends StatelessWidget {
                     vertical: 10,
                     horizontal: 15,
                   ),
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Manómetro Presostato",
+                        product.name,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
                       Text(
-                        "Mide la presión de un fluido en un sistema hidráulico y al mismo tiempo, activa o desactiva un circuito ...",
-                        style: TextStyle(
+                        product.longDescription,
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 4,
+                        style: const TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.w400,
                         ),

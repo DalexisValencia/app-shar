@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:shar/interfaces/CommentsInterface.dart';
+import 'package:shar/components/ratingStarts.dart';
 
 class Commentcard extends StatelessWidget {
-  const Commentcard({super.key});
+  final CommentsInterface comments;
+  const Commentcard({
+    super.key,
+    required this.comments,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,40 +25,40 @@ class Commentcard extends StatelessWidget {
                 margin: const EdgeInsets.only(
                   right: 10,
                 ),
-                child: const CircleAvatar(
+                child: CircleAvatar(
                   backgroundImage: NetworkImage(
-                    "https://avatars.githubusercontent.com/u/61495501?v=4",
+                    comments.img,
                   ),
                   radius: 25,
                 ),
               ),
-              const Flexible(
+              Flexible(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Name user",
-                      style: TextStyle(
+                      comments.name,
+                      style: const TextStyle(
                         fontSize: 14,
                         fontWeight: FontWeight.bold,
                         color: Color.fromRGBO(114, 114, 114, 1),
                       ),
                     ),
                     Text(
-                      "26/10/2024",
-                      style: TextStyle(
+                      comments.date,
+                      style: const TextStyle(
                         fontSize: 10,
                         color: Color.fromRGBO(114, 114, 114, 0.5),
                         fontWeight: FontWeight.bold,
                         fontFamily: "Inter-SemiBold",
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 8,
                     ),
                     Text(
-                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi tristique bibendum sagittis. Maecenas tincidunt a enim at finibus. Integer ipsum nulla, ornare quis diam ut, aliquam mollis lacus.",
-                      style: TextStyle(
+                      comments.comment,
+                      style: const TextStyle(
                         fontSize: 11,
                         fontWeight: FontWeight.w400,
                         color: Color.fromRGBO(0, 0, 0, 0.8),
@@ -66,31 +72,15 @@ class Commentcard extends StatelessWidget {
           const SizedBox(
             height: 5,
           ),
-          const Row(
+          Row(
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Icon(
-                Icons.star,
-                size: 15,
+              Ratingstarts(
+                stars: comments.rating,
+                size: 12,
               ),
-              Icon(
-                Icons.star,
-                size: 15,
-              ),
-              Icon(
-                Icons.star,
-                size: 15,
-              ),
-              Icon(
-                Icons.star,
-                size: 15,
-              ),
-              Icon(
-                Icons.star,
-                size: 15,
-              )
             ],
-          ),
+          )
         ],
       ),
     );

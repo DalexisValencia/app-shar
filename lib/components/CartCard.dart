@@ -18,11 +18,11 @@ class CartCard extends StatelessWidget {
         ),
         child: GestureDetector(
           onTap: () {
-            Navigator.of(context).push(
+            /*Navigator.of(context).push(
               MaterialPageRoute(
                 builder: (context) => const ProductsDetailed(),
               ),
-            );
+            );*/
           },
           child: Card(
             elevation: 1.5,
