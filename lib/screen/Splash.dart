@@ -28,6 +28,7 @@ class Splash extends StatelessWidget {
             ),
             Center(
               child: Fadetransitionwrapper(
+                durationTime: 1500,
                 widgetChild: SizedBox(
                   width: screenWidth * 0.35,
                   child: const Image(

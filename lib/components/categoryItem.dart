@@ -1,19 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:shar/interfaces/Category.dart';
 
 class CategoryItem extends StatelessWidget {
-  const CategoryItem({super.key});
+  final Category category;
+  const CategoryItem({
+    super.key,
+    required this.category,
+  });
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
-    // var screenHeight = mediaQuery.size.height;
 
     return GestureDetector(
       onTap: () {},
       child: Card.outlined(
         elevation: 1,
         child: Container(
+          color: Colors.white,
           width: screenWidth * 0.213,
           height: screenWidth * 0.213,
           child: Column(
@@ -22,17 +27,17 @@ class CategoryItem extends StatelessWidget {
             children: [
               SizedBox(
                 width: screenWidth * 0.10,
-                child: const Image(
-                  image: AssetImage('images/logo.png'),
+                child: Image(
+                  image: AssetImage(category.image),
                   fit: BoxFit.cover,
                 ),
               ),
               Container(
                 margin: EdgeInsets.only(top: screenWidth * 0.02),
                 padding: EdgeInsets.symmetric(horizontal: screenWidth * 0.05),
-                child: const Text(
-                  "category name",
-                  textScaler: TextScaler.linear(0.67),
+                child: Text(
+                  category.name,
+                  textScaler: const TextScaler.linear(0.67),
                   textAlign: TextAlign.center,
                 ),
               ),

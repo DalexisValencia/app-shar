@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/categoryItem.dart';
 import 'package:shar/components/wrapperHeadline.dart';
+import 'package:shar/Lists/CategoriesList.dart';
 
 class CategoryWrapper extends StatelessWidget {
   const CategoryWrapper({super.key});
@@ -12,18 +13,26 @@ class CategoryWrapper extends StatelessWidget {
         vertical: 20,
         horizontal: 20,
       ),
-      child: const Column(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrapperheadline(mainTitle: 'Categorias' ),
-          Wrap(
-            alignment: WrapAlignment.center,
-            children: [
-              CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem(),CategoryItem()
-            ]
-            ,
-          )
+          const Wrapperheadline(mainTitle: 'Categorias' ),
+          Builder(
+            builder: (BuildContext context) {
+              List<Widget> categories = [];
+                categoryList.asMap().entries.map((e) {
+                  categories.add(
+                    CategoryItem(
+                      category: e.value,
+                    ),
+                  );
+                }).toList();
+                return Wrap(
+                  children: categories,
+                );
+            },
+          ),
         ],
       ),
     );

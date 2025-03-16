@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 
 class Fadetransitionwrapper extends StatefulWidget {
+  const Fadetransitionwrapper({
+    super.key,
+    required this.widgetChild,
+    required this.durationTime,
+  });
+
   final Widget widgetChild;
-  const Fadetransitionwrapper({super.key, required this.widgetChild});
+  final int durationTime;
 
   @override
   State<Fadetransitionwrapper> createState() => _FadetransitionwrapperState();
@@ -11,8 +17,8 @@ class Fadetransitionwrapper extends StatefulWidget {
 class _FadetransitionwrapperState extends State<Fadetransitionwrapper>
     with TickerProviderStateMixin {
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(
-      milliseconds: 1500,
+    duration: Duration(
+      milliseconds: widget.durationTime,
     ),
     vsync: this,
   )..forward();
