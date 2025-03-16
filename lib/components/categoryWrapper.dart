@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shar/components/categoryItem.dart';
 import 'package:shar/components/wrapperHeadline.dart';
 import 'package:shar/Lists/CategoriesList.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 
 class CategoryWrapper extends StatelessWidget {
   const CategoryWrapper({super.key});
@@ -21,7 +22,7 @@ class CategoryWrapper extends StatelessWidget {
           Builder(
             builder: (BuildContext context) {
               List<Widget> categories = [];
-                categoryList.asMap().entries.map((e) {
+                categoryList.sublist(0,10).asMap().entries.map((e) {
                   categories.add(
                     CategoryItem(
                       category: e.value,
@@ -29,6 +30,7 @@ class CategoryWrapper extends StatelessWidget {
                   );
                 }).toList();
                 return Wrap(
+                  alignment: WrapAlignment.center,
                   children: categories,
                 );
             },
@@ -37,4 +39,8 @@ class CategoryWrapper extends StatelessWidget {
       ),
     );
   }
+}
+
+extension on List<CategoryInterface> {
+  slice(int i, int j) {}
 }
