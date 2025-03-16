@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:shar/Lists/SlidersList.dart';
 
 class Sliders extends StatelessWidget {
   const Sliders({super.key});
@@ -18,10 +19,21 @@ class Sliders extends StatelessWidget {
           autoPlayCurve: Curves.fastOutSlowIn,
           height: MediaQuery.of(context).size.width * 0.42,
         ),
-        items: [1, 2, 3, 4, 5].map((i) {
+        items: sliderList.map((e) {
           return Builder(
             builder: (BuildContext context) {
-              return Card(
+              return GestureDetector(
+                onTap: () => {
+                  if (e.external) {
+                     /*Uri uri = Uri.parse("https://flutter.io");
+                    if (await canLaunchUrl(uri)){
+                        await launchUrl(uri);
+                    } else {
+                        // can't launch url
+                    }*/
+                  }
+                } ,
+                child: Card(
                 elevation: 1.5,
                 child: Container(
                   decoration: BoxDecoration(
@@ -33,16 +45,17 @@ class Sliders extends StatelessWidget {
                       width: 0.5,
                     ),
                   ),
-                  child: const ClipRRect(
-                    borderRadius: BorderRadius.all(
+                  child: ClipRRect(
+                    borderRadius: const BorderRadius.all(
                       Radius.circular(8.0),
                     ),
                     child: Image(
-                      image: AssetImage('images/Sliders/slider-1.png'),
+                      image: AssetImage(e.image),
                       fit: BoxFit.cover,
                     ),
                   ),
                 ),
+              )
               );
             },
           );
