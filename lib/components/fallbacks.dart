@@ -11,13 +11,15 @@ class Fallbacks extends StatelessWidget {
         vertical: 25,
         horizontal: 50,
       ),
-      child: Text(
-        description,
-        textAlign: TextAlign.center,
-        style: const TextStyle(
-          fontSize: 13,
-          fontWeight: FontWeight.w200,
-          color: Colors.grey,
+      child: Center(
+        child: Text(
+          description,
+          textAlign: TextAlign.center,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w400,
+            color: Colors.grey,
+          ),
         ),
       ),
     );

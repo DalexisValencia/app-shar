@@ -39,7 +39,6 @@ class Favorites extends StatelessWidget {
               ],
             ),
           ),
-          const Fallbacks(description: "No hay más productos"),
         ],
       ),
     );
