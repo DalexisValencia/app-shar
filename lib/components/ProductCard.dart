@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/favorites_bloc.dart';
+import 'package:shar/constants/contants.dart';
 
-class ProductCard extends StatelessWidget {
+class ProductCard extends StatefulWidget {
   final bool isMiddlePage;
   final ProductsInterface product;
   const ProductCard({
@@ -13,11 +16,33 @@ class ProductCard extends StatelessWidget {
   });
 
   @override
+  State<ProductCard> createState() => _ProductCardState();
+}
+
+class _ProductCardState extends State<ProductCard> {
+  late FavoritesBloc favoriteBlocIntance;
+  @override
+  void initState() {
+    super.initState();
+    favoriteBlocIntance = BlocProvider.of<FavoritesBloc>(context);
+  }
+
+  void addToFavorites() {
+    print("aqui mero palomero");
+    favoriteBlocIntance.add(
+      AddProductToFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
+  }
+
+  @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = (mediaQuery.size.width - 40);
-    double cardWidth = isMiddlePage ? screenWidth * 0.50 : 250;
-    double cardHeight = isMiddlePage ? screenWidth * 0.355 : 177.3;
+    double cardWidth = widget.isMiddlePage ? screenWidth * 0.50 : 250;
+    double cardHeight = widget.isMiddlePage ? screenWidth * 0.355 : 177.3;
 
     return Fadetransitionwrapper(
       durationTime: 1000,
@@ -26,7 +51,7 @@ class ProductCard extends StatelessWidget {
           Navigator.of(context).push(
             MaterialPageRoute(
               builder: (context) => ProductsDetailed(
-                product: product,
+                product: widget.product,
               ),
             ),
           );
@@ -58,7 +83,7 @@ class ProductCard extends StatelessWidget {
                         child: Hero(
                           tag: 'imageProductHero',
                           child: Image(
-                            image: AssetImage(product.image),
+                            image: AssetImage(widget.product.image),
                             fit: BoxFit.contain,
                           ),
                         ),
@@ -87,7 +112,7 @@ class ProductCard extends StatelessWidget {
                                 child: Row(
                                   children: [
                                     Text(
-                                      product.rating.toString(),
+                                      widget.product.rating.toString(),
                                       style: const TextStyle(
                                         fontSize: 11,
                                         fontFamily: "Inter-SemiBold",
@@ -110,7 +135,9 @@ class ProductCard extends StatelessWidget {
                               IconButton(
                                 color: Colors.white,
                                 icon: const Icon(Icons.favorite),
-                                onPressed: () {},
+                                onPressed: () {
+                                  addToFavorites();
+                                },
                               )
                             ],
                           ),
@@ -128,7 +155,7 @@ class ProductCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        product.name,
+                        widget.product.name,
                         overflow: TextOverflow.ellipsis,
                         style: const TextStyle(
                           fontSize: 12,
@@ -139,7 +166,7 @@ class ProductCard extends StatelessWidget {
                         height: 8,
                       ),
                       Text(
-                        product.longDescription,
+                        widget.product.longDescription,
                         overflow: TextOverflow.ellipsis,
                         maxLines: 4,
                         style: const TextStyle(

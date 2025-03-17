@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/fallbacks.dart';
 import 'package:shar/components/ProductCard.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/favorites_bloc.dart';
 
 class Favorites extends StatelessWidget {
   const Favorites({super.key});
@@ -10,33 +13,34 @@ class Favorites extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: [
-          const Fallbacks(description: "Aún no has agregado ningún favorito"),
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: const Wrap(
-              children: [
-                /*ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),*/
-              ],
+            child: BlocBuilder<FavoritesBloc, FavoritesState>(
+              builder: (BuildContext context, FavoritesState state) {
+                print(state.props[0]);
+                List<ProductsInterface> favorites = state.props[0] as List<ProductsInterface>;
+                if (favorites.isEmpty) {
+                  return const Fallbacks(
+                      description: "Aún no has agregado ningún favorito");
+                }
+
+                return Builder(
+                  builder: (BuildContext context) {
+                    List<Widget> favoritesFinal = [];
+                    favorites.asMap().entries.map((e) {
+                      favoritesFinal.add(
+                        ProductCard(
+                          isMiddlePage: true,
+                          product: e.value,
+                        ),
+                      );
+                    }).toList();
+                    return Wrap(
+                      children: favoritesFinal,
+                    );
+                  },
+                );
+              },
             ),
           ),
         ],

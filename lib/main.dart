@@ -1,10 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
-import 'package:shar/screen/LoginPage.dart';
+import 'package:shar/blocs/favorites/favorites_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
   runApp(const MyApp());
@@ -37,13 +37,21 @@ class _MyAppState extends State<MyApp> {
       title: 'SHAR APP',
       theme: ThemeData(
         fontFamily: "Cocogoose",
-        
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
         ),
         useMaterial3: true,
       ),
-      home: splashScreen ? const Splash() : const Tabswrapper(),
+      home: splashScreen
+          ? const Splash()
+          : MultiBlocProvider(
+              providers: [
+                BlocProvider<FavoritesBloc>(
+                  create: (context) => FavoritesBloc(),
+                ),
+              ],
+              child: const Tabswrapper(),
+            ),
       // home: LoginPage(),
     );
   }
