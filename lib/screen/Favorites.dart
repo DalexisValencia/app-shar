@@ -14,14 +14,20 @@ class Favorites extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 20,
+            ),
             child: BlocBuilder<FavoritesBloc, FavoritesState>(
               builder: (BuildContext context, FavoritesState state) {
                 print(state.props[0]);
-                List<ProductsInterface> favorites = state.props[0] as List<ProductsInterface>;
+                List<ProductsInterface> favorites =
+                    state.props[0] as List<ProductsInterface>;
                 if (favorites.isEmpty) {
                   return const Fallbacks(
-                      description: "Aún no has agregado ningún favorito");
+                    description:
+                        "Aún no has agregado ningún producto a tus favoritos",
+                  );
                 }
 
                 return Builder(

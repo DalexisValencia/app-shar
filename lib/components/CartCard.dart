@@ -1,9 +1,41 @@
 import 'package:flutter/material.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 
-class CartCard extends StatelessWidget {
-  const CartCard({super.key});
+class CartCard extends StatefulWidget {
+  final ProductsInterface product;
+  const CartCard({
+    super.key,
+    required this.product,
+  });
+
+  @override
+  State<CartCard> createState() => _CartCardState();
+}
+
+class _CartCardState extends State<CartCard> {
+  late CartBloc cartBlocIntance;
+
+  @override
+  void initState() {
+    super.initState();
+    cartBlocIntance = BlocProvider.of<CartBloc>(context);
+  }
+
+  void addAmount() {
+    cartBlocIntance.add(
+      UpdateAmountProductFromCart(product: widget.product, action: "add"),
+    );
+  }
+
+   void removeAmount() {
+    cartBlocIntance.add(
+      UpdateAmountProductFromCart(product: widget.product, action: "remove"),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +43,7 @@ class CartCard extends StatelessWidget {
     var screenWidth = mediaQuery.size.width;
 
     return Fadetransitionwrapper(
-      durationTime: 1500,
+      durationTime: 800,
       widgetChild: Container(
         margin: const EdgeInsets.only(
           bottom: 10,
@@ -36,13 +68,13 @@ class CartCard extends StatelessWidget {
                       child: Container(
                         width: screenWidth * 0.2,
                         height: 105,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.only(
+                        decoration: BoxDecoration(
+                          borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(10),
                             bottomLeft: Radius.circular(10),
                           ),
                           image: DecorationImage(
-                            image: AssetImage("images/base-product.png"),
+                            image: AssetImage(widget.product.image),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -59,30 +91,30 @@ class CartCard extends StatelessWidget {
                     ),
                   ],
                 ),
-
                 Container(
                   padding: const EdgeInsets.symmetric(
                     vertical: 10,
                     horizontal: 10,
                   ),
                   width: screenWidth * 0.60,
-                  child: const Column(
+                  child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Text(
-                        "Product name",
+                        widget.product.name,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 12,
                           fontWeight: FontWeight.w700,
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 5,
                       ),
                       Text(
-                        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque varius congue finibus. Interdum et ...",
-                        style: TextStyle(
+                        widget.product.name,
+                        style: const TextStyle(
                           fontSize: 11,
                           fontWeight: FontWeight.w400,
                         ),
@@ -109,18 +141,28 @@ class CartCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () => addAmount(),
                         icon: const Icon(
                           Icons.add,
                           size: 15,
                         ),
                       ),
-                      const Text(
-                        "1",
-                        style: TextStyle(
-                          fontSize: 12,
-                          fontFamily: "Inter-SemiBold",
-                        ),
+                      BlocBuilder<CartBloc, CartState>(
+                        builder: (BuildContext context, CartState state) {
+                          // print(state.props[0]);
+                          List<ProductsInterface> allProducts =
+                              state.props[0] as List<ProductsInterface>;
+                          int idexCurrent = allProducts.indexOf((widget.product));
+                          ProductsInterface currentElement = allProducts[idexCurrent];
+
+                          return Text(
+                            currentElement.amount.toString(),
+                            style: const TextStyle(
+                              fontSize: 12,
+                              fontFamily: "Inter-SemiBold",
+                            ),
+                          );
+                        },
                       ),
                       IconButton(
                         padding: const EdgeInsets.all(5),
@@ -131,7 +173,7 @@ class CartCard extends StatelessWidget {
                             borderRadius: BorderRadius.circular(5),
                           ),
                         ),
-                        onPressed: () {},
+                        onPressed: () => removeAmount(),
                         icon: const Icon(
                           Icons.remove,
                           size: 15,

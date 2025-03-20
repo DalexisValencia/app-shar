@@ -4,6 +4,7 @@ import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
+import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/constants/contants.dart';
 
 class ProductCard extends StatefulWidget {
@@ -21,16 +22,44 @@ class ProductCard extends StatefulWidget {
 
 class _ProductCardState extends State<ProductCard> {
   late FavoritesBloc favoriteBlocIntance;
+  late CartBloc cartBlocIntance;
   @override
   void initState() {
     super.initState();
     favoriteBlocIntance = BlocProvider.of<FavoritesBloc>(context);
+    cartBlocIntance = BlocProvider.of<CartBloc>(context);
+  }
+
+  void addToCar() {
+    cartBlocIntance.add(
+      AddProductToCart(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
+  }
+
+  void removeFromCar() {
+    cartBlocIntance.add(
+      RemoveProductFromCart(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
   }
 
   void addToFavorites() {
-    print("aqui mero palomero");
     favoriteBlocIntance.add(
       AddProductToFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
+  }
+
+  void removeFromFavorites() {
+    favoriteBlocIntance.add(
+      RemoveProductFromFavorite(
         product: widget.product,
       ),
     );
@@ -125,20 +154,31 @@ class _ProductCardState extends State<ProductCard> {
                                     const SizedBox(
                                       width: 10,
                                       child: Image(
-                                        image: AssetImage("images/icons/star-filled.png"),
+                                        image: AssetImage(
+                                            "images/icons/star-filled.png"),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
                                   ],
                                 ),
                               ),
-                              IconButton(
-                                color: Colors.white,
-                                icon: const Icon(Icons.favorite),
-                                onPressed: () {
-                                  addToFavorites();
+                              BlocBuilder<FavoritesBloc, FavoritesState>(
+                                builder: (BuildContext context,
+                                    FavoritesState state) {
+                                  // print(state.props[0]);
+                                  List<ProductsInterface> favorites =
+                                      state.props[0] as List<ProductsInterface>;
+                                      bool isFavorite = !favorites.contains(widget.product);
+
+                                  return IconButton(
+                                    color: isFavorite ?Colors.white : Colors.amberAccent,
+                                    icon: const Icon(Icons.favorite),
+                                    onPressed: () {
+                                      isFavorite ? addToFavorites() : removeFromFavorites();
+                                    },
+                                  );
                                 },
-                              )
+                              ),
                             ],
                           ),
                         ),
@@ -179,6 +219,7 @@ class _ProductCardState extends State<ProductCard> {
                 ),
                 Container(
                   width: double.infinity,
+                  height: 40,
                   child: TextButton(
                     style: ButtonStyle(
                       shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -199,7 +240,9 @@ class _ProductCardState extends State<ProductCard> {
                         Colors.black,
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      addToCar();
+                    },
                     child: const Text(
                       'AÑADIR AL CARRITO',
                       style: TextStyle(

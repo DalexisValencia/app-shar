@@ -5,6 +5,9 @@ import 'package:shar/screen/Favorites.dart';
 import 'package:shar/screen/Home.dart';
 import 'package:shar/screen/Products.dart';
 import 'package:shar/screen/Search.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/cart_bloc.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
 
 class Tabswrapper extends StatefulWidget {
   const Tabswrapper({super.key});
@@ -40,8 +43,8 @@ class _TabswrapperState extends State<Tabswrapper> {
         backgroundColor: Colors.black,
         indicatorColor: Colors.transparent,
         selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
+        destinations: <Widget>[
+          const NavigationDestination(
             selectedIcon: Image(
               image: AssetImage('images/icons/home-active.png'),
               fit: BoxFit.cover,
@@ -52,7 +55,7 @@ class _TabswrapperState extends State<Tabswrapper> {
             ),
             label: 'Home',
           ),
-          NavigationDestination(
+          const NavigationDestination(
             selectedIcon: Image(
               image: AssetImage('images/icons/store-active.png'),
               fit: BoxFit.cover,
@@ -63,7 +66,7 @@ class _TabswrapperState extends State<Tabswrapper> {
             ),
             label: 'Products',
           ),
-          NavigationDestination(
+          const NavigationDestination(
             selectedIcon: Image(
               image: AssetImage('images/icons/search-active.png'),
               fit: BoxFit.cover,
@@ -74,27 +77,42 @@ class _TabswrapperState extends State<Tabswrapper> {
             ),
             label: 'Search',
           ),
-          NavigationDestination(
-            selectedIcon: Image(
+           NavigationDestination(
+            selectedIcon: const Image(
               image: AssetImage('images/icons/cart-active.png'),
               fit: BoxFit.cover,
             ),
-            icon: Badge(
-              label: Text(
-                '2',
-                style: TextStyle(
-                  fontSize: 11,
-                  fontFamily: "Inter-SemiBold",
-                ),
-              ),
-              child: Image(
-                image: AssetImage('images/icons/cart-white.png'),
-                fit: BoxFit.cover,
-              ),
+            icon: BlocBuilder<CartBloc, CartState>(
+              builder: (BuildContext context, CartState state) {
+                List<ProductsInterface> carProducts =
+                    state.props[0] as List<ProductsInterface>;
+                double totalProducts = 0;
+                carProducts.asMap().entries.map((e) {
+                  print(e.value.amount);
+                  totalProducts += e.value.amount;
+                }).toList();
+                var isEmpty = carProducts.isEmpty;
+
+                const carIcon = Image(
+                  image: AssetImage('images/icons/cart-white.png'),
+                  fit: BoxFit.cover,
+                );
+
+                return isEmpty ? carIcon : Badge(
+                  label: Text(
+                    totalProducts.toString(),
+                    style: const TextStyle(
+                      fontSize: 11,
+                      fontFamily: "Inter-SemiBold",
+                    ),
+                  ),
+                  child: carIcon,
+                );
+              },
             ),
             label: 'Cart',
           ),
-          NavigationDestination(
+          const NavigationDestination(
             selectedIcon: Image(
               image: AssetImage('images/icons/favorite-active.png'),
               fit: BoxFit.cover,

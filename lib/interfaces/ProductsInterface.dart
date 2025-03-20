@@ -12,6 +12,7 @@ class ProductsInterface {
   final List<CategoryInterface> categories;
   final List<String> tagsMenu;
   final bool promotion;
+  double amount;
 
   ProductsInterface({
     required this.id,
@@ -24,5 +25,6 @@ class ProductsInterface {
     required this.comments,
     required this.categories,
     required this.promotion,
+    required this.amount,
   });
 }

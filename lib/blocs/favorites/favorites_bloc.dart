@@ -13,7 +13,10 @@ class AddProductToFavorite extends FavoritesEvent {
   AddProductToFavorite({this.product});
 }
 
-class RemoveProductToFavorite extends FavoritesEvent {}
+class RemoveProductFromFavorite extends FavoritesEvent {
+  final ProductsInterface? product;
+  RemoveProductFromFavorite({this.product});
+}
 
 abstract class FavoritesState {
   const FavoritesState();
@@ -55,56 +58,34 @@ class FavoritesBloc extends Bloc<FavoritesEvent, FavoritesState> {
       : super(
           FavoritesInitial(products: []),
         ) {
-    on<AddProductToFavorite>((event, emit) {
-      List<ProductsInterface> producsState =
-          state.props[0] as List<ProductsInterface>;
-      List<ProductsInterface> resfinal = List.from(producsState);
-      if (producsState.contains(event.product)) {
-        resfinal.remove(event.product);
-      } else if (!producsState.contains(event.product)) {
-        resfinal.add(event.product!);
-      }
-      emit(FavoritesFetched(
-        products: resfinal,
-      ));
-    });
-  }
-
-  @override
-  Stream<FavoritesState> mapEventToState(
-    FavoritesEvent event,
-  ) async* {
-    List<ProductsInterface> producsState =
-        state.props[0] as List<ProductsInterface>;
-
-    on<AddProductToFavorite>((event, emit) {
-      //TODO
-      print("sakatelas");
-    });
-
-    /*if (event is AddProductToFavorite) {
-      List<ProductsInterface> resfinal = List.from(producsState);
-      if (producsState.contains(event.product)) {
-        resfinal.remove(event.product);
-      } else if (!producsState.contains(event.product)) {
-        resfinal.add(event.product!);
-      }
-      yield FavoritesFetched(
-        products: resfinal,
-      );
-    }*/
-
-    if (event is RemoveProductToFavorite) {
-      List<ProductsInterface> resfinal = List.from(producsState);
-      /*resfinal.map((e) {
-        if (e is product) {
-          finalRestaurants.remove(e);
+    on<AddProductToFavorite>(
+      (event, emit) {
+        List<ProductsInterface> producsState =
+            state.props[0] as List<ProductsInterface>;
+        List<ProductsInterface> resfinal = List.from(producsState);
+        if (producsState.contains(event.product)) {
+          resfinal.remove(event.product);
+        } else if (!producsState.contains(event.product)) {
+          resfinal.add(event.product!);
         }
-      }).toList();*/
+        emit(FavoritesFetched(
+          products: resfinal,
+        ));
+      },
+    );
 
-      yield FavoritesFetched(
-        products: resfinal,
-      );
-    }
+    on<RemoveProductFromFavorite>(
+      (event, emit) {
+        List<ProductsInterface> producsState =
+            state.props[0] as List<ProductsInterface>;
+        List<ProductsInterface> resfinal = List.from(producsState);
+        if (producsState.contains(event.product)) {
+          resfinal.remove(event.product);
+        }
+        emit(FavoritesFetched(
+          products: resfinal,
+        ));
+      },
+    );
   }
 }

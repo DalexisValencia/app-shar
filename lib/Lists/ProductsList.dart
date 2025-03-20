@@ -19,6 +19,7 @@ List<ProductsInterface> productsList = [
       categoryList[2],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-2",
@@ -36,6 +37,7 @@ List<ProductsInterface> productsList = [
       categoryList[5],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-3",
@@ -53,6 +55,7 @@ List<ProductsInterface> productsList = [
       categoryList[8],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-4",
@@ -70,6 +73,7 @@ List<ProductsInterface> productsList = [
       categoryList[3],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-5",
@@ -87,6 +91,7 @@ List<ProductsInterface> productsList = [
       categoryList[14],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-6",
@@ -104,6 +109,7 @@ List<ProductsInterface> productsList = [
       categoryList[3],
     ],
     promotion: true,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-7",
@@ -121,6 +127,7 @@ List<ProductsInterface> productsList = [
       categoryList[6],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-8",
@@ -138,6 +145,7 @@ List<ProductsInterface> productsList = [
       categoryList[9],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-9",
@@ -155,6 +163,7 @@ List<ProductsInterface> productsList = [
       categoryList[12],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-8",
@@ -172,6 +181,7 @@ List<ProductsInterface> productsList = [
       categoryList[9],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-10",
@@ -189,6 +199,7 @@ List<ProductsInterface> productsList = [
       categoryList[11],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-11",
@@ -206,6 +217,7 @@ List<ProductsInterface> productsList = [
       categoryList[3],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-12",
@@ -223,6 +235,7 @@ List<ProductsInterface> productsList = [
       categoryList[6],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-13",
@@ -240,6 +253,7 @@ List<ProductsInterface> productsList = [
       categoryList[9],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-14",
@@ -257,6 +271,7 @@ List<ProductsInterface> productsList = [
       categoryList[12],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-15",
@@ -274,6 +289,7 @@ List<ProductsInterface> productsList = [
       categoryList[11],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-16",
@@ -291,6 +307,7 @@ List<ProductsInterface> productsList = [
       categoryList[3],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-16",
@@ -308,6 +325,7 @@ List<ProductsInterface> productsList = [
       categoryList[3],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-17",
@@ -325,6 +343,7 @@ List<ProductsInterface> productsList = [
       categoryList[6],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-18",
@@ -342,6 +361,7 @@ List<ProductsInterface> productsList = [
       categoryList[9],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-19",
@@ -359,6 +379,7 @@ List<ProductsInterface> productsList = [
       categoryList[9],
     ],
     promotion: false,
+    amount: 1,
   ),
   ProductsInterface(
     id: "product-20",
@@ -376,5 +397,6 @@ List<ProductsInterface> productsList = [
       categoryList[12],
     ],
     promotion: false,
+    amount: 1,
   ),
 ];

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
+import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 void main() {
@@ -49,10 +50,12 @@ class _MyAppState extends State<MyApp> {
                 BlocProvider<FavoritesBloc>(
                   create: (context) => FavoritesBloc(),
                 ),
+                BlocProvider<CartBloc>(
+                  create: (context) => CartBloc(),
+                ),
               ],
               child: const Tabswrapper(),
             ),
-      // home: LoginPage(),
     );
   }
 }
