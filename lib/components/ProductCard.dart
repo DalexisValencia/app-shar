@@ -40,7 +40,6 @@ class _ProductCardState extends State<ProductCard> {
   }
 
   void removeFromCar() {
-    print("remover");
     cartBlocIntance.add(
       RemoveProductFromCart(
         product: widget.product,
