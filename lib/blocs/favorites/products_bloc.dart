@@ -63,11 +63,16 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
         ) {
     on<ProductsByCatergory>(
       (event, emit) {
-        List<ProductsInterface> producsState =
+        print(event.category);
+        // event.category
+        /*List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
-        List<ProductsInterface> resfinal = producsState.where((product) => product.categories.contains(event.category)).toList();
+        producsState
+            .map((p) =>
+                {print(p.categories.where((c) => c.name == event.category))})
+            .toList();*/
         emit(ProductsFetched(
-          products: resfinal,
+          products: [],
         ));
       },
     );

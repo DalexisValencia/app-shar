@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/CategoryChip.dart';
+import 'package:shar/Lists/CategoriesList.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 
 class Categorychipwrapper extends StatelessWidget {
   const Categorychipwrapper({super.key});
@@ -13,16 +15,21 @@ class Categorychipwrapper extends StatelessWidget {
           horizontal: 20,
           vertical: 20,
         ),
-        child: const Row(
-          children: [
-            Categorychip(name: "Category"),
-            Categorychip(name: "Category"),
-            Categorychip(name: "Category"),
-            Categorychip(name: "Category"),
-            Categorychip(name: "Category"),
-            Categorychip(name: "Category "),
-          ],
-        ),
+        child: Builder(
+            builder: (BuildContext context) {
+              List<Widget> categories = [];
+                categoryList.asMap().entries.map((e) {
+                  categories.add(
+                    Categorychip(
+                      category: e.value,
+                    ),
+                  );
+                }).toList();
+                return Row(
+                  children: categories,
+                );
+            },
+          ), 
       ),
     );
   }
