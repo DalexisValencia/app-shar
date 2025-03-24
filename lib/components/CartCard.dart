@@ -31,9 +31,15 @@ class _CartCardState extends State<CartCard> {
     );
   }
 
-   void removeAmount() {
+  void removeAmount() {
     cartBlocIntance.add(
       UpdateAmountProductFromCart(product: widget.product, action: "remove"),
+    );
+  }
+
+  void removeProduct() {
+    cartBlocIntance.add(
+      RemoveProductFromCart(product: widget.product),
     );
   }
 
@@ -122,66 +128,66 @@ class _CartCardState extends State<CartCard> {
                     ],
                   ),
                 ),
-                Container(
-                  height: 90,
-                  margin: const EdgeInsets.only(
-                    right: 10,
-                  ),
-                  padding: const EdgeInsets.symmetric(vertical: 5),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      IconButton(
-                        padding: const EdgeInsets.all(5),
-                        constraints: const BoxConstraints(maxHeight: 40),
-                        style: IconButton.styleFrom(
-                          backgroundColor: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                        ),
-                        onPressed: () => addAmount(),
-                        icon: const Icon(
-                          Icons.add,
-                          size: 15,
-                        ),
-                      ),
-                      BlocBuilder<CartBloc, CartState>(
-                        builder: (BuildContext context, CartState state) {
-                          // print(state.props[0]);
-                          List<ProductsInterface> allProducts =
-                              state.props[0] as List<ProductsInterface>;
-                          int idexCurrent = allProducts.indexOf((widget.product));
-                          ProductsInterface currentElement = allProducts[idexCurrent];
+                BlocBuilder<CartBloc, CartState>(
+                  builder: (BuildContext context, CartState state) {
+                    // print(state.props[0]);
+                    List<ProductsInterface> allProducts =
+                        state.props[0] as List<ProductsInterface>;
+                    int idexCurrent = allProducts.indexOf((widget.product));
+                    ProductsInterface currentElement = allProducts[idexCurrent];
 
-                          return Text(
+                    return Container(
+                      height: 90,
+                      margin: const EdgeInsets.only(
+                        right: 10,
+                      ),
+                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          IconButton(
+                            padding: const EdgeInsets.all(5),
+                            constraints: const BoxConstraints(maxHeight: 40),
+                            style: IconButton.styleFrom(
+                              backgroundColor: Colors.grey,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            onPressed: () => addAmount(),
+                            icon: const Icon(
+                              Icons.add,
+                              size: 15,
+                            ),
+                          ),
+                          Text(
                             currentElement.amount.toString(),
                             style: const TextStyle(
                               fontSize: 12,
                               fontFamily: "Inter-SemiBold",
                             ),
-                          );
-                        },
-                      ),
-                      IconButton(
-                        padding: const EdgeInsets.all(5),
-                        constraints: const BoxConstraints(maxHeight: 40),
-                        style: IconButton.styleFrom(
-                          backgroundColor: Colors.grey,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(5),
                           ),
-                        ),
-                        onPressed: () => removeAmount(),
-                        icon: const Icon(
-                          Icons.remove,
-                          size: 15,
-                        ),
+                          IconButton(
+                            padding: const EdgeInsets.all(5),
+                            constraints: const BoxConstraints(maxHeight: 40),
+                            style: IconButton.styleFrom(
+                              backgroundColor: Colors.grey,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(5),
+                              ),
+                            ),
+                            onPressed: () => currentElement.amount == 1 ? removeProduct() : removeAmount(),
+                            icon: Icon(
+                              currentElement.amount == 1 ? Icons.delete : Icons.remove,
+                              size: 15,
+                            ),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
-                )
+                    );
+                  },
+                ),
               ],
             ),
           ),
