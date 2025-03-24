@@ -25,10 +25,10 @@ class _SearchState extends State<Search> {
             description:
                 "Para iniciar, seleccione una categoría o ingrese el nombre del producto.",
           ),
-          const Fallbacks(
+          /*const Fallbacks(
             description:
                 "Lo sentimos, no hay resultados para la búsqueda que ha realizado.",
-          ),
+          ),*/
           Container(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: const Wrap(
@@ -57,7 +57,7 @@ class _SearchState extends State<Search> {
               ],
             ),
           ),
-          const Fallbacks(description: "No hay más productos"),
+          // const Fallbacks(description: "No hay más productos"),
         ],
       ),
     );

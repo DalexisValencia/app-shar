@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:shar/constants/contants.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/ProductsDetailed.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
+import 'package:shar/blocs/favorites/favorites_bloc.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 
 class CartCard extends StatefulWidget {
@@ -18,11 +20,13 @@ class CartCard extends StatefulWidget {
 
 class _CartCardState extends State<CartCard> {
   late CartBloc cartBlocIntance;
+  late FavoritesBloc favoriteBlocIntance;
 
   @override
   void initState() {
     super.initState();
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
+    favoriteBlocIntance = BlocProvider.of<FavoritesBloc>(context);
   }
 
   void addAmount() {
@@ -41,6 +45,24 @@ class _CartCardState extends State<CartCard> {
     cartBlocIntance.add(
       RemoveProductFromCart(product: widget.product),
     );
+  }
+
+    void addToFavorites() {
+    favoriteBlocIntance.add(
+      AddProductToFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
+  }
+
+  void removeFromFavorites() {
+    favoriteBlocIntance.add(
+      RemoveProductFromFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name);
   }
 
   @override
@@ -89,10 +111,24 @@ class _CartCardState extends State<CartCard> {
                     Positioned(
                       top: 0,
                       right: 0,
-                      child: IconButton(
-                        color: Colors.red,
-                        icon: const Icon(Icons.favorite),
-                        onPressed: () {},
+                      child: BlocBuilder<FavoritesBloc, FavoritesState>(
+                        builder: (BuildContext context, FavoritesState state) {
+                          // print(state.props[0]);
+                          List<ProductsInterface> favorites =
+                              state.props[0] as List<ProductsInterface>;
+                          bool isFavorite = !favorites.contains(widget.product);
+
+                          return IconButton(
+                            color:
+                                isFavorite ? Colors.white : Colors.amberAccent,
+                            icon: const Icon(Icons.favorite),
+                            onPressed: () {
+                              isFavorite
+                                  ? addToFavorites()
+                                  : removeFromFavorites();
+                            },
+                          );
+                        },
                       ),
                     ),
                   ],
@@ -177,9 +213,13 @@ class _CartCardState extends State<CartCard> {
                                 borderRadius: BorderRadius.circular(5),
                               ),
                             ),
-                            onPressed: () => currentElement.amount == 1 ? removeProduct() : removeAmount(),
+                            onPressed: () => currentElement.amount == 1
+                                ? removeProduct()
+                                : removeAmount(),
                             icon: Icon(
-                              currentElement.amount == 1 ? Icons.delete : Icons.remove,
+                              currentElement.amount == 1
+                                  ? Icons.delete
+                                  : Icons.remove,
                               size: 15,
                             ),
                           ),
