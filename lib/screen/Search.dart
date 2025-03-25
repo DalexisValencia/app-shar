@@ -38,7 +38,6 @@ class _SearchState extends State<Search> {
               builder: (BuildContext context, ProductsState state) {
                 List<ProductsInterface> resultsFilter =
                     state.props[2] as List<ProductsInterface>;
-                // print(state.props);
                 if (resultsFilter.isEmpty) {
                   return const Fallbacks(
                     description:

@@ -20,7 +20,6 @@ class Favorites extends StatelessWidget {
             ),
             child: BlocBuilder<FavoritesBloc, FavoritesState>(
               builder: (BuildContext context, FavoritesState state) {
-                print(state.props[0]);
                 List<ProductsInterface> favorites =
                     state.props[0] as List<ProductsInterface>;
                 if (favorites.isEmpty) {

@@ -5,6 +5,7 @@ import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/Comments.dart';
 import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
+import 'package:shar/constants/contants.dart';
 
 class ProductsDetailed extends StatefulWidget {
   final ProductsInterface product;
@@ -55,7 +56,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               top: 10,
                               right: 20,
                               child: IconButton(
-                                color: Colors.black,
+                                color: blackColor,
                                 icon: const Icon(Icons.close),
                                 onPressed: () {
                                   Navigator.pop(context);
@@ -311,7 +312,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                   child: const Text(
                     'AÑADIR AL CARRITO',
                     style: TextStyle(
-                      color: Colors.black,
+                      color: blackColor,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

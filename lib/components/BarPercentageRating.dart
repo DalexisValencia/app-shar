@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/constants/contants.dart';
 
 class Barpercentagerating extends StatelessWidget {
   const Barpercentagerating({super.key});
@@ -38,8 +39,8 @@ class Barpercentagerating extends StatelessWidget {
               ),
               child: LinearProgressIndicator(
                 value: 0.8,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.amber),
-                backgroundColor: Color.fromARGB(255, 224, 208, 208),
+                valueColor: AlwaysStoppedAnimation<Color>(yellowColor),
+                backgroundColor: greyLightColor,
               ),
             ),
           ),

@@ -37,9 +37,6 @@ class _MyAppState extends State<MyApp> {
       title: 'SHAR APP',
       theme: ThemeData(
         fontFamily: "Cocogoose",
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: Colors.deepPurple,
-        ),
         useMaterial3: true,
       ),
       home: splashScreen

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shar/Lists/SlidersList.dart';
+import 'package:shar/constants/contants.dart';
 
 class Sliders extends StatelessWidget {
   const Sliders({super.key});
@@ -41,7 +42,7 @@ class Sliders extends StatelessWidget {
                       Radius.circular(8.0),
                     ),
                     border: Border.all(
-                      color: Colors.grey,
+                      color: greyLightColor,
                       width: 0.5,
                     ),
                   ),

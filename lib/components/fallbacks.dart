@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/constants/contants.dart';
 
 class Fallbacks extends StatelessWidget {
   final String description;
@@ -18,7 +19,7 @@ class Fallbacks extends StatelessWidget {
           style: const TextStyle(
             fontSize: 13,
             fontWeight: FontWeight.w400,
-            color: Colors.grey,
+            color: greyColor,
           ),
         ),
       ),

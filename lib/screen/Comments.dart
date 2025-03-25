@@ -4,6 +4,7 @@ import 'package:shar/components/CommentCard.dart';
 import 'package:shar/components/barPercentageRating.dart';
 import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/CommentsInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
@@ -120,7 +121,7 @@ class Comments extends StatelessWidget {
         ),
         Container(
           height: 100,
-          color: Colors.amber[700],
+          color: yellowColor,
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 10,

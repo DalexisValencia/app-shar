@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/components/fallbacks.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -38,7 +39,6 @@ class _CartState extends State<Cart> {
               ),
               child: BlocBuilder<CartBloc, CartState>(
                 builder: (BuildContext context, CartState state) {
-                  // print(state.props[0]);
                   List<ProductsInterface> carList =
                       state.props[0] as List<ProductsInterface>;
                   if (carList.isEmpty) {
@@ -83,19 +83,19 @@ class _CartState extends State<Cart> {
                   shape: WidgetStateProperty.all<RoundedRectangleBorder>(
                      RoundedRectangleBorder(
                       side: BorderSide(
-                        color: isEmpty ? Colors.grey : const Color.fromRGBO(249, 161, 0, 1),
+                        color: isEmpty ? greyLightColor : yellowColor,
                       ),
                     ),
                   ),
                   backgroundColor: WidgetStateProperty.all<Color>(
-                    isEmpty ? Colors.grey : const Color.fromRGBO(249, 161, 0, 1),
+                    isEmpty ? greyLightColor : yellowColor,
                   ),
                 ),
                 onPressed: isEmpty ? null : () {} ,
                 child: Text(
                   'REALIZAR COTIZACIÓN',
                   style: TextStyle(
-                    color: isEmpty ? Colors.black26 : Colors.black ,
+                    color: isEmpty ? greyColor : blackColor ,
                     fontWeight: FontWeight.w600,
                   ),
                 ),

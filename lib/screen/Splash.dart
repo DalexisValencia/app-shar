@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
+import 'package:shar/constants/contants.dart';
 
 class Splash extends StatelessWidget {
   const Splash({super.key});
@@ -12,7 +13,7 @@ class Splash extends StatelessWidget {
 
     return Scaffold(
       body: Container(
-        color: Colors.black,
+        color: blackColor,
         child: Stack(
           children: [
             Positioned(

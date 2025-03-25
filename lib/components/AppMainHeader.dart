@@ -56,6 +56,7 @@ class AppMainHeader extends StatelessWidget {
                       'Bogotá, Colombia',
                       style: TextStyle(
                         fontSize: 10,
+                        color: greyColor,
                       ),
                     ),
                   ),

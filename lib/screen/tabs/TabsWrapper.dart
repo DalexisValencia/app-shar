@@ -8,6 +8,7 @@ import 'package:shar/screen/Search.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Tabswrapper extends StatefulWidget {
   const Tabswrapper({super.key});
@@ -40,7 +41,7 @@ class _TabswrapperState extends State<Tabswrapper> {
             currentPageIndex = index;
           });
         },
-        backgroundColor: Colors.black,
+        backgroundColor: blackColor,
         indicatorColor: Colors.transparent,
         selectedIndex: currentPageIndex,
         destinations: <Widget>[
@@ -88,7 +89,6 @@ class _TabswrapperState extends State<Tabswrapper> {
                     state.props[0] as List<ProductsInterface>;
                 double totalProducts = 0;
                 carProducts.asMap().entries.map((e) {
-                  print(e.value.amount);
                   totalProducts += e.value.amount;
                 }).toList();
                 var isEmpty = carProducts.isEmpty;

@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
-import 'package:shar/constants/contants.dart';
 
 class CartCard extends StatefulWidget {
   final ProductsInterface product;
@@ -116,7 +115,6 @@ class _CartCardState extends State<CartCard> {
                       right: 0,
                       child: BlocBuilder<FavoritesBloc, FavoritesState>(
                         builder: (BuildContext context, FavoritesState state) {
-                          // print(state.props[0]);
                           List<ProductsInterface> favorites =
                               state.props[0] as List<ProductsInterface>;
                           bool isFavorite = !favorites.contains(widget.product);
@@ -169,7 +167,6 @@ class _CartCardState extends State<CartCard> {
                 ),
                 BlocBuilder<CartBloc, CartState>(
                   builder: (BuildContext context, CartState state) {
-                    // print(state.props[0]);
                     List<ProductsInterface> allProducts =
                         state.props[0] as List<ProductsInterface>;
                     int idexCurrent = allProducts.indexOf((widget.product));
@@ -189,7 +186,7 @@ class _CartCardState extends State<CartCard> {
                             padding: const EdgeInsets.all(5),
                             constraints: const BoxConstraints(maxHeight: 40),
                             style: IconButton.styleFrom(
-                              backgroundColor: Colors.grey,
+                              backgroundColor: yellowColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -198,6 +195,7 @@ class _CartCardState extends State<CartCard> {
                             icon: const Icon(
                               Icons.add,
                               size: 15,
+                              color: blackColor,
                             ),
                           ),
                           Text(
@@ -211,7 +209,7 @@ class _CartCardState extends State<CartCard> {
                             padding: const EdgeInsets.all(5),
                             constraints: const BoxConstraints(maxHeight: 40),
                             style: IconButton.styleFrom(
-                              backgroundColor: Colors.grey,
+                              backgroundColor: yellowColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),
@@ -223,6 +221,7 @@ class _CartCardState extends State<CartCard> {
                               currentElement.amount == 1
                                   ? Icons.delete
                                   : Icons.remove,
+                                  color: blackColor,
                               size: 15,
                             ),
                           ),

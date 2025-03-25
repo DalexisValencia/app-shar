@@ -169,7 +169,6 @@ class _ProductCardState extends State<ProductCard> {
                               BlocBuilder<FavoritesBloc, FavoritesState>(
                                 builder: (BuildContext context,
                                     FavoritesState state) {
-                                  // print(state.props[0]);
                                   List<ProductsInterface> favorites =
                                       state.props[0] as List<ProductsInterface>;
                                       bool isFavorite = !favorites.contains(widget.product);
@@ -234,14 +233,14 @@ class _ProductCardState extends State<ProductCard> {
                             bottomLeft: Radius.circular(10),
                             bottomRight: Radius.circular(10),
                           ),
-                          side: BorderSide(color: Colors.black),
+                          side: BorderSide(color: blackColor),
                         ),
                       ),
                       foregroundColor: WidgetStateProperty.all<Color>(
-                        Colors.blue,
+                        yellowColor,
                       ),
                       backgroundColor: WidgetStateProperty.all<Color>(
-                        Colors.black,
+                        blackColor,
                       ),
                     ),
                     onPressed: () {

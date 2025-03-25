@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/products_bloc.dart';
 import 'package:shar/interfaces/CategoryInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Categorychip extends StatefulWidget {
   final CategoryInterface category;
@@ -47,22 +48,22 @@ class _CategorychipState extends State<Categorychip> {
           builder: (BuildContext context, ProductsState state) {
             CategoryInterface resultsFilter =
                 state.props[1] as CategoryInterface;
-                Color active = const Color.fromARGB(177, 255, 140, 32);
-                Color inActive = const Color.fromRGBO(217, 217, 217, 0.7);
+                Color active = yellowColor;
+                Color inActive = greyLightColor;
 
                 return Chip(
                   label: Text(
                     widget.category.name,
                     style: const TextStyle(
                       fontSize: 11,
-                      color: Colors.black38,
+                      color: greyColor,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
                   backgroundColor: resultsFilter == widget.category ? active : inActive,
                   shape: RoundedRectangleBorder(
                     side: const BorderSide(
-                      color: Color.fromRGBO(217, 217, 217, 0.7),
+                      color: greyLightColor,
                     ),
                     borderRadius: BorderRadius.circular(
                       20,
