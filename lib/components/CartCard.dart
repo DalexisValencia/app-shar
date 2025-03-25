@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
+import 'package:shar/constants/contants.dart';
 
 class CartCard extends StatefulWidget {
   final ProductsInterface product;
@@ -122,7 +123,7 @@ class _CartCardState extends State<CartCard> {
 
                           return IconButton(
                             color:
-                                isFavorite ? Colors.white : Colors.amberAccent,
+                                isFavorite ? whiteColor : yellowColor,
                             icon: const Icon(Icons.favorite),
                             onPressed: () {
                               isFavorite

@@ -17,8 +17,8 @@ class ProductsByCatergory extends ProductsEvent {
 }
 
 class ProductsByFilter extends ProductsEvent {
-  final ProductsInterface? product;
-  ProductsByFilter({this.product});
+  final String term;
+  ProductsByFilter({required this.term});
 }
 
 abstract class ProductsState {
@@ -32,33 +32,37 @@ class ProductsInitial extends ProductsState {
   final List<ProductsInterface>? products;
   final CategoryInterface? currentCategory;
   final List<ProductsInterface>? results;
+  final bool? updateProducts;
 
   ProductsInitial({
     this.products,
     this.currentCategory,
     this.results,
+    this.updateProducts,
   });
 
   @override
-  List<Object> get props => [products!, currentCategory!, results!];
+  List<Object> get props => [products!, currentCategory!, results!, updateProducts!];
 
   @override
-  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
+  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results, updateProducts: $updateProducts}';
 }
 
 class ProductsFetched extends ProductsState {
   final List<ProductsInterface>? products;
   final CategoryInterface? currentCategory;
   final List<ProductsInterface>? results;
+  final bool? updateProducts;
 
   ProductsFetched({
     this.products,
     this.currentCategory,
     this.results,
+    this.updateProducts,
   });
 
   @override
-  List<Object> get props => [products!, currentCategory!, results!];
+  List<Object> get props => [products!, currentCategory!, results!, updateProducts!];
 
   @override
   String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
@@ -71,6 +75,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
             products: productsList,
             currentCategory: categoryList[0],
             results: [],
+            updateProducts: false,
           ),
         ) {
     on<ProductsByCatergory>(
@@ -87,6 +92,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
             products: producsState,
             currentCategory: event.category,
             results: productsResults,
+            updateProducts: true,
           ),
         );
       },
@@ -94,16 +100,25 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
 
     on<ProductsByFilter>(
       (event, emit) {
-        List<ProductsInterface> producsState =
+       List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
-        List<ProductsInterface> resfinal = List.from(producsState);
-        if (producsState.contains(event.product)) {
-          resfinal.remove(event.product);
-        }
-        emit(ProductsFetched(
-          products: resfinal,
 
-        ));
+        CategoryInterface currentCategory =
+                state.props[1] as CategoryInterface;
+
+        List<ProductsInterface> productsResults = producsState
+                .where(
+                  (p) => p.name.contains(event.term) || p.longDescription.contains(event.term) || p.shortDescription.contains(event.term)
+                )
+                .toList();
+        emit(
+          ProductsFetched(
+            products: producsState,
+            currentCategory: currentCategory,
+            results: productsResults,
+            updateProducts: false,
+          ),
+        );
       },
     );
   }

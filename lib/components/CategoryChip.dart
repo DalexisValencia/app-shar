@@ -32,6 +32,12 @@ class _CategorychipState extends State<Categorychip> {
             category: widget.category,
           ),
         );
+        /*print("ter");
+        productsBlocIntance.add(
+          ProductsByFilter(
+            term: "Primer",
+          ),
+        );*/
       },
       child: Container(
         margin: const EdgeInsets.only(

@@ -90,7 +90,7 @@ class _ProductCardState extends State<ProductCard> {
           );
         },
         child: Container(
-          color: Colors.white,
+          color: whiteColor,
           width: cardWidth,
           child: Card(
             elevation: 2,
@@ -137,7 +137,7 @@ class _ProductCardState extends State<ProductCard> {
                                   horizontal: 10,
                                 ),
                                 decoration: const BoxDecoration(
-                                  color: Colors.white,
+                                  color: whiteColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(50),
                                   ),
@@ -175,7 +175,7 @@ class _ProductCardState extends State<ProductCard> {
                                       bool isFavorite = !favorites.contains(widget.product);
 
                                   return IconButton(
-                                    color: isFavorite ?Colors.white : Colors.amberAccent,
+                                    color: isFavorite ?whiteColor : yellowColor,
                                     icon: const Icon(Icons.favorite),
                                     onPressed: () {
                                       isFavorite ? addToFavorites() : removeFromFavorites();
@@ -250,7 +250,7 @@ class _ProductCardState extends State<ProductCard> {
                     child: const Text(
                       'AÑADIR AL CARRITO',
                       style: TextStyle(
-                        color: Colors.white,
+                        color: whiteColor,
                         fontWeight: FontWeight.w300,
                       ),
                     ),

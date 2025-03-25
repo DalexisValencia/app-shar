@@ -53,7 +53,9 @@ class _ProductsState extends State<Products> {
 
                 List<ProductsInterface> resultsFilter =
                     state.props[2] as List<ProductsInterface>;
-                if (resultsFilter.isEmpty) {
+
+                bool updateScreen = state.props[3] as bool;
+                if (resultsFilter.isEmpty && updateScreen) {
                   return Builder(
                     builder: (BuildContext context) {
                       List<Widget> products = [];

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/screen/MapScreen.dart';
 import 'package:shar/screen/LoginPage.dart';
+import 'package:shar/constants/contants.dart';
 
 class AppMainHeader extends StatelessWidget {
   const AppMainHeader({super.key});
@@ -12,7 +13,7 @@ class AppMainHeader extends StatelessWidget {
         horizontal: 20,
         vertical: 15,
       ),
-      color: const Color.fromARGB(255, 255, 255, 255),
+      color: whiteColor,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -46,8 +47,11 @@ class AppMainHeader extends StatelessWidget {
                         ),
                       );
                     },
-                    icon:
-                        const Icon(Icons.pin_drop, size: 16, color: Colors.red),
+                    icon: const Icon(
+                      Icons.pin_drop,
+                      size: 16,
+                      color: yellowColor,
+                    ),
                     label: const Text(
                       'Bogotá, Colombia',
                       style: TextStyle(
@@ -65,9 +69,9 @@ class AppMainHeader extends StatelessWidget {
                       iconSize: 20,
                       style: ButtonStyle(
                         foregroundColor:
-                            WidgetStateProperty.all<Color>(Colors.white),
+                            WidgetStateProperty.all<Color>(whiteColor),
                         backgroundColor: WidgetStateProperty.all<Color>(
-                          const Color.fromARGB(255, 219, 169, 3),
+                          yellowColor,
                         ),
                       ),
                       icon: const Icon(Icons.person),
@@ -84,9 +88,9 @@ class AppMainHeader extends StatelessWidget {
                     iconSize: 20,
                     style: ButtonStyle(
                       foregroundColor:
-                          WidgetStateProperty.all<Color>(Colors.white),
+                          WidgetStateProperty.all<Color>(whiteColor),
                       backgroundColor: WidgetStateProperty.all<Color>(
-                        const Color.fromARGB(255, 219, 169, 3),
+                        yellowColor,
                       ),
                     ),
                     icon: const Icon(Icons.shopping_cart),
@@ -115,11 +119,11 @@ class AppMainHeader extends StatelessWidget {
                 shape: BeveledRectangleBorder(
                   borderRadius: BorderRadius.circular(2.0),
                   side: const BorderSide(
-                    color: Color.fromARGB(255, 201, 201, 201),
+                    color: greyLightColor,
                     width: 0.3,
                   ),
                 ),
-                color: Colors.white,
+                color: whiteColor,
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   width: double.infinity,

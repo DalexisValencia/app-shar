@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/constants/contants.dart';
 
 class Avatarcirclewrapper extends StatelessWidget {
   final String avatarUrl;
@@ -9,7 +10,7 @@ class Avatarcirclewrapper extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
         border: Border.all(
-          color: Colors.white,
+          color: whiteColor,
           width: 2,
         ),
         borderRadius: BorderRadius.circular(50),

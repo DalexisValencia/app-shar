@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shar/interfaces/CategoryInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class CategoryItem extends StatelessWidget {
   final CategoryInterface category;
@@ -18,7 +19,7 @@ class CategoryItem extends StatelessWidget {
       child: Card.outlined(
         elevation: 1,
         child: Container(
-          color: Colors.white,
+          color: whiteColor,
           width: screenWidth * 0.213,
           height: screenWidth * 0.213,
           child: Column(
