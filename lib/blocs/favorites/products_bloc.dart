@@ -1,4 +1,6 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/Lists/CategoriesList.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/Lists/ProductsList.dart';
 
@@ -10,7 +12,7 @@ abstract class ProductsEvent {
 }
 
 class ProductsByCatergory extends ProductsEvent {
-  final String? category;
+  final CategoryInterface? category;
   ProductsByCatergory({this.category});
 }
 
@@ -28,30 +30,38 @@ abstract class ProductsState {
 
 class ProductsInitial extends ProductsState {
   final List<ProductsInterface>? products;
+  final CategoryInterface? currentCategory;
+  final List<ProductsInterface>? results;
 
   ProductsInitial({
     this.products,
+    this.currentCategory,
+    this.results,
   });
 
   @override
-  List<Object> get props => [products!];
+  List<Object> get props => [products!, currentCategory!, results!];
 
   @override
-  String toString() => 'ProductsInitial {props: products: $products';
+  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
 }
 
 class ProductsFetched extends ProductsState {
   final List<ProductsInterface>? products;
+  final CategoryInterface? currentCategory;
+  final List<ProductsInterface>? results;
 
   ProductsFetched({
     this.products,
+    this.currentCategory,
+    this.results,
   });
 
   @override
-  List<Object> get props => [products!];
+  List<Object> get props => [products!, currentCategory!, results!];
 
   @override
-  String toString() => 'ProductsFetched {props: products: $products,}';
+  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
 }
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
@@ -59,21 +69,26 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
       : super(
           ProductsInitial(
             products: productsList,
+            currentCategory: categoryList[0],
+            results: [],
           ),
         ) {
     on<ProductsByCatergory>(
       (event, emit) {
-        print(event.category);
-        // event.category
-        /*List<ProductsInterface> producsState =
+        List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
-        producsState
-            .map((p) =>
-                {print(p.categories.where((c) => c.name == event.category))})
-            .toList();*/
-        emit(ProductsFetched(
-          products: [],
-        ));
+        List<ProductsInterface> productsResults = producsState
+                .where(
+                  (p) => p.categories.contains(event.category),
+                )
+                .toList();
+        emit(
+          ProductsFetched(
+            products: producsState,
+            currentCategory: event.category,
+            results: productsResults,
+          ),
+        );
       },
     );
 
@@ -87,6 +102,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
         }
         emit(ProductsFetched(
           products: resfinal,
+
         ));
       },
     );

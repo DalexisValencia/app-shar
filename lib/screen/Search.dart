@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/products_bloc.dart';
 import 'package:shar/components/CategoryChipWrapper.dart';
 import 'package:shar/components/fallbacks.dart';
 import 'package:shar/components/ProductCard.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/interfaces/ProductsInterface.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -21,43 +24,49 @@ class _SearchState extends State<Search> {
             durationTime: 800,
             widgetChild: Categorychipwrapper(),
           ),
-          const Fallbacks(
+          /*const Fallbacks(
             description:
                 "Para iniciar, seleccione una categoría o ingrese el nombre del producto.",
           ),
-          /*const Fallbacks(
-            description:
-                "Lo sentimos, no hay resultados para la búsqueda que ha realizado.",
-          ),*/
+          */
           Container(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: const Wrap(
-              children: [
-                /*ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),
-                ProductCard(
-                  isMiddlePage: true,
-                ),*/
-              ],
+            margin: const EdgeInsets.symmetric(
+              vertical: 10,
+              horizontal: 20,
             ),
-          ),
-          // const Fallbacks(description: "No hay más productos"),
+            child: BlocBuilder<ProductsBloc, ProductsState>(
+              builder: (BuildContext context, ProductsState state) {
+                List<ProductsInterface> resultsFilter =
+                    state.props[2] as List<ProductsInterface>;
+                // print(state.props);
+                if (resultsFilter.isEmpty) {
+                  return const Fallbacks(
+                    description:
+                        "Lo sentimos, no hay resultados para la búsqueda que ha realizado.",
+                  );
+                }
+
+                return Builder(
+                  builder: (BuildContext context) {
+                    List<Widget> productsFinal = [];
+                    resultsFilter.asMap().entries.map((e) {
+                      productsFinal.add(
+                        ProductCard(
+                          isMiddlePage: true,
+                          product: e.value,
+                        ),
+                      );
+                    }).toList();
+                    productsFinal.add(
+                        const Fallbacks(description: "No hay más productos"));
+                    return Wrap(
+                      children: productsFinal,
+                    );
+                  },
+                );
+              },
+            ),
+          )
         ],
       ),
     );
