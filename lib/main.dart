@@ -1,12 +1,10 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
-import 'package:shar/blocs/favorites/favorites_bloc.dart';
-import 'package:shar/blocs/favorites/cart_bloc.dart';
-import 'package:shar/blocs/favorites/products_bloc.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -46,20 +44,9 @@ class _MyAppState extends State<MyApp> {
       ),
       home: splashScreen
           ? const Splash()
-          : MultiBlocProvider(
-              providers: [
-                BlocProvider<FavoritesBloc>(
-                  create: (context) => FavoritesBloc(),
-                ),
-                BlocProvider<CartBloc>(
-                  create: (context) => CartBloc(),
-                ),
-                BlocProvider<ProductsBloc>(
-                  create: (context) => ProductsBloc(),
-                ),
-              ],
-              child: const Tabswrapper(),
-            ),
+          : const Wrapperblocintances(
+            childComponent: Tabswrapper(),
+           ),
     );
   }
 }
