@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 
-snackBarAddCart(BuildContext context, name) {
+snackBarAddCart(BuildContext context, name, alert) {
   final snackBarCar = SnackBar(
     behavior: SnackBarBehavior.floating,
-    backgroundColor: Theme.of(context).primaryColorDark,
+    backgroundColor: Colors.amber,
     content: RichText(
       text: TextSpan(
         text: name,
-        style: TextStyle(
-          color: Theme.of(context).primaryColorLight,
+        style: const TextStyle(
+          color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
-        children: const <TextSpan>[
+        children: <TextSpan>[
           TextSpan(
-            text: ' Se ha añadido a favoritos',
-            style: TextStyle(
+            text: alert,
+            style: const TextStyle(
               fontWeight: FontWeight.w400,
             ),
           )

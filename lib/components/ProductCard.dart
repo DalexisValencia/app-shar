@@ -31,39 +31,43 @@ class _ProductCardState extends State<ProductCard> {
   }
 
   void addToCar() {
+    String alert = " Se ha añadido al carrito";
     cartBlocIntance.add(
       AddProductToCart(
         product: widget.product,
       ),
     );
-    snackBarAddCart(context, widget.product.name);
+    snackBarAddCart(context, widget.product.name, alert);
   }
 
   void removeFromCar() {
+    String alert = " Se ha removido del carrito";
     cartBlocIntance.add(
       RemoveProductFromCart(
         product: widget.product,
       ),
     );
-    snackBarAddCart(context, widget.product.name);
+    snackBarAddCart(context, widget.product.name, alert);
   }
 
   void addToFavorites() {
+    String alert = " Se ha añadido a favoritos";
     favoriteBlocIntance.add(
       AddProductToFavorite(
         product: widget.product,
       ),
     );
-    snackBarAddCart(context, widget.product.name);
+    snackBarAddCart(context, widget.product.name, alert);
   }
 
   void removeFromFavorites() {
+    String alert = " Se ha removido de favoritos";
     favoriteBlocIntance.add(
       RemoveProductFromFavorite(
         product: widget.product,
       ),
     );
-    snackBarAddCart(context, widget.product.name);
+    snackBarAddCart(context, widget.product.name, alert);
   }
 
   @override
