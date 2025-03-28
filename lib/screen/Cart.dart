@@ -5,6 +5,7 @@ import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/components/fallbacks.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -91,7 +92,20 @@ class _CartState extends State<Cart> {
                     isEmpty ? greyLightColor : yellowColor,
                   ),
                 ),
-                onPressed: isEmpty ? null : () {} ,
+                onPressed: isEmpty ? null : () {
+                  final Uri emailLaunchUri = Uri(
+                    scheme: 'mailto',
+                    path: 'd.alexis.valencia@gmail.com',
+                    queryParameters: {
+                      'subject': 'Example Subject & Symbols are allowed!'
+                    }
+                  );
+
+
+                  launchUrl(emailLaunchUri);                  // ...
+
+                  // mailto:smith@example.com?subject=Example+Subject+%26+Symbols+are+allowed%21
+                },
                 child: Text(
                   'REALIZAR COTIZACIÓN',
                   style: TextStyle(

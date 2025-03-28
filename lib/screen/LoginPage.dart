@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
+import 'package:shar/constants/contants.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -30,42 +31,170 @@ class _LoginPageState extends State<LoginPage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    var screenWidth = mediaQuery.size.width;
+
     return Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Text(
-              'Login',
-              style: TextStyle(fontSize: 24),
-            ),
-            SizedBox(height: 20),
-            TextField(
-                decoration: InputDecoration(
-                  labelText: 'Correo electrónico',
-                  border: OutlineInputBorder(),
+      body: Wrapperblocintances(
+        childComponent: SingleChildScrollView(
+            child: Container(
+          padding: const EdgeInsets.symmetric(
+            vertical: 10,
+            horizontal: 20,
+          ),
+          child: Column(
+            children: <Widget>[
+              Container(
+                width: double.infinity,
+                height: screenWidth * 0.73,
+                child: Stack(
+                  children: [
+                    Positioned(
+                      top: 10,
+                      right: 20,
+                      child: IconButton(
+                        color: blackColor,
+                        icon: const Icon(Icons.close),
+                        onPressed: () {
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
-            SizedBox(height: 10),
-             TextField(
-                decoration: InputDecoration(
-                  labelText: 'Contraseña',
-                  border: OutlineInputBorder(),
+              Container(
+                width: 150,
+                margin: const EdgeInsets.symmetric(
+                  vertical: 20,
                 ),
-                obscureText: true,
+                child: const Image(
+                  image: AssetImage("images/logo.png"),
+                  fit: BoxFit.fitWidth,
+                ),
               ),
-            SizedBox(height: 20),
-            ElevatedButton(
-                onPressed: () {
-                  // Aquí va la lógica para el login
-                },
-                child: Text('Iniciar sesión'),
+              const Text(
+                'INGRESAR',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-          
-          ],
-        ),
+              const SizedBox(height: 20),
+              TextField(
+                autofocus: false,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: blackColor,
+                ),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color.fromARGB(255, 207, 207, 207),
+                  hintText: 'Correo electrónico',
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 20,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: greyColor,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: greyLightColor,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 10),
+              TextField(
+                autofocus: false,
+                style: const TextStyle(
+                  fontSize: 12,
+                  color: blackColor,
+                ),
+                decoration: InputDecoration(
+                  filled: true,
+                  fillColor: const Color.fromARGB(255, 207, 207, 207),
+                  hintText: 'Password',
+                  contentPadding: const EdgeInsets.symmetric(
+                    vertical: 20,
+                    horizontal: 20,
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: greyColor,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                  enabledBorder: UnderlineInputBorder(
+                    borderSide: const BorderSide(
+                      color: greyLightColor,
+                    ),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  top: 20,
+                  bottom: 5,
+                ),
+                width: double.infinity,
+                height: 50,
+                child: TextButton(
+                  style: ButtonStyle(
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                    ),
+                    backgroundColor: WidgetStateProperty.all<Color>(blackColor),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'INGRESAR',
+                    style: TextStyle(
+                      color: whiteColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                margin: const EdgeInsets.only(
+                  bottom: 20,
+                ),
+                width: double.infinity,
+                height: 50,
+                child: TextButton(
+                  style: ButtonStyle(
+                    shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                      const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(5),
+                        ),
+                      ),
+                    ),
+                    backgroundColor:
+                        WidgetStateProperty.all<Color>(yellowColor),
+                  ),
+                  onPressed: () {},
+                  child: const Text(
+                    'REGISTRARSE',
+                    style: TextStyle(
+                      color: blackColor,
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ),
+              )
+            ],
+          ),
+        )),
       ),
     );
   }
 }
-
