@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/LoginPage.dart';
+import 'package:shar/screen/termsAndConditions.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -273,6 +274,30 @@ class _RegisterState extends State<Register> {
                           ),
                           borderRadius: BorderRadius.circular(5),
                         ),
+                      ),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.only(top: 15, bottom: 0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 30,
+                      ),
+                      child: GestureDetector(
+                        //InkWell
+                        child: const Text(
+                          'Al dar clic en registrarse acepta nuestra politica de datos y nuestros términos y condiciones.',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 10.5,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        onTap: () => {
+                          Navigator.of(context).push(
+                            MaterialPageRoute(
+                              builder: (context) => const Termsandconditions(),
+                            ),
+                          ),
+                        },
                       ),
                     ),
                     Container(
