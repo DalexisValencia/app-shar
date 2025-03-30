@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
 import 'package:shar/constants/contants.dart';
-import 'package:shar/screen/Register.dart';
+import 'package:shar/screen/LoginPage.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class Register extends StatefulWidget {
+  const Register({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<Register> createState() => _RegisterState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _RegisterState extends State<Register> {
   final _formKey = GlobalKey<FormState>();
   final email = TextEditingController();
+  final repeatEmail = TextEditingController();
   final password = TextEditingController();
+  final repearPassword = TextEditingController();
 
   @override
   void initState() {
@@ -44,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Center(
                       child: Container(
-                        width: 150,
+                        width: 90,
                         margin: const EdgeInsets.symmetric(
                           vertical: 20,
                         ),
@@ -59,7 +61,7 @@ class _LoginPageState extends State<LoginPage> {
                         top: 30,
                       ),
                       child: const Text(
-                        'INGRESAR',
+                        'REGISTRARSE',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
@@ -85,6 +87,10 @@ class _LoginPageState extends State<LoginPage> {
 
                         if (!regex.hasMatch(value)) {
                           return 'No es un correo electrónico';
+                        }
+
+                        if (!(email == repeatEmail)) {
+                          return 'Los correos electronicos no coinciden';
                         }
 
                         return null;
@@ -119,6 +125,66 @@ class _LoginPageState extends State<LoginPage> {
                         ),
                       ),
                     ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    TextFormField(
+                      controller: repeatEmail,
+                      validator: (value) {
+                        const pattern =
+                            r"(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'"
+                            r'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-'
+                            r'\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*'
+                            r'[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4]'
+                            r'[0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9]'
+                            r'[0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\'
+                            r'x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])';
+                        final regex = RegExp(pattern);
+
+                        if (value == null || value.isEmpty) {
+                          return 'Ingresa correo electrónico';
+                        }
+
+                        if (!regex.hasMatch(value)) {
+                          return 'No es un correo electrónico';
+                        }
+
+                        if (!(email == repeatEmail)) {
+                          return 'Los correos electronicos no coinciden';
+                        }
+
+                        return null;
+                      },
+                      autofocus: false,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: blackColor,
+                      ),
+                      decoration: InputDecoration(
+                        errorStyle: const TextStyle(
+                          fontSize: 9,
+                        ),
+                        filled: true,
+                        fillColor: const Color.fromARGB(255, 207, 207, 207),
+                        hintText: 'Repite tu correo electrónico',
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 20,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyLightColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
                     const SizedBox(height: 10),
                     TextFormField(
                       controller: password,
@@ -128,6 +194,9 @@ class _LoginPageState extends State<LoginPage> {
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Ingresa contraseña';
+                        }
+                        if (!(repearPassword == password)) {
+                          return 'Las contraseña no coinciden';
                         }
                         return null;
                       },
@@ -140,6 +209,51 @@ class _LoginPageState extends State<LoginPage> {
                         filled: true,
                         fillColor: const Color.fromARGB(255, 207, 207, 207),
                         hintText: 'Contraseña',
+                        contentPadding: const EdgeInsets.symmetric(
+                          vertical: 20,
+                          horizontal: 20,
+                        ),
+                        errorStyle: const TextStyle(
+                          fontSize: 9,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyLightColor,
+                          ),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    TextFormField(
+                      controller: repearPassword,
+                      obscureText: true,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Ingresa contraseña';
+                        }
+                        if (!(repearPassword == password)) {
+                          return 'Las contraseña no coinciden';
+                        }
+                        return null;
+                      },
+                      autofocus: false,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: blackColor,
+                      ),
+                      decoration: InputDecoration(
+                        filled: true,
+                        fillColor: const Color.fromARGB(255, 207, 207, 207),
+                        hintText: 'Repite tu contraseña',
                         contentPadding: const EdgeInsets.symmetric(
                           vertical: 20,
                           horizontal: 20,
@@ -188,7 +302,7 @@ class _LoginPageState extends State<LoginPage> {
                           }
                         },
                         child: const Text(
-                          'INGRESAR',
+                          'REGISTRARSE',
                           style: TextStyle(
                             color: whiteColor,
                             fontWeight: FontWeight.w600,
@@ -219,12 +333,12 @@ class _LoginPageState extends State<LoginPage> {
                         onPressed: () {
                           Navigator.of(context).push(
                             MaterialPageRoute(
-                              builder: (context) => const Register(),
+                              builder: (context) => const LoginPage(),
                             ),
                           );
                         },
                         child: const Text(
-                          'REGISTRARSE',
+                          'INGRESAR',
                           style: TextStyle(
                             color: blackColor,
                             fontWeight: FontWeight.w600,
