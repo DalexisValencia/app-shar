@@ -45,7 +45,7 @@ class CartInitial extends CartState {
   List<Object> get props => [products!];
 
   @override
-  String toString() => 'FavoritesInitial {props: products: $products';
+  String toString() => 'CartInitial {props: products: $products';
 }
 
 class CartFetched extends CartState {
@@ -59,7 +59,7 @@ class CartFetched extends CartState {
   List<Object> get props => [products!];
 
   @override
-  String toString() => 'FavoritesFetched {props: products: $products,}';
+  String toString() => 'CartFetched {props: products: $products,}';
 }
 
 class CartBloc extends Bloc<CartEvent, CartState> {
