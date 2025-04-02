@@ -160,7 +160,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                       ],
                                     ),
                                   ),
-                                  GestureDetector(
+                                  InkWell(
                                     child: Container(
                                       width: screenWidth,
                                       margin: const EdgeInsets.only(

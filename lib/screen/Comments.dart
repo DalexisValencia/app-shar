@@ -17,7 +17,7 @@ class Comments extends StatelessWidget {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
-    var screenHeight = mediaQuery.size.height - 185;
+    var screenHeight = mediaQuery.size.height - 190;
 
     return Column(
       children: [
@@ -162,12 +162,14 @@ class Comments extends StatelessWidget {
                     ),
                     radius: 22,
                   ),
-                  Container(
-                    width: screenWidth * 0.8,
-                    margin: const EdgeInsets.only(
-                      left: 10,
+                  Expanded(
+                    child: Container(
+                      width: screenWidth * 0.8,
+                      margin: const EdgeInsets.only(
+                        left: 10,
+                      ),
+                      child: TextFormField(),
                     ),
-                    child: TextFormField(),
                   ),
                 ],
               ),

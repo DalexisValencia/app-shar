@@ -89,7 +89,7 @@ class _TabswrapperState extends State<Tabswrapper> {
                     state.props[0] as List<ProductsInterface>;
                 double totalProducts = 0;
                 carProducts.asMap().entries.map((e) {
-                  totalProducts += e.value.amount as int;
+                  totalProducts += (e.value.amount).toInt();
                 }).toList();
                 var isEmpty = carProducts.isEmpty;
 

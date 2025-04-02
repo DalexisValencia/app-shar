@@ -15,9 +15,9 @@ class AppMainHeader extends StatelessWidget {
       margin: EdgeInsets.only(
         top: statusBarHeight
       ),
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
         horizontal: 20,
-        vertical: 15,
+        vertical: statusBarHeight > 0 ? 5 : 15,
       ),
       color: whiteColor,
       child: Column(
@@ -91,7 +91,7 @@ class AppMainHeader extends StatelessWidget {
                       },
                     ),
                   ),
-                  IconButton(
+                  /*IconButton(
                     iconSize: 20,
                     style: ButtonStyle(
                       foregroundColor:
@@ -104,12 +104,12 @@ class AppMainHeader extends StatelessWidget {
                     onPressed: () {
                       // ...
                     },
-                  ),
+                  ),*/
                 ],
               )
             ],
           ),
-          GestureDetector(
+          InkWell(
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(

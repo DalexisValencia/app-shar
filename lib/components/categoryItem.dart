@@ -14,7 +14,7 @@ class CategoryItem extends StatelessWidget {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
 
-    return GestureDetector(
+    return InkWell(
       onTap: () {},
       child: Card.outlined(
         elevation: 1,
