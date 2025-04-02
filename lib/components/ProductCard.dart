@@ -171,13 +171,17 @@ class _ProductCardState extends State<ProductCard> {
                                     FavoritesState state) {
                                   List<ProductsInterface> favorites =
                                       state.props[0] as List<ProductsInterface>;
-                                      bool isFavorite = !favorites.contains(widget.product);
+                                  bool isFavorite =
+                                      !favorites.contains(widget.product);
 
                                   return IconButton(
-                                    color: isFavorite ?whiteColor : yellowColor,
+                                    color:
+                                        isFavorite ? whiteColor : yellowColor,
                                     icon: const Icon(Icons.favorite),
                                     onPressed: () {
-                                      isFavorite ? addToFavorites() : removeFromFavorites();
+                                      isFavorite
+                                          ? addToFavorites()
+                                          : removeFromFavorites();
                                     },
                                   );
                                 },
@@ -248,10 +252,12 @@ class _ProductCardState extends State<ProductCard> {
                     },
                     child: const Text(
                       'AÑADIR AL CARRITO',
+                      textAlign: TextAlign.center,
                       style: TextStyle(
                         color: whiteColor,
                         fontWeight: FontWeight.w300,
                       ),
+                      textScaler: TextScaler.linear(0.78),
                     ),
                   ),
                 ),

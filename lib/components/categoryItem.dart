@@ -20,7 +20,7 @@ class CategoryItem extends StatelessWidget {
         elevation: 1,
         child: Container(
           color: whiteColor,
-          width: screenWidth * 0.213,
+          width: screenWidth * 0.275,
           height: screenWidth * 0.213,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,

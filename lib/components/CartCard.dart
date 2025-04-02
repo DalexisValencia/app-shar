@@ -47,7 +47,7 @@ class _CartCardState extends State<CartCard> {
     );
   }
 
-    void addToFavorites() {
+  void addToFavorites() {
     String alert = " Se ha añadido a favoritos";
     favoriteBlocIntance.add(
       AddProductToFavorite(
@@ -120,8 +120,7 @@ class _CartCardState extends State<CartCard> {
                           bool isFavorite = !favorites.contains(widget.product);
 
                           return IconButton(
-                            color:
-                                isFavorite ? whiteColor : yellowColor,
+                            color: isFavorite ? whiteColor : yellowColor,
                             icon: const Icon(Icons.favorite),
                             onPressed: () {
                               isFavorite
@@ -134,35 +133,37 @@ class _CartCardState extends State<CartCard> {
                     ),
                   ],
                 ),
-                Container(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 10,
-                    horizontal: 10,
-                  ),
-                  width: screenWidth * 0.60,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Text(
-                        widget.product.name,
-                        overflow: TextOverflow.ellipsis,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          fontWeight: FontWeight.w700,
+                Flexible(
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 10,
+                      horizontal: 10,
+                    ),
+                    width: screenWidth * 0.60,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          widget.product.name,
+                          overflow: TextOverflow.ellipsis,
+                          style: const TextStyle(
+                            fontSize: 12,
+                            fontWeight: FontWeight.w700,
+                          ),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        widget.product.name,
-                        style: const TextStyle(
-                          fontSize: 11,
-                          fontWeight: FontWeight.w400,
+                        const SizedBox(
+                          height: 5,
                         ),
-                      )
-                    ],
+                        Text(
+                          widget.product.name,
+                          style: const TextStyle(
+                            fontSize: 11,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 BlocBuilder<CartBloc, CartState>(
@@ -221,7 +222,7 @@ class _CartCardState extends State<CartCard> {
                               currentElement.amount == 1
                                   ? Icons.delete
                                   : Icons.remove,
-                                  color: blackColor,
+                              color: blackColor,
                               size: 15,
                             ),
                           ),

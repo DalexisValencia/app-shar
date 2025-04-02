@@ -22,7 +22,7 @@ class CategoryWrapper extends StatelessWidget {
           Builder(
             builder: (BuildContext context) {
               List<Widget> categories = [];
-                categoryList.sublist(0,10).asMap().entries.map((e) {
+                categoryList.sublist(0,9).asMap().entries.map((e) {
                   categories.add(
                     CategoryItem(
                       category: e.value,
@@ -30,7 +30,7 @@ class CategoryWrapper extends StatelessWidget {
                   );
                 }).toList();
                 return Wrap(
-                  alignment: WrapAlignment.center,
+                  alignment: WrapAlignment.spaceBetween,
                   children: categories,
                 );
             },

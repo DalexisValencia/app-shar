@@ -27,11 +27,12 @@ class _CartState extends State<Cart> {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenHeight = (mediaQuery.size.height - 270);
+    var statusBarHeight = mediaQuery.viewPadding.top;
 
     return Column(
       children: [
         Container(
-          height: screenHeight,
+          height: screenHeight - statusBarHeight,
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(

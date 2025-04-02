@@ -8,7 +8,13 @@ class AppMainHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    var statusBarHeight = mediaQuery.viewPadding.top;
+
     return Container(
+      margin: EdgeInsets.only(
+        top: statusBarHeight
+      ),
       padding: const EdgeInsets.symmetric(
         horizontal: 20,
         vertical: 15,
