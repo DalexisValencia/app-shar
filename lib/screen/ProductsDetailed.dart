@@ -23,15 +23,19 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
-    var screenHeight = mediaQuery.size.height - 60;
+    var statusBarHeight = mediaQuery.viewPadding.top;
+    var screenHeight = mediaQuery.size.height - (60 + statusBarHeight);
 
     return Scaffold(
-      body: Wrapperblocintances(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
+        child: Wrapperblocintances(
           childComponent: Column(
             children: [
               Container(
                 height: screenHeight,
                 child: SingleChildScrollView(
+                  reverse: true,
                   child: Column(
                     children: [
                       Container(
@@ -225,52 +229,75 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                         context: context,
                                         isScrollControlled: true,
                                         builder: (BuildContext context) {
-                                          return SizedBox(
-                                            height: MediaQuery.of(context)
-                                                    .size
-                                                    .height *
-                                                0.95,
-                                            child: DraggableScrollableSheet(
-                                              initialChildSize: 1,
-                                              builder:
-                                                  (context, scrollController) =>
-                                                      Column(
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment.center,
-                                                mainAxisSize: MainAxisSize.min,
-                                                children: <Widget>[
-                                                  Container(
-                                                    margin: const EdgeInsets
-                                                        .symmetric(
-                                                      vertical: 10,
-                                                    ),
-                                                    child: const Text(
-                                                      'Comentarios',
-                                                      style: TextStyle(
-                                                          fontSize: 10),
-                                                    ),
-                                                  ),
-                                                  Container(
-                                                    height:
-                                                        MediaQuery.of(context)
-                                                                .size
-                                                                .height *
-                                                            0.91,
-                                                    child: Comments(
-                                                      comments: widget
-                                                          .product.comments,
-                                                    ),
-                                                  )
+                                          var mediaQuery =
+                                              MediaQuery.of(context);
+                                          var screenHeight = (mediaQuery
+                                                      .size.height -
+                                                  mediaQuery.viewPadding.top) -
+                                              170;
+                                          var _keyboardVisible =
+                                              MediaQuery.of(context)
+                                                      .viewInsets
+                                                      .bottom !=
+                                                  0;
 
-                                                  /*ElevatedButton(
+                                          return Stack(
+                                            children: [
+                                              SizedBox(
+                                                height: screenHeight,
+                                                child: DraggableScrollableSheet(
+                                                  initialChildSize: 1,
+                                                  builder: (context,
+                                                          scrollController) =>
+                                                      Column(
+                                                    mainAxisAlignment:
+                                                        MainAxisAlignment
+                                                            .center,
+                                                    mainAxisSize:
+                                                        MainAxisSize.min,
+                                                    children: <Widget>[
+                                                      Container(
+                                                        margin: const EdgeInsets
+                                                            .symmetric(
+                                                          vertical: 10,
+                                                        ),
+                                                        child: const Text(
+                                                          'Comentarios',
+                                                          style: TextStyle(
+                                                              fontSize: 10),
+                                                        ),
+                                                      ),
+                                                      Container(
+                                                        color: Colors.red,
+                                                        height:
+                                                            screenHeight - 35,
+                                                        child: Comments(
+                                                          comments: widget
+                                                              .product.comments,
+                                                          parentHeight:
+                                                              screenHeight - 35,
+                                                        ),
+                                                      )
+
+                                                      /*ElevatedButton(
                                               child: const Text(
                                                   'Close BottomSheet'),
                                               onPressed: () =>
                                                   Navigator.pop(context),
                                             ),*/
-                                                ],
+                                                    ],
+                                                  ),
+                                                ),
                                               ),
-                                            ),
+                                              Positioned(
+                                                bottom: _keyboardVisible
+                                                    ? MediaQuery.of(context)
+                                                        .viewInsets
+                                                        .bottom // MediaQuery.of(context).size.height
+                                                    : 100,
+                                                child: const Text("Moved"),
+                                              ),
+                                            ],
                                           );
                                         },
                                       );
@@ -319,7 +346,9 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                 ),
               )
             ],
-          ),),
+          ),
+        ),
+      ),
     );
   }
 }

@@ -8,21 +8,23 @@ import 'package:shar/constants/contants.dart';
 
 class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
+  final double parentHeight;
   const Comments({
     super.key,
     required this.comments,
+    required this.parentHeight,
   });
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
-    var screenHeight = mediaQuery.size.height - 190;
+    // var screenHeight = mediaQuery.size.height - 190;
 
     return Column(
       children: [
         Container(
-          height: screenHeight,
+          height: parentHeight - 100,
           child: SingleChildScrollView(
             child: Column(
               children: [
