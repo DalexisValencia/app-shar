@@ -99,7 +99,7 @@ class _CartCardState extends State<CartCard> {
                     Hero(
                       tag: 'imageProductHero',
                       child: Container(
-                        width: screenWidth * 0.2,
+                        width: screenWidth * 0.3,
                         height: heightCard,
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
@@ -138,7 +138,6 @@ class _CartCardState extends State<CartCard> {
                 ),
                 Flexible(
                   child: Container(
-                    color: Colors.red,
                     height: heightCard,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
@@ -181,11 +180,13 @@ class _CartCardState extends State<CartCard> {
                     ProductsInterface currentElement = allProducts[idexCurrent];
 
                     return Container(
-                      //height: 90,
+                      height: heightCard,
                       margin: const EdgeInsets.only(
                         right: 10,
                       ),
-                      padding: const EdgeInsets.symmetric(vertical: 5),
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                      ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         crossAxisAlignment: CrossAxisAlignment.center,
