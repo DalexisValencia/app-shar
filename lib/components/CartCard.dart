@@ -71,6 +71,7 @@ class _CartCardState extends State<CartCard> {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
+    var heightCard = screenWidth * 0.31;
 
     return Fadetransitionwrapper(
       durationTime: 800,
@@ -80,11 +81,13 @@ class _CartCardState extends State<CartCard> {
         ),
         child: GestureDetector(
           onTap: () {
-            /*Navigator.of(context).push(
+            Navigator.of(context).push(
               MaterialPageRoute(
-                builder: (context) => const ProductsDetailed(),
+                builder: (context) => ProductsDetailed(
+                  product: widget.product,
+                ),
               ),
-            );*/
+            );
           },
           child: Card(
             elevation: 1.5,
@@ -97,7 +100,7 @@ class _CartCardState extends State<CartCard> {
                       tag: 'imageProductHero',
                       child: Container(
                         width: screenWidth * 0.2,
-                        height: 105,
+                        height: heightCard,
                         decoration: BoxDecoration(
                           borderRadius: const BorderRadius.only(
                             topLeft: Radius.circular(10),
@@ -135,6 +138,8 @@ class _CartCardState extends State<CartCard> {
                 ),
                 Flexible(
                   child: Container(
+                    color: Colors.red,
+                    height: heightCard,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
                       horizontal: 10,
@@ -157,11 +162,13 @@ class _CartCardState extends State<CartCard> {
                         ),
                         Text(
                           widget.product.name,
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 4,
                           style: const TextStyle(
                             fontSize: 11,
                             fontWeight: FontWeight.w400,
                           ),
-                        )
+                        ),
                       ],
                     ),
                   ),
@@ -174,7 +181,7 @@ class _CartCardState extends State<CartCard> {
                     ProductsInterface currentElement = allProducts[idexCurrent];
 
                     return Container(
-                      height: 90,
+                      //height: 90,
                       margin: const EdgeInsets.only(
                         right: 10,
                       ),
