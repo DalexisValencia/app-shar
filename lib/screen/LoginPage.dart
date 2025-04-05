@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/Register.dart';
 
@@ -30,8 +29,7 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
       appBar: AppBar(),
       body: SingleChildScrollView(
-        child: Wrapperblocintances(
-          childComponent: Container(
+        child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 10,
                 horizontal: 20,
@@ -234,8 +232,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-              )),
-        ),
+              ),),
       ),
     );
   }

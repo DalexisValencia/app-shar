@@ -4,8 +4,8 @@ import 'package:shar/components/CommentsWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
 import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
-
-import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/constants/contants.dart';
 
 class ProductsDetailed extends StatefulWidget {
@@ -20,6 +20,24 @@ class ProductsDetailed extends StatefulWidget {
 }
 
 class _ProductsDetailedState extends State<ProductsDetailed> {
+  late CartBloc cartBlocIntance;
+
+  @override
+  void initState() {
+    super.initState();
+    cartBlocIntance = BlocProvider.of<CartBloc>(context);
+  }
+
+  addToCart() {
+    String alert = " Se ha añadido al carrito";
+    cartBlocIntance.add(
+      AddProductToCart(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name, alert);
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -30,8 +48,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: Wrapperblocintances(
-          childComponent: Column(
+        child: Column(
             children: [
               Container(
                 height: screenHeight,
@@ -230,8 +247,6 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                         context: context,
                                         isScrollControlled: true,
                                         builder: (BuildContext context) {
-                                         
-
                                           return Commentswrapper(
                                             product: widget.product,
                                           );
@@ -271,7 +286,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                       const Color.fromRGBO(249, 161, 0, 1),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: () => addToCart(),
                   child: const Text(
                     'AÑADIR AL CARRITO',
                     style: TextStyle(
@@ -283,7 +298,6 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
               )
             ],
           ),
-        ),
       ),
     );
   }
