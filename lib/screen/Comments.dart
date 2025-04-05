@@ -12,11 +12,13 @@ class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
   final double parentHeight;
   final Function focusToComment;
+  final String labelComment;
   const Comments({
     super.key,
     required this.comments,
     required this.parentHeight,
     required this.focusToComment,
+    required this.labelComment,
   });
 
   @override
@@ -169,14 +171,14 @@ class Comments extends StatelessWidget {
                     margin: const EdgeInsets.only(
                       left: 15,
                     ),
-                    child: const Padding(
-                      padding: EdgeInsets.symmetric(
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
                         vertical: 12,
                         horizontal: 20,
                       ),
                       child: Text(
-                        "Ingresa tu comentario...",
-                        style: TextStyle(
+                        labelComment.isEmpty ? "Ingresa tu comentario..." : labelComment,
+                        style: const TextStyle(
                           fontSize: 11,
                           color: greyColor,
                         ),

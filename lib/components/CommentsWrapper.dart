@@ -20,6 +20,7 @@ class Commentswrapper extends StatefulWidget {
 class _CommentswrapperState extends State<Commentswrapper> {
   late FocusNode searchFocusNode;
   late CommentsBloc commentsBlocInstance;
+  final commentText = TextEditingController();
 
   @override
   void initState() {
@@ -44,6 +45,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
         ),
       ),
     );
+    commentText.clear();
   }
 
   @override
@@ -89,6 +91,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
                     comments: widget.product.comments,
                     parentHeight: screenHeight - 35,
                     focusToComment: focusToComment,
+                    labelComment: commentText.text,
                   ),
                 ),
               ],
@@ -117,6 +120,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
               child: Column(
                 children: [
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       const CircleAvatar(
                         backgroundColor: greyColor,
@@ -130,7 +134,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
                       ),
                       Container(
                         height: 40,
-                        width: screenWidth * 0.70,
+                        width: screenWidth * 0.60,
                         decoration: const BoxDecoration(
                           borderRadius: BorderRadius.all(
                             Radius.circular(10),
@@ -138,12 +142,11 @@ class _CommentswrapperState extends State<Commentswrapper> {
                           color: whiteColor,
                         ),
                         margin: const EdgeInsets.only(
-                          left: 15,
+                          left: 10,
                         ),
                         child: TextFormField(
+                          controller: commentText,
                           onFieldSubmitted: (value) => {
-                            print("This is the final value"),
-                            print(value),
                             addComment(),
                           },
                           focusNode: searchFocusNode,
@@ -161,6 +164,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
                             color: blackColor,
                           ),
                           decoration: InputDecoration(
+                          
                             filled: true,
                             fillColor: whiteColor,
                             hintText: 'Ingresa tu comentario ... ',
@@ -187,6 +191,23 @@ class _CommentswrapperState extends State<Commentswrapper> {
                             ),
                           ),
                         ),
+                      ),
+                      const SizedBox(
+                        height: 10,
+                      ),
+                      IconButton(
+                        iconSize: 20,
+                        style: ButtonStyle(
+                          foregroundColor:
+                              WidgetStateProperty.all<Color>(whiteColor),
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                            yellowColor,
+                          ),
+                        ),
+                        icon: const Icon(Icons.send),
+                        onPressed: () {
+                          addComment();
+                        },
                       ),
                     ],
                   ),
