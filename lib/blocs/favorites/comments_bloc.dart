@@ -79,7 +79,7 @@ class CommentsBloc extends Bloc<CommentsEvent, CommentState> {
         List<CommentsInterface> commentState =
             state.props[0] as List<CommentsInterface>;
         List<CommentsInterface> resfinal = List.from(commentState);
-        resfinal.add(event.comment);
+        resfinal.insert(0, event.comment);
         emit(
           CommentsFetched(
             comments: resfinal,

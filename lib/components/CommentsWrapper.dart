@@ -144,6 +144,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
                           onFieldSubmitted: (value) => {
                             print("This is the final value"),
                             print(value),
+                            addComment(),
                           },
                           focusNode: searchFocusNode,
                           enableSuggestions: true,

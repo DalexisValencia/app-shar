@@ -30,6 +30,24 @@ class _ProductCardState extends State<ProductCard> {
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
   }
 
+  void addAmount() {
+    cartBlocIntance.add(
+      UpdateAmountProductFromCart(product: widget.product, action: "add"),
+    );
+  }
+
+  void removeAmount() {
+    cartBlocIntance.add(
+      UpdateAmountProductFromCart(product: widget.product, action: "remove"),
+    );
+  }
+
+  void removeProduct() {
+    cartBlocIntance.add(
+      RemoveProductFromCart(product: widget.product),
+    );
+  }
+
   void addToCar() {
     String alert = " Se ha añadido al carrito";
     cartBlocIntance.add(
@@ -225,40 +243,107 @@ class _ProductCardState extends State<ProductCard> {
                   ),
                 ),
                 Container(
+                  color: const Color.fromARGB(255, 227, 227, 227),
                   width: double.infinity,
                   height: 40,
-                  child: TextButton(
-                    style: ButtonStyle(
-                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(0),
-                            topRight: Radius.circular(0),
-                            bottomLeft: Radius.circular(10),
-                            bottomRight: Radius.circular(10),
+                  child: BlocBuilder<CartBloc, CartState>(
+                    builder: (BuildContext context, CartState state) {
+                      List<ProductsInterface> allProducts =
+                          state.props[0] as List<ProductsInterface>;
+                      int indexCurrent = allProducts.indexOf((widget.product));
+                      if (indexCurrent != -1) {
+                        ProductsInterface currentElement = allProducts[indexCurrent];
+                        return Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            IconButton(
+                              padding: const EdgeInsets.all(5),
+                              constraints: const BoxConstraints(
+                                maxHeight: 50,
+                                minHeight: 50,
+                                maxWidth: 40,
+                                minWidth: 40,
+                              ),
+                              style: IconButton.styleFrom(
+                                backgroundColor: blackColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () =>
+                                  currentElement.amount == 1 ? removeProduct() : removeAmount(),
+                              icon: const Icon(
+                                Icons.remove,
+                                color: whiteColor,
+                                size: 15,
+                              ),
+                            ),
+                            Text(
+                              currentElement.amount.toString(),
+                              style: const TextStyle(
+                                fontSize: 12,
+                                fontFamily: "Inter-SemiBold",
+                              ),
+                            ),
+                            IconButton(
+                              padding: const EdgeInsets.all(5),
+                              constraints: const BoxConstraints(
+                                maxHeight: 50,
+                                minHeight: 50,
+                                maxWidth: 40,
+                                minWidth: 40,
+                              ),
+                              style: IconButton.styleFrom(
+                                backgroundColor: blackColor,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                ),
+                              ),
+                              onPressed: () => addAmount(),
+                              icon: const Icon(
+                                Icons.add,
+                                size: 15,
+                                color: whiteColor,
+                              ),
+                            ),
+                          ],
+                        );
+                      }
+                      return TextButton(
+                        style: ButtonStyle(
+                          shape:
+                              WidgetStateProperty.all<RoundedRectangleBorder>(
+                            const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(0),
+                                topRight: Radius.circular(0),
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                              side: BorderSide(color: blackColor),
+                            ),
                           ),
-                          side: BorderSide(color: blackColor),
+                          foregroundColor: WidgetStateProperty.all<Color>(
+                            yellowColor,
+                          ),
+                          backgroundColor: WidgetStateProperty.all<Color>(
+                            blackColor,
+                          ),
                         ),
-                      ),
-                      foregroundColor: WidgetStateProperty.all<Color>(
-                        yellowColor,
-                      ),
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                        blackColor,
-                      ),
-                    ),
-                    onPressed: () {
-                      addToCar();
+                        onPressed: () {
+                          addToCar();
+                        },
+                        child: const Text(
+                          'AÑADIR AL CARRITO',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: whiteColor,
+                            fontWeight: FontWeight.w300,
+                          ),
+                          textScaler: TextScaler.linear(0.78),
+                        ),
+                      );
                     },
-                    child: const Text(
-                      'AÑADIR AL CARRITO',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        color: whiteColor,
-                        fontWeight: FontWeight.w300,
-                      ),
-                      textScaler: TextScaler.linear(0.78),
-                    ),
                   ),
                 ),
               ],
