@@ -9,22 +9,24 @@ import 'package:shar/constants/contants.dart';
 class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
   final double parentHeight;
+  final Function focusToComment;
   const Comments({
     super.key,
     required this.comments,
     required this.parentHeight,
+    required this.focusToComment,
   });
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
-    // var screenHeight = mediaQuery.size.height - 190;
+    var commentZone = 70;
 
     return Column(
       children: [
         Container(
-          height: parentHeight - 100,
+          height: parentHeight - commentZone,
           child: SingleChildScrollView(
             child: Column(
               children: [
@@ -122,62 +124,66 @@ class Comments extends StatelessWidget {
           ),
         ),
         Container(
-          height: 100,
-          color: yellowColor,
+          decoration: const BoxDecoration(
+            color: blackColor,
+            border: Border(
+              top: BorderSide(
+                color: yellowColor,
+                width: 1,
+              ),
+            ),
+          ),
+          height: 70,
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 10,
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
+          child: Row(
             children: [
-              const Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Icon(
-                    Icons.star,
-                    size: 22,
+              const CircleAvatar(
+                backgroundColor: greyColor,
+                radius: 22,
+                child: Text(
+                  'AH',
+                  style: TextStyle(
+                    color: blackColor,
                   ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                  ),
-                  Icon(
-                    Icons.star,
-                    size: 22,
-                  )
-                ],
+                ),
               ),
-              Row(
-                children: [
-                  const CircleAvatar(
-                    backgroundImage: NetworkImage(
-                      "https://avatars.githubusercontent.com/u/61495501?v=4",
-                    ),
-                    radius: 22,
-                  ),
-                  Expanded(
-                    child: Container(
-                      width: screenWidth * 0.8,
-                      margin: const EdgeInsets.only(
-                        left: 10,
+              Expanded(
+                child: GestureDetector(
+                  child: Container(
+                    height: 40,
+                    decoration: const BoxDecoration(
+                      borderRadius: BorderRadius.all(
+                        Radius.circular(10),
                       ),
-                      child: TextFormField(),
+                      color: whiteColor,
+                    ),
+                    width: screenWidth * 0.70,
+                    margin: const EdgeInsets.only(
+                      left: 15,
+                    ),
+                    child: const Padding(
+                      padding: EdgeInsets.symmetric(
+                        vertical: 12,
+                        horizontal: 20,
+                      ),
+                      child: Text(
+                        "Ingresa tu comentario...",
+                        style: TextStyle(
+                          fontSize: 11,
+                          color: greyColor,
+                        ),
+                      ),
                     ),
                   ),
-                ],
+                  onTap: () => focusToComment(),
+                ),
               ),
             ],
           ),
-        )
+        ),
       ],
     );
     /*return */

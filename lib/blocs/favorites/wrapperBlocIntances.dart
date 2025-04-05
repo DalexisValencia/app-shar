@@ -1,4 +1,5 @@
 import 'package:flutter/widgets.dart';
+import 'package:shar/blocs/favorites/comments_bloc.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/blocs/favorites/products_bloc.dart';
@@ -28,6 +29,9 @@ class _WrapperblocintancesState extends State<Wrapperblocintances> {
         ),
         BlocProvider<ProductsBloc>(
           create: (context) => ProductsBloc(),
+        ),
+        BlocProvider<CommentsBloc>(
+          create: (context) => CommentsBloc(),
         ),
       ],
       child: widget.childComponent,

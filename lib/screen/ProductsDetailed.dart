@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/AvatarCircleWrapper.dart';
+import 'package:shar/components/CommentsWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
 import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
-import 'package:shar/screen/Comments.dart';
+
 import 'package:shar/blocs/favorites/wrapperBlocIntances.dart';
 import 'package:shar/constants/contants.dart';
 
@@ -229,75 +230,10 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                         context: context,
                                         isScrollControlled: true,
                                         builder: (BuildContext context) {
-                                          var mediaQuery =
-                                              MediaQuery.of(context);
-                                          var screenHeight = (mediaQuery
-                                                      .size.height -
-                                                  mediaQuery.viewPadding.top) -
-                                              170;
-                                          var _keyboardVisible =
-                                              MediaQuery.of(context)
-                                                      .viewInsets
-                                                      .bottom !=
-                                                  0;
+                                         
 
-                                          return Stack(
-                                            children: [
-                                              SizedBox(
-                                                height: screenHeight,
-                                                child: DraggableScrollableSheet(
-                                                  initialChildSize: 1,
-                                                  builder: (context,
-                                                          scrollController) =>
-                                                      Column(
-                                                    mainAxisAlignment:
-                                                        MainAxisAlignment
-                                                            .center,
-                                                    mainAxisSize:
-                                                        MainAxisSize.min,
-                                                    children: <Widget>[
-                                                      Container(
-                                                        margin: const EdgeInsets
-                                                            .symmetric(
-                                                          vertical: 10,
-                                                        ),
-                                                        child: const Text(
-                                                          'Comentarios',
-                                                          style: TextStyle(
-                                                              fontSize: 10),
-                                                        ),
-                                                      ),
-                                                      Container(
-                                                        color: Colors.red,
-                                                        height:
-                                                            screenHeight - 35,
-                                                        child: Comments(
-                                                          comments: widget
-                                                              .product.comments,
-                                                          parentHeight:
-                                                              screenHeight - 35,
-                                                        ),
-                                                      )
-
-                                                      /*ElevatedButton(
-                                              child: const Text(
-                                                  'Close BottomSheet'),
-                                              onPressed: () =>
-                                                  Navigator.pop(context),
-                                            ),*/
-                                                    ],
-                                                  ),
-                                                ),
-                                              ),
-                                              Positioned(
-                                                bottom: _keyboardVisible
-                                                    ? MediaQuery.of(context)
-                                                        .viewInsets
-                                                        .bottom // MediaQuery.of(context).size.height
-                                                    : 100,
-                                                child: const Text("Moved"),
-                                              ),
-                                            ],
+                                          return Commentswrapper(
+                                            product: widget.product,
                                           );
                                         },
                                       );
