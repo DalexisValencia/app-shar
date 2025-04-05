@@ -100,6 +100,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
 
     on<ProductsByFilter>(
       (event, emit) {
+      var searchTerm = event.term.toLowerCase();
        List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
 
@@ -108,7 +109,7 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
 
         List<ProductsInterface> productsResults = producsState
                 .where(
-                  (p) => p.name.contains(event.term) || p.longDescription.contains(event.term) || p.shortDescription.contains(event.term)
+                  (p) => (p.name).toLowerCase().contains(searchTerm) || (p.longDescription).toLowerCase().contains(searchTerm) || (p.shortDescription).toLowerCase().contains(searchTerm)
                 )
                 .toList();
         emit(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shar/screen/MapScreen.dart';
 import 'package:shar/screen/LoginPage.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:shar/screen/SearchFull.dart';
 
 class AppMainHeader extends StatelessWidget {
   const AppMainHeader({super.key});
@@ -113,7 +114,7 @@ class AppMainHeader extends StatelessWidget {
             onTap: () {
               Navigator.of(context).push(
                 MaterialPageRoute(
-                  builder: (context) => const LoginPage(),
+                  builder: (context) => const Searchfull(),
                 ),
               );
             },
