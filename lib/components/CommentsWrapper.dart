@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/Comments.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/comments_bloc.dart';
 
 class Commentswrapper extends StatefulWidget {
   final ProductsInterface product;
@@ -16,10 +19,31 @@ class Commentswrapper extends StatefulWidget {
 
 class _CommentswrapperState extends State<Commentswrapper> {
   late FocusNode searchFocusNode;
+  late CommentsBloc commentsBlocInstance;
+
   @override
   void initState() {
     super.initState();
     searchFocusNode = FocusNode();
+    commentsBlocInstance = BlocProvider.of<CommentsBloc>(context);
+    commentsBlocInstance.add(CommentsByProduct(
+      comments: widget.product.comments,
+    ));
+  }
+
+  addComment() {
+    commentsBlocInstance.add(
+      AddCommentToProduct(
+        comment: CommentsInterface(
+          id: "comment-1",
+          name: "Jhon Doe",
+          img: "https://avatars.githubusercontent.com/u/61495501?v=4",
+          date: "01/01/2025",
+          comment: "Short Comment",
+          rating: 4,
+        ),
+      ),
+    );
   }
 
   @override
@@ -38,7 +62,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
     var screenWidth = mediaQuery.size.width;
     var screenHeight =
         (mediaQuery.size.height - mediaQuery.viewPadding.top) - 170;
-    var _keyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
+    var eyboardVisible = MediaQuery.of(context).viewInsets.bottom != 0;
 
     return Stack(
       children: [
@@ -72,10 +96,9 @@ class _CommentswrapperState extends State<Commentswrapper> {
           ),
         ),
         Positioned(
-          bottom:
-              _keyboardVisible ? MediaQuery.of(context).viewInsets.bottom : 0,
+          bottom: eyboardVisible ? MediaQuery.of(context).viewInsets.bottom : 0,
           child: Opacity(
-            opacity: _keyboardVisible ? 1 : 0,
+            opacity: eyboardVisible ? 1 : 0,
             child: Container(
               width: screenWidth,
               padding: const EdgeInsets.symmetric(
@@ -120,7 +143,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
                         child: TextFormField(
                           onFieldSubmitted: (value) => {
                             print("This is the final value"),
-                            print(value)
+                            print(value),
                           },
                           focusNode: searchFocusNode,
                           enableSuggestions: true,

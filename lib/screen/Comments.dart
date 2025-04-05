@@ -5,6 +5,8 @@ import 'package:shar/components/barPercentageRating.dart';
 import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/comments_bloc.dart';
 
 class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
@@ -100,8 +102,11 @@ class Comments extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(
                           horizontal: 20,
                         ),
-                        child: Builder(
-                          builder: (BuildContext context) {
+                        child: BlocBuilder<CommentsBloc, CommentState>(
+                          builder: (BuildContext context, CommentState state) {
+                            List<CommentsInterface> comments =
+                                state.props[0] as List<CommentsInterface>;
+
                             List<Widget> allComments = [];
                             comments.asMap().entries.map((e) {
                               allComments.add(
