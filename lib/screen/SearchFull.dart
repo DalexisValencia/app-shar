@@ -105,8 +105,9 @@ class _SearchfullState extends State<Searchfull> {
                             ),
                           );
                         }).toList();
-                        productsFinal.add(const Fallbacks(
-                            description: "No hay más productos"));
+                        productsFinal.add(
+                          const Fallbacks(description: "No hay más productos"),
+                        );
                         return Wrap(
                           children: productsFinal,
                         );

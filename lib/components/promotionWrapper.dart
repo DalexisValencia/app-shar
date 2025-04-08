@@ -17,14 +17,19 @@ class PromotionWrapper extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-           const Wrapperheadline(mainTitle: 'Promociones' ),
-           SingleChildScrollView(
+          Wrapperheadline(
+            mainTitle: 'Promociones',
+            showMore: () => {},
+          ),
+          SingleChildScrollView(
             scrollDirection: Axis.horizontal,
-          child: 
-          Builder(
-            builder: (BuildContext context) {
-              List<Widget> categories = [];
-              var promotions = productsList.where((i) => i.promotion).toList().sublist(0,2);
+            child: Builder(
+              builder: (BuildContext context) {
+                List<Widget> categories = [];
+                var promotions = productsList
+                    .where((i) => i.promotion)
+                    .toList()
+                    .sublist(0, 2);
                 promotions.asMap().entries.map((e) {
                   categories.add(
                     ProductCard(
@@ -36,9 +41,9 @@ class PromotionWrapper extends StatelessWidget {
                 return Row(
                   children: categories,
                 );
-            },
-          ),
-          /*Row(
+              },
+            ),
+            /*Row(
             children: [
               ProductCard(isMiddlePage: false,),
               ProductCard(isMiddlePage: false,),
@@ -48,7 +53,7 @@ class PromotionWrapper extends StatelessWidget {
               ProductCard(isMiddlePage: false,),
             ],
           ),*/
-        ),
+          ),
         ],
       ),
     );

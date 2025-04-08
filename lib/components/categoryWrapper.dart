@@ -18,7 +18,7 @@ class CategoryWrapper extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Wrapperheadline(mainTitle: 'Categorias' ),
+          Wrapperheadline(mainTitle: 'Categorias', showMore: () => {}, ),
           Builder(
             builder: (BuildContext context) {
               List<Widget> categories = [];
