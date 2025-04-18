@@ -12,7 +12,7 @@ class ProductsInterface {
   final List<CategoryInterface> categories;
   final List<String> tagsMenu;
   final bool promotion;
-  double amount;
+  int amount;
 
   ProductsInterface({
     required this.id,

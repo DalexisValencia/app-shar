@@ -101,7 +101,7 @@ class CartBloc extends Bloc<CartEvent, CartState> {
 
     on<UpdateAmountProductFromCart>(
       (event, emit) {
-        double amountCurrent = event.product!.amount;
+        int amountCurrent = event.product!.amount;
         List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
         int indexFound = producsState.indexOf((event.product!));
