@@ -103,7 +103,6 @@ class _SearchfullState extends State<Searchfull> {
                           ),
                         ),
                         onChanged: (value) => {
-                          print(value),
                           productsBlocIntance.add(
                             ProductsByFilter(
                               term: value,

@@ -21,6 +21,10 @@ class ProductsByFilter extends ProductsEvent {
   ProductsByFilter({required this.term});
 }
 
+class ProductsByPromotion extends ProductsEvent {
+  ProductsByPromotion();
+}
+
 abstract class ProductsState {
   const ProductsState();
 
@@ -42,10 +46,12 @@ class ProductsInitial extends ProductsState {
   });
 
   @override
-  List<Object> get props => [products!, currentCategory!, results!, updateProducts!];
+  List<Object> get props =>
+      [products!, currentCategory!, results!, updateProducts!];
 
   @override
-  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results, updateProducts: $updateProducts}';
+  String toString() =>
+      'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results, updateProducts: $updateProducts}';
 }
 
 class ProductsFetched extends ProductsState {
@@ -62,10 +68,12 @@ class ProductsFetched extends ProductsState {
   });
 
   @override
-  List<Object> get props => [products!, currentCategory!, results!, updateProducts!];
+  List<Object> get props =>
+      [products!, currentCategory!, results!, updateProducts!];
 
   @override
-  String toString() => 'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
+  String toString() =>
+      'ProductsFetched {props: products: $products, currentCategory: $currentCategory, results: $results}';
 }
 
 class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
@@ -83,10 +91,10 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
         List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
         List<ProductsInterface> productsResults = producsState
-                .where(
-                  (p) => p.categories.contains(event.category),
-                )
-                .toList();
+            .where(
+              (p) => p.categories.contains(event.category),
+            )
+            .toList();
         emit(
           ProductsFetched(
             products: producsState,
@@ -100,24 +108,44 @@ class ProductsBloc extends Bloc<ProductsEvent, ProductsState> {
 
     on<ProductsByFilter>(
       (event, emit) {
-      var searchTerm = event.term.toLowerCase();
-       List<ProductsInterface> producsState =
+        var searchTerm = event.term.toLowerCase();
+        List<ProductsInterface> producsState =
             state.props[0] as List<ProductsInterface>;
 
-        CategoryInterface currentCategory =
-                state.props[1] as CategoryInterface;
+        CategoryInterface currentCategory = state.props[1] as CategoryInterface;
 
         List<ProductsInterface> productsResults = producsState
-                .where(
-                  (p) => (p.name).toLowerCase().contains(searchTerm) || (p.longDescription).toLowerCase().contains(searchTerm) || (p.shortDescription).toLowerCase().contains(searchTerm)
-                )
-                .toList();
+            .where((p) =>
+                (p.name).toLowerCase().contains(searchTerm) ||
+                (p.longDescription).toLowerCase().contains(searchTerm) ||
+                (p.shortDescription).toLowerCase().contains(searchTerm))
+            .toList();
         emit(
           ProductsFetched(
             products: producsState,
             currentCategory: currentCategory,
             results: productsResults,
             updateProducts: false,
+          ),
+        );
+      },
+    );
+
+    on<ProductsByPromotion>(
+      (event, emit) {
+        List<ProductsInterface> producsState =
+            state.props[0] as List<ProductsInterface>;
+        CategoryInterface currentCategory = state.props[1] as CategoryInterface;
+
+        List<ProductsInterface> productsResults =
+            producsState.where((p) => p.promotion == true).toList();
+        emit(
+          ProductsFetched(
+            products: producsState,
+            currentCategory: currentCategory,
+            results: productsResults,
+            updateProducts: false,
+            
           ),
         );
       },

@@ -2,9 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:shar/components/ProductCard.dart';
 import 'package:shar/components/wrapperHeadline.dart';
 import 'package:shar/Lists/ProductsList.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/products_bloc.dart';
+import 'package:shar/screen/SearchFull.dart';
 
-class PromotionWrapper extends StatelessWidget {
+class PromotionWrapper extends StatefulWidget {
   const PromotionWrapper({super.key});
+
+  @override
+  State<PromotionWrapper> createState() => _PromotionWrapperState();
+}
+
+class _PromotionWrapperState extends State<PromotionWrapper> {
+  late ProductsBloc productsBlocIntance;
+
+  @override
+  void initState() {
+    super.initState();
+    productsBlocIntance = BlocProvider.of<ProductsBloc>(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +35,16 @@ class PromotionWrapper extends StatelessWidget {
         children: [
           Wrapperheadline(
             mainTitle: 'Promociones',
-            showMore: () => {},
+            showMore: () => {
+              productsBlocIntance.add(
+                ProductsByPromotion(),
+              ),
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const Searchfull(),
+                ),
+              ),
+            },
           ),
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
