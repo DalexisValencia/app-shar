@@ -27,52 +27,93 @@ class _SearchfullState extends State<Searchfull> {
 
   @override
   Widget build(BuildContext context) {
+    var mediaQuery = MediaQuery.of(context);
+    var screenWidth = mediaQuery.size.width;
+
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
             children: [
-              TextFormField(
-                controller: searchingText,
-                enableSuggestions: false,
-                autocorrect: false,
-                autofocus: false,
-                style: const TextStyle(
-                  fontSize: 12,
-                  color: blackColor,
+              Container(
+                color: blackColor,
+                width: screenWidth,
+                padding: const EdgeInsets.symmetric(
+                  vertical: 5,
+                  horizontal: 20,
                 ),
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: const Color.fromARGB(255, 238, 238, 238),
-                  hintText: '¿Qué estás buscando?',
-                  contentPadding: const EdgeInsets.symmetric(
-                    vertical: 20,
-                    horizontal: 20,
-                  ),
-                  errorStyle: const TextStyle(
-                    fontSize: 9,
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: greyColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    IconButton(
+                      iconSize: 20,
+                      style: ButtonStyle(
+                        foregroundColor:
+                            WidgetStateProperty.all<Color>(blackColor),
+                        backgroundColor: WidgetStateProperty.all<Color>(
+                          whiteColor,
+                        ),
+                      ),
+                      icon: const Icon(Icons.arrow_back),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
                     ),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
-                  enabledBorder: UnderlineInputBorder(
-                    borderSide: const BorderSide(
-                      color: greyLightColor,
-                    ),
-                    borderRadius: BorderRadius.circular(5),
-                  ),
+                    Container(
+                      width: screenWidth - 100,
+                      padding: const EdgeInsets.symmetric(
+                        vertical: 10,
+                      ),
+                      child: TextFormField(
+                        controller: searchingText,
+                        enableSuggestions: false,
+                        autocorrect: false,
+                        autofocus: false,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: blackColor,
+                        ),
+                        decoration: InputDecoration(
+                          prefixIcon: const Padding(
+                            padding: EdgeInsets.symmetric(
+                                vertical: 5, horizontal: 15),
+                            child: Icon(Icons.search)
+                          ),
+                          filled: true,
+                          fillColor: const Color.fromARGB(255, 238, 238, 238),
+                          hintText: '¿Qué estás buscando?',
+                          contentPadding: const EdgeInsets.symmetric(
+                            vertical: 20,
+                            horizontal: 20,
+                          ),
+                          errorStyle: const TextStyle(
+                            fontSize: 9,
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: greyColor,
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          enabledBorder: UnderlineInputBorder(
+                            borderSide: const BorderSide(
+                              color: greyLightColor,
+                            ),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                        ),
+                        onChanged: (value) => {
+                          print(value),
+                          productsBlocIntance.add(
+                            ProductsByFilter(
+                              term: value,
+                            ),
+                          ),
+                        },
+                      ),
+                    )
+                  ],
                 ),
-                onChanged: (value) => {
-                  print(value),
-                  productsBlocIntance.add(
-                    ProductsByFilter(
-                      term: value,
-                    ),
-                  ),
-                },
               ),
               const Fadetransitionwrapper(
                 durationTime: 800,
@@ -80,7 +121,7 @@ class _SearchfullState extends State<Searchfull> {
               ),
               Container(
                 margin: const EdgeInsets.symmetric(
-                  vertical: 5,
+                  vertical: 0,
                   horizontal: 20,
                 ),
                 child: BlocBuilder<ProductsBloc, ProductsState>(

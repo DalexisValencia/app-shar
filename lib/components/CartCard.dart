@@ -185,7 +185,7 @@ class _CartCardState extends State<CartCard> {
                         right: 10,
                       ),
                       padding: const EdgeInsets.symmetric(
-                        vertical: 10,
+                        vertical: 4,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

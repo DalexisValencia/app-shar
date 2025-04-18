@@ -14,14 +14,14 @@ class CategoryItem extends StatelessWidget {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
 
-    return InkWell(
-      onTap: () {},
-      child: Card.outlined(
-        elevation: 1,
-        child: Container(
-          color: whiteColor,
-          width: screenWidth * 0.275,
-          height: screenWidth * 0.213,
+    return Card.outlined(
+      elevation: 1,
+      child: Container(
+        color: whiteColor,
+        width: screenWidth * 0.275,
+        height: screenWidth * 0.213,
+        child: InkWell(
+          onTap: () {},
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
