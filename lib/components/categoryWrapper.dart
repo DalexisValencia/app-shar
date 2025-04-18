@@ -13,11 +13,10 @@ class CategoryWrapper extends StatelessWidget {
     required this.full,
   });
 
-  
 
   @override
   Widget build(BuildContext context) {
-    double cardSize = full ? 0.43 : 0.275;
+    double cardSize = full ? 0.425 : 0.275;
     return Container(
       margin: const EdgeInsets.symmetric(
         vertical: 20,

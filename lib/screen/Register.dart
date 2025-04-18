@@ -324,7 +324,7 @@ class _RegisterState extends State<Register> {
                     onPressed: () {
                       var registerUser = UserInterface(
                         id: 0,
-                        fullName: "example",
+                        name: "example",
                         email: "email@email.com",
                         password: "123",
                         logged: true,
@@ -332,8 +332,14 @@ class _RegisterState extends State<Register> {
 
                       print(registerUser);
 
-                      userBlocInstance.add(
+                      /*userBlocInstance.add(
                         AddUserToDB(
+                          user: registerUser,
+                        ),
+                      );*/
+
+                      userBlocInstance.add(
+                        FindUserOnLogin(
                           user: registerUser,
                         ),
                       );

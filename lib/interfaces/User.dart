@@ -1,13 +1,13 @@
 class UserInterface {
   final int id;
-  final String fullName;
+  final String name;
   final String email;
   final String password;
   final bool logged;
 
   UserInterface({
     required this.id,
-    required this.fullName,
+    required this.name,
     required this.email,
     required this.password,
     required this.logged,
@@ -16,7 +16,7 @@ class UserInterface {
   Map<String, Object?> toMap() {
     return {
       'id': id,
-      'name': fullName,
+      'name': name,
       'email': email,
       'password': password,
       'logged': logged,
@@ -25,6 +25,6 @@ class UserInterface {
 
   @override
   String toString() {
-    return 'User {id: $id, name: $fullName, email: $email, logged: $logged}';
+    return 'User {id: $id, name: $name, email: $email, logged: $logged}';
   }
 }

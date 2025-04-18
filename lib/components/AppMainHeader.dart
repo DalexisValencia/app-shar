@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
+import 'package:shar/interfaces/User.dart';
 import 'package:shar/screen/MapScreen.dart';
 import 'package:shar/screen/LoginPage.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/SearchFull.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppMainHeader extends StatelessWidget {
   const AppMainHeader({super.key});
@@ -13,9 +16,7 @@ class AppMainHeader extends StatelessWidget {
     var statusBarHeight = mediaQuery.viewPadding.top;
 
     return Container(
-      margin: EdgeInsets.only(
-        top: statusBarHeight
-      ),
+      margin: EdgeInsets.only(top: statusBarHeight),
       padding: EdgeInsets.symmetric(
         horizontal: 20,
         vertical: statusBarHeight > 0 ? 5 : 15,
@@ -73,21 +74,43 @@ class AppMainHeader extends StatelessWidget {
                 children: [
                   Container(
                     margin: const EdgeInsets.only(right: 5),
-                    child: IconButton(
-                      iconSize: 20,
-                      style: ButtonStyle(
-                        foregroundColor:
-                            WidgetStateProperty.all<Color>(whiteColor),
-                        backgroundColor: WidgetStateProperty.all<Color>(
-                          yellowColor,
-                        ),
-                      ),
-                      icon: const Icon(Icons.person),
-                      onPressed: () {
-                        Navigator.of(context).push(
-                          MaterialPageRoute(
-                            builder: (context) => const LoginPage(),
+                    child: BlocBuilder<UserBloc, UserState>(
+                      builder: (BuildContext context, UserState state) {
+                        try {
+                          UserInterface user = state.props[1] as UserInterface;
+
+                          if (user.logged) {
+                            return CircleAvatar(
+                              backgroundColor: yellowColor,
+                              child: Text(
+                                user.name.substring(0, 1).toUpperCase(),
+                                style: const TextStyle(
+                                  color: blackColor,
+                                ),
+                              ),
+                            );
+                          }
+                        } catch (e) {
+                          print("Ha ocurrido un error en el login");
+                        }
+
+                        return IconButton(
+                          iconSize: 20,
+                          style: ButtonStyle(
+                            foregroundColor:
+                                WidgetStateProperty.all<Color>(whiteColor),
+                            backgroundColor: WidgetStateProperty.all<Color>(
+                              yellowColor,
+                            ),
                           ),
+                          icon: const Icon(Icons.person),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) => const LoginPage(),
+                              ),
+                            );
+                          },
                         );
                       },
                     ),

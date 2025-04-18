@@ -38,7 +38,7 @@ abstract class UserState {
 }
 
 class UserInitial extends UserState {
-  final List<UserInterface>? user;
+  final UserInterface? user;
 
   UserInitial({
     this.user,
@@ -48,7 +48,7 @@ class UserInitial extends UserState {
   List<Object> get props => [user!];
 
   @override
-  String toString() => 'UserInitial {props: products: $user';
+  String toString() => 'UserInitial {props: User: $user';
 }
 
 class UserFetched extends UserState {
@@ -65,13 +65,21 @@ class UserFetched extends UserState {
 
   @override
   String toString() =>
-      'UsersFetched {props: databaseRef: $database, users: $user }';
+      'UsersFetched {props: databaseRef: $database, user: $user }';
 }
 
 class UserBloc extends Bloc<UserEvent, UserState> {
   UserBloc()
       : super(
-          UserInitial(user: []),
+          UserInitial(
+            user: UserInterface(
+              id: 0,
+              name: "",
+              email: "",
+              password: "",
+              logged: false,
+            ),
+          ),
         ) {
     on<OpenDB>(
       (event, emit) async {
@@ -85,16 +93,42 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           },
           version: 1,
         );
+        final db = await database;
+        final List<Map<String, Object?>> userMaps = await db.query('user');
+        var initialuser = UserInterface(
+          id: 0,
+          name: "",
+          email: "",
+          password: "",
+          logged: false,
+        );
+        print("userMaps");
+        print(userMaps);
+        print("userMaps");
+        if (userMaps.isNotEmpty) {
+         for (final {
+                'id': id as int,
+                'name': name as String,
+                'email': email as String,
+                'password': password as String,
+                'logged': logged as int,
+              } in userMaps) {
+            if (logged == 1) {
+              initialuser = UserInterface(
+                id: id,
+                email: email,
+                name: name,
+                password: password,
+                logged: logged == 1 ? true : false,
+              );
+            }
+          }
+        }
+        print(initialuser);
         emit(
           UserFetched(
             database: database,
-            user: UserInterface(
-              id: 0,
-              fullName: "",
-              email: "",
-              password: "",
-              logged: false,
-            ),
+            user: initialuser,
           ),
         );
       },
@@ -111,15 +145,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           conflictAlgorithm: ConflictAlgorithm.replace,
         );
 
-        final List<Map<String, Object?>> userMaps = await db.query('user');
-
-
-        print("_______");
-        print(event.user);
-        print("_______");
-        print(userMaps);
-        print("_______");
-        
         emit(
           UserFetched(
             database: database,
@@ -133,15 +158,18 @@ class UserBloc extends Bloc<UserEvent, UserState> {
       (event, emit) async {
         Future<Database> database = state.props[0] as Future<Database>;
         final db = await database;
-        final List<Map<String, Object?>> userMaps = await db.query('user');
-        
-       var userResult =
-            userMaps.where((user) => user == event.user).toList() as UserInterface;
+
+        await db.update(
+          'user',
+          event.user!.toMap(),
+          where: 'email = ?',
+          whereArgs: [event.user!.email],
+        );
 
         emit(
           UserFetched(
             database: database,
-            user: userResult,
+            user: event.user,
           ),
         );
       },
