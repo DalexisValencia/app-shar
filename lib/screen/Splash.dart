@@ -1,9 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
-class Splash extends StatelessWidget {
+class Splash extends StatefulWidget {
   const Splash({super.key});
+
+  @override
+  State<Splash> createState() => _SplashState();
+}
+
+class _SplashState extends State<Splash> {
+  late UserBloc userBlocInstance;
+  @override
+  void initState() {
+    super.initState();
+    userBlocInstance = BlocProvider.of<UserBloc>(context);
+    userBlocInstance.add(
+      OpenDB(),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,19 +57,18 @@ class Splash extends StatelessWidget {
               ),
             ),
             Positioned(
-              bottom: -(screenHeight * 0.05),
-              right: -20,
-              child: SizedBox(
-                width: screenWidth * 0.55,
-                child: const Image(
-                  image: AssetImage('images/Logo-bg.png'),
-                  fit: BoxFit.cover,
-                ),
-              )
-            ),
+                bottom: -(screenHeight * 0.05),
+                right: -20,
+                child: SizedBox(
+                  width: screenWidth * 0.55,
+                  child: const Image(
+                    image: AssetImage('images/Logo-bg.png'),
+                    fit: BoxFit.cover,
+                  ),
+                )),
           ],
         ),
       ),
-    );;
+    );
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
 import 'package:shar/blocs/favorites/comments_bloc.dart';
@@ -48,6 +49,9 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider<CommentsBloc>(
           create: (context) => CommentsBloc(),
+        ),
+        BlocProvider<UserBloc>(
+          create: (context) => UserBloc(),
         ),
       ],
       child: MaterialApp(

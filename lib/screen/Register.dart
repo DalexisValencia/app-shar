@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:shar/interfaces/User.dart';
 import 'package:shar/screen/LoginPage.dart';
 import 'package:shar/screen/termsAndConditions.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class Register extends StatefulWidget {
   const Register({super.key});
@@ -16,10 +19,12 @@ class _RegisterState extends State<Register> {
   final repeatEmail = TextEditingController();
   final password = TextEditingController();
   final repearPassword = TextEditingController();
+  late UserBloc userBlocInstance;
 
   @override
   void initState() {
     super.initState();
+    userBlocInstance = BlocProvider.of<UserBloc>(context);
   }
 
   @override
@@ -317,6 +322,21 @@ class _RegisterState extends State<Register> {
                           WidgetStateProperty.all<Color>(blackColor),
                     ),
                     onPressed: () {
+                      var registerUser = UserInterface(
+                        id: 0,
+                        fullName: "example",
+                        email: "email@email.com",
+                        password: "123",
+                        logged: true,
+                      );
+
+                      print(registerUser);
+
+                      userBlocInstance.add(
+                        AddUserToDB(
+                          user: registerUser,
+                        ),
+                      );
                       if (_formKey.currentState!.validate()) {
                         print(email.text);
                         print(password.text);
