@@ -10,7 +10,7 @@ class Sliders extends StatelessWidget {
   Future<void> _launchUrl(url) async {
     final Uri _url = Uri.parse(url);
     if (!await launchUrl(_url)) {
-      String alert = 'Could not launch';
+      // String alert = 'Could not launch';
       // snackBarAddCart(context, widget.product.name, alert);
     }
   }

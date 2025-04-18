@@ -28,7 +28,7 @@ class Wrapperheadline extends StatelessWidget {
           ),
           InkWell(
             borderRadius: BorderRadius.circular(50),
-            onTap: () => showMore,
+            onTap: () => {showMore()},
             child: Container(
               padding: const EdgeInsets.symmetric(
                 vertical: 5,

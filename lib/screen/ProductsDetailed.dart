@@ -94,12 +94,9 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               topLeft: Radius.circular(5),
                               topRight: Radius.circular(5),
                             ),
-                            child: Hero(
-                              tag: 'imageProductHero',
-                              child: Image(
-                                image: AssetImage(widget.product.image),
-                                fit: BoxFit.fitWidth,
-                              ),
+                            child: Image(
+                              image: AssetImage(widget.product.image),
+                              fit: BoxFit.fitWidth,
                             ),
                           ),
                           Positioned(

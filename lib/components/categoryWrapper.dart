@@ -3,12 +3,21 @@ import 'package:shar/components/categoryItem.dart';
 import 'package:shar/components/wrapperHeadline.dart';
 import 'package:shar/Lists/CategoriesList.dart';
 import 'package:shar/interfaces/CategoryInterface.dart';
+import 'package:shar/screen/CategoriesFull.dart';
+import 'package:shar/screen/SearchFull.dart';
 
 class CategoryWrapper extends StatelessWidget {
-  const CategoryWrapper({super.key});
+  final bool full;
+  const CategoryWrapper({
+    super.key,
+    required this.full,
+  });
+
+  
 
   @override
   Widget build(BuildContext context) {
+    double cardSize = full ? 0.43 : 0.275;
     return Container(
       margin: const EdgeInsets.symmetric(
         vertical: 20,
@@ -18,29 +27,40 @@ class CategoryWrapper extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Wrapperheadline(mainTitle: 'Categorias', showMore: () => {}, ),
+          !full
+              ? Wrapperheadline(
+                  mainTitle: 'Categorias',
+                  showMore: () => {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => const Categoriesfull(),
+                      ),
+                    ),
+                  },
+                )
+              : const SizedBox(
+                  width: 0,
+                ),
           Builder(
             builder: (BuildContext context) {
               List<Widget> categories = [];
-                categoryList.sublist(0,9).asMap().entries.map((e) {
-                  categories.add(
-                    CategoryItem(
-                      category: e.value,
-                    ),
-                  );
-                }).toList();
-                return Wrap(
-                  alignment: WrapAlignment.spaceBetween,
-                  children: categories,
+              int totalInView = full ? categoryList.length : 9;
+              categoryList.sublist(0, totalInView).asMap().entries.map((e) {
+                categories.add(
+                  CategoryItem(
+                    category: e.value,
+                    cardSize: cardSize,
+                  ),
                 );
+              }).toList();
+              return Wrap(
+                alignment: WrapAlignment.spaceBetween,
+                children: categories,
+              );
             },
           ),
         ],
       ),
     );
   }
-}
-
-extension on List<CategoryInterface> {
-  slice(int i, int j) {}
 }

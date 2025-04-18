@@ -131,12 +131,9 @@ class _ProductCardState extends State<ProductCard> {
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
-                        child: Hero(
-                          tag: 'imageProductHero',
-                          child: Image(
-                            image: AssetImage(widget.product.image),
-                            fit: BoxFit.contain,
-                          ),
+                        child: Image(
+                          image: AssetImage(widget.product.image),
+                          fit: BoxFit.contain,
                         ),
                       ),
                       Positioned(
@@ -252,7 +249,8 @@ class _ProductCardState extends State<ProductCard> {
                           state.props[0] as List<ProductsInterface>;
                       int indexCurrent = allProducts.indexOf((widget.product));
                       if (indexCurrent != -1) {
-                        ProductsInterface currentElement = allProducts[indexCurrent];
+                        ProductsInterface currentElement =
+                            allProducts[indexCurrent];
                         return Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -270,8 +268,9 @@ class _ProductCardState extends State<ProductCard> {
                                   borderRadius: BorderRadius.circular(5),
                                 ),
                               ),
-                              onPressed: () =>
-                                  currentElement.amount == 1 ? removeProduct() : removeAmount(),
+                              onPressed: () => currentElement.amount == 1
+                                  ? removeProduct()
+                                  : removeAmount(),
                               icon: const Icon(
                                 Icons.remove,
                                 color: whiteColor,

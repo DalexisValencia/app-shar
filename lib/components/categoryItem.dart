@@ -7,9 +7,11 @@ import 'package:shar/screen/SearchFull.dart';
 
 class CategoryItem extends StatefulWidget {
   final CategoryInterface category;
+  final double cardSize;
   const CategoryItem({
     super.key,
     required this.category,
+    required this.cardSize,
   });
 
   @override
@@ -34,8 +36,8 @@ class _CategoryItemState extends State<CategoryItem> {
       elevation: 1,
       child: Container(
         color: whiteColor,
-        width: screenWidth * 0.275,
-        height: screenWidth * 0.213,
+        width: screenWidth * widget.cardSize,
+        height: screenWidth * widget.cardSize,
         child: InkWell(
           onTap: () {
             productsBlocIntance.add(
@@ -54,7 +56,7 @@ class _CategoryItemState extends State<CategoryItem> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: screenWidth * 0.10,
+                width: screenWidth * (widget.cardSize / 2.5),
                 child: Image(
                   image: AssetImage(widget.category.image),
                   fit: BoxFit.cover,

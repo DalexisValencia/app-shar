@@ -42,7 +42,7 @@ class _HomeState extends State<Home> with TickerProviderStateMixin {
           ),
           Fadetransitionwrapper(
             durationTime: 1000,
-            widgetChild: CategoryWrapper(),
+            widgetChild: CategoryWrapper(full: false),
           ),
           Fadetransitionwrapper(
             durationTime: 1000,

@@ -96,9 +96,7 @@ class _CartCardState extends State<CartCard> {
               children: [
                 Stack(
                   children: [
-                    Hero(
-                      tag: 'imageProductHero',
-                      child: Container(
+                    Container(
                         width: screenWidth * 0.3,
                         height: heightCard,
                         decoration: BoxDecoration(
@@ -112,7 +110,6 @@ class _CartCardState extends State<CartCard> {
                           ),
                         ),
                       ),
-                    ),
                     Positioned(
                       top: 0,
                       right: 0,
