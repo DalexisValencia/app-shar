@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:shar/Lists/SlidersList.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Sliders extends StatelessWidget {
   const Sliders({super.key});
+
+  Future<void> _launchUrl(url) async {
+    final Uri _url = Uri.parse(url);
+    if (!await launchUrl(_url)) {
+      String alert = 'Could not launch';
+      // snackBarAddCart(context, widget.product.name, alert);
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +35,7 @@ class Sliders extends StatelessWidget {
               return GestureDetector(
                 onTap: () => {
                   if (e.external) {
-                     /*Uri uri = Uri.parse("https://flutter.io");
-                    if (await canLaunchUrl(uri)){
-                        await launchUrl(uri);
-                    } else {
-                        // can't launch url
-                    }*/
+                    _launchUrl(e.action)
                   }
                 } ,
                 child: Card(
