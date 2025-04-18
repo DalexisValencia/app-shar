@@ -388,7 +388,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                   );
                 },
               ),
-            )
+            ),
           ],
         ),
       ),

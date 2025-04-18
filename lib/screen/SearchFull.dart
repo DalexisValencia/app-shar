@@ -29,135 +29,146 @@ class _SearchfullState extends State<Searchfull> {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
+    var screenHeight = mediaQuery.size.height;
+    var statusBarHeight = mediaQuery.viewPadding.top;
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Container(
-                color: blackColor,
-                width: screenWidth,
-                padding: const EdgeInsets.symmetric(
-                  vertical: 5,
-                  horizontal: 20,
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    IconButton(
-                      iconSize: 20,
-                      style: ButtonStyle(
-                        foregroundColor:
-                            WidgetStateProperty.all<Color>(blackColor),
-                        backgroundColor: WidgetStateProperty.all<Color>(
-                          whiteColor,
-                        ),
+        
+        child: Column(
+          children: [
+            Container(
+              color: blackColor,
+              width: screenWidth,
+              height: 50,
+              padding: const EdgeInsets.symmetric(
+                horizontal: 20,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  IconButton(
+                    iconSize: 20,
+                    style: ButtonStyle(
+                      foregroundColor:
+                          WidgetStateProperty.all<Color>(blackColor),
+                      backgroundColor: WidgetStateProperty.all<Color>(
+                        whiteColor,
                       ),
-                      icon: const Icon(Icons.arrow_back),
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
                     ),
-                    Container(
-                      width: screenWidth - 100,
-                      padding: const EdgeInsets.symmetric(
-                        vertical: 10,
+                    icon: const Icon(Icons.arrow_back),
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                  ),
+                  Container(
+                    width: screenWidth - 100,
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 5,
+                    ),
+                    child: TextFormField(
+                      controller: searchingText,
+                      enableSuggestions: false,
+                      autocorrect: false,
+                      autofocus: false,
+                      style: const TextStyle(
+                        fontSize: 12,
+                        color: blackColor,
                       ),
-                      child: TextFormField(
-                        controller: searchingText,
-                        enableSuggestions: false,
-                        autocorrect: false,
-                        autofocus: false,
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: blackColor,
-                        ),
-                        decoration: InputDecoration(
-                          prefixIcon: const Padding(
+                      decoration: InputDecoration(
+                        prefixIcon: const Padding(
                             padding: EdgeInsets.symmetric(
                                 vertical: 5, horizontal: 15),
-                            child: Icon(Icons.search)
-                          ),
-                          filled: true,
-                          fillColor: const Color.fromARGB(255, 238, 238, 238),
-                          hintText: '¿Qué estás buscando?',
-                          contentPadding: const EdgeInsets.symmetric(
+                            child: Icon(Icons.search)),
+                        filled: true,
+                        fillColor: const Color.fromARGB(255, 238, 238, 238),
+                        hintText: '¿Qué estás buscando?',
+                        /*contentPadding: const EdgeInsets.symmetric(
                             vertical: 20,
                             horizontal: 20,
+                          ),*/
+                        errorStyle: const TextStyle(
+                          fontSize: 9,
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyColor,
                           ),
-                          errorStyle: const TextStyle(
-                            fontSize: 9,
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                        enabledBorder: UnderlineInputBorder(
+                          borderSide: const BorderSide(
+                            color: greyLightColor,
                           ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: greyColor,
-                            ),
-                            borderRadius: BorderRadius.circular(5),
-                          ),
-                          enabledBorder: UnderlineInputBorder(
-                            borderSide: const BorderSide(
-                              color: greyLightColor,
-                            ),
-                            borderRadius: BorderRadius.circular(5),
+                          borderRadius: BorderRadius.circular(5),
+                        ),
+                      ),
+                      onChanged: (value) => {
+                        productsBlocIntance.add(
+                          ProductsByFilter(
+                            term: value,
                           ),
                         ),
-                        onChanged: (value) => {
-                          productsBlocIntance.add(
-                            ProductsByFilter(
-                              term: value,
-                            ),
-                          ),
+                      },
+                    ),
+                  )
+                ],
+              ),
+            ),
+            Container(
+              height: screenHeight - (statusBarHeight + 50),
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const Fadetransitionwrapper(
+                      durationTime: 800,
+                      widgetChild: Categorychipwrapper(),
+                    ),
+                    Container(
+                      margin: const EdgeInsets.symmetric(
+                        vertical: 0,
+                        horizontal: 20,
+                      ),
+                      child: BlocBuilder<ProductsBloc, ProductsState>(
+                        builder: (BuildContext context, ProductsState state) {
+                          List<ProductsInterface> resultsFilter =
+                              state.props[2] as List<ProductsInterface>;
+                          if (resultsFilter.isEmpty) {
+                            return const Fallbacks(
+                              description:
+                                  "Lo sentimos, no hay resultados para la búsqueda que ha realizado.",
+                            );
+                          }
+
+                          return Builder(
+                            builder: (BuildContext context) {
+                              List<Widget> productsFinal = [];
+                              resultsFilter.asMap().entries.map((e) {
+                                productsFinal.add(
+                                  ProductCard(
+                                    isMiddlePage: true,
+                                    product: e.value,
+                                  ),
+                                );
+                              }).toList();
+                              productsFinal.add(
+                                const Fallbacks(
+                                    description: "No hay más productos"),
+                              );
+                              return Wrap(
+                                children: productsFinal,
+                              );
+                            },
+                          );
                         },
                       ),
                     )
                   ],
                 ),
               ),
-              const Fadetransitionwrapper(
-                durationTime: 800,
-                widgetChild: Categorychipwrapper(),
-              ),
-              Container(
-                margin: const EdgeInsets.symmetric(
-                  vertical: 0,
-                  horizontal: 20,
-                ),
-                child: BlocBuilder<ProductsBloc, ProductsState>(
-                  builder: (BuildContext context, ProductsState state) {
-                    List<ProductsInterface> resultsFilter =
-                        state.props[2] as List<ProductsInterface>;
-                    if (resultsFilter.isEmpty) {
-                      return const Fallbacks(
-                        description:
-                            "Lo sentimos, no hay resultados para la búsqueda que ha realizado.",
-                      );
-                    }
-
-                    return Builder(
-                      builder: (BuildContext context) {
-                        List<Widget> productsFinal = [];
-                        resultsFilter.asMap().entries.map((e) {
-                          productsFinal.add(
-                            ProductCard(
-                              isMiddlePage: true,
-                              product: e.value,
-                            ),
-                          );
-                        }).toList();
-                        productsFinal.add(
-                          const Fallbacks(description: "No hay más productos"),
-                        );
-                        return Wrap(
-                          children: productsFinal,
-                        );
-                      },
-                    );
-                  },
-                ),
-              )
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );
