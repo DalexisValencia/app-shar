@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/components/ratingStarts.dart';
+import 'package:shar/constants/contants.dart';
 
 class Commentcard extends StatelessWidget {
   final CommentsInterface comments;
@@ -26,10 +27,14 @@ class Commentcard extends StatelessWidget {
                   right: 10,
                 ),
                 child: CircleAvatar(
-                  backgroundImage: NetworkImage(
-                    comments.img,
-                  ),
+                  backgroundColor: yellowColor,
                   radius: 25,
+                  child: Text(
+                    comments.name.substring(0, 1).toUpperCase(),
+                    style: const TextStyle(
+                      color: blackColor,
+                    ),
+                  ),
                 ),
               ),
               Flexible(

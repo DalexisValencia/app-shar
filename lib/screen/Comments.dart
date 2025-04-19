@@ -7,6 +7,8 @@ import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/comments_bloc.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
+import 'package:shar/interfaces/User.dart';
 
 class Comments extends StatelessWidget {
   final List<CommentsInterface> comments;
@@ -147,14 +149,28 @@ class Comments extends StatelessWidget {
           ),
           child: Row(
             children: [
-              const CircleAvatar(
+              CircleAvatar(
                 backgroundColor: greyColor,
                 radius: 22,
-                child: Text(
-                  'AH',
-                  style: TextStyle(
-                    color: blackColor,
-                  ),
+                child: BlocBuilder<UserBloc, UserState>(
+                  builder: (BuildContext context, UserState state) {
+                    String userName = "IN";
+                    try {
+                      UserInterface user = state.props[1] as UserInterface;
+                      if (user.logged) {
+                        userName = user.name.substring(0, 1).toUpperCase();
+                      }
+                    } catch (e) {
+                      print("Un error ha ocurrido con el login");
+                    }
+
+                    return Text(
+                      userName,
+                      style: const TextStyle(
+                        color: blackColor,
+                      ),
+                    );
+                  },
                 ),
               ),
               Expanded(
@@ -177,7 +193,9 @@ class Comments extends StatelessWidget {
                         horizontal: 20,
                       ),
                       child: Text(
-                        labelComment.isEmpty ? "Ingresa tu comentario..." : labelComment,
+                        labelComment.isEmpty
+                            ? "Ingresa tu comentario..."
+                            : labelComment,
                         style: const TextStyle(
                           fontSize: 11,
                           color: greyColor,
