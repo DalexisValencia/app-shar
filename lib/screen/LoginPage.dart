@@ -214,7 +214,6 @@ class _LoginPageState extends State<LoginPage> {
                           userBlocInstance.add(
                             FindUserOnLogin(
                               user: registerUser,
-                              context: context,
                             ),
                           );
                         }

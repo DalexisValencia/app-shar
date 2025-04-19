@@ -22,8 +22,12 @@ class AddUserToDB extends UserEvent {
 
 class FindUserOnLogin extends UserEvent {
   final UserInterface? user;
-  final BuildContext context;
-  FindUserOnLogin({this.user, required this.context});
+  FindUserOnLogin({this.user});
+}
+
+class FindUserOnLogOut extends UserEvent {
+  final UserInterface? user;
+  FindUserOnLogOut({this.user});
 }
 
 class RemoveUserFromDb extends UserEvent {
@@ -157,9 +161,31 @@ class UserBloc extends Bloc<UserEvent, UserState> {
         Future<Database> database = state.props[0] as Future<Database>;
         final db = await database;
         try {
+          final List<Map<String, Object?>> userMaps = await db.query('user');
+          if (userMaps.isNotEmpty) {
+            for (final {
+                  'id': id as int,
+                  'name': name as String,
+                  'email': email as String,
+                  'password': password as String,
+                  'logged': logged as int,
+                } in userMaps) {
+              if (password == event.user!.password &&
+                  email == event.user!.email) {
+                initialUser = UserInterface(
+                  id: id,
+                  email: email,
+                  name: name,
+                  password: password,
+                  logged: true,
+                );
+              }
+            }
+          }
+
           await db.update(
             'user',
-            event.user!.toMap(),
+            initialUser!.toMap(),
             where: 'email = ? and password = ? ',
             whereArgs: [event.user!.email, event.user!.password],
           ).then(
@@ -173,9 +199,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
                     password: "",
                     logged: false,
                   ),
-                  // snackBarAddCart(event.context, "Error Login", "Los datos no son correctos"),
-                } else {
-                  //  snackBarAddCart(event.context, "Bien Login", "datos correctos"),
                 }
             },
           );
@@ -185,6 +208,32 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           UserFetched(
             database: database,
             user: initialUser,
+          ),
+        );
+      },
+    );
+
+    on<FindUserOnLogOut>(
+      (event, emit) async {
+        Future<Database> database = state.props[0] as Future<Database>;
+        final db = await database;
+        try {
+          await db.update(
+            'user',
+            event.user!.toMap(),
+            where: 'email = ? and password = ? ',
+            whereArgs: [event.user!.email, event.user!.password],
+          ).then(
+            (e) => {
+              if (e == 0) {}
+            },
+          );
+        } catch (e) {}
+
+        emit(
+          UserFetched(
+            database: database,
+            user: event.user,
           ),
         );
       },

@@ -7,8 +7,21 @@ import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/SearchFull.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-class AppMainHeader extends StatelessWidget {
+class AppMainHeader extends StatefulWidget {
   const AppMainHeader({super.key});
+
+  @override
+  State<AppMainHeader> createState() => _AppMainHeaderState();
+}
+
+class _AppMainHeaderState extends State<AppMainHeader> {
+  late UserBloc userBlocInstance;
+  
+  @override
+  void initState() {
+    super.initState();
+    userBlocInstance = BlocProvider.of<UserBloc>(context);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -76,23 +89,49 @@ class AppMainHeader extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 5),
                     child: BlocBuilder<UserBloc, UserState>(
                       builder: (BuildContext context, UserState state) {
-                        /*try {
+                        try {
                           UserInterface user = state.props[1] as UserInterface;
 
                           if (user.logged) {
-                            return CircleAvatar(
-                              backgroundColor: yellowColor,
-                              child: Text(
-                                user.email.substring(0, 1).toUpperCase(),
-                                style: const TextStyle(
-                                  color: blackColor,
+                            return PopupMenuButton(
+                              onSelected: (item) {
+                                print(user);
+                                UserInterface initialUser = UserInterface(
+                                  id: user.id,
+                                  name: user.name,
+                                  email: user.email,
+                                  password: user.password,
+                                  logged: false,
+                                );
+                                userBlocInstance.add(
+                                  FindUserOnLogOut(
+                                    user: initialUser,
+                                  ),
+                                );
+                              },
+                              itemBuilder: (BuildContext bc) {
+                                return const [
+                                  PopupMenuItem(
+                                    value: 0,
+                                    height: 20,
+                                    child: Text("Salir"),
+                                  ),
+                                ];
+                              },
+                              child: CircleAvatar(
+                                backgroundColor: yellowColor,
+                                child: Text(
+                                  user.email.substring(0, 1).toUpperCase(),
+                                  style: const TextStyle(
+                                    color: blackColor,
+                                  ),
                                 ),
                               ),
                             );
                           }
                         } catch (e) {
                           print("Ha ocurrido un error en el login");
-                        }*/
+                        }
 
                         return IconButton(
                           iconSize: 20,
@@ -183,7 +222,7 @@ class AppMainHeader extends StatelessWidget {
                 ),
               ),
             ),
-          )
+          ),
         ],
       ),
     );
