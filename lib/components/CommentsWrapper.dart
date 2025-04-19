@@ -44,7 +44,7 @@ class _CommentswrapperState extends State<Commentswrapper> {
     commentsBlocInstance.add(
       AddCommentToProduct(
         comment: CommentsInterface(
-          id: DateTime.timestamp() as String,
+          id: DateTime.timestamp().toString(),
           name: user.name,
           img: "",
           date: formattedDate,
