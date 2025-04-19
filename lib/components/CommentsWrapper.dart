@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/screen/Comments.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/comments_bloc.dart';
+import 'package:shar/interfaces/User.dart';
+import 'package:intl/intl.dart';
+
 
 class Commentswrapper extends StatefulWidget {
   final ProductsInterface product;
@@ -32,15 +36,19 @@ class _CommentswrapperState extends State<Commentswrapper> {
     ));
   }
 
-  addComment() {
+  addComment(UserInterface user) {
+    final DateTime now = DateTime.now();
+    final DateFormat formatter = DateFormat('MM/dd/yyyy');
+    final String formattedDate = formatter.format(now);
+
     commentsBlocInstance.add(
       AddCommentToProduct(
         comment: CommentsInterface(
-          id: "comment-1",
-          name: "Jhon Doe",
-          img: "https://avatars.githubusercontent.com/u/61495501?v=4",
-          date: "01/01/2025",
-          comment: "Short Comment",
+          id: DateTime.timestamp() as String,
+          name: user.name,
+          img: "",
+          date: formattedDate,
+          comment: commentText.text,
           rating: 4,
         ),
       ),
@@ -117,101 +125,120 @@ class _CommentswrapperState extends State<Commentswrapper> {
                   ),
                 ),
               ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      const CircleAvatar(
-                        backgroundColor: greyColor,
-                        radius: 22,
-                        child: Text(
-                          'AH',
-                          style: TextStyle(
-                            color: blackColor,
-                          ),
-                        ),
-                      ),
-                      Container(
-                        height: 40,
-                        width: screenWidth * 0.60,
-                        decoration: const BoxDecoration(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(10),
-                          ),
-                          color: whiteColor,
-                        ),
-                        margin: const EdgeInsets.only(
-                          left: 10,
-                        ),
-                        child: TextFormField(
-                          controller: commentText,
-                          onFieldSubmitted: (value) => {
-                            addComment(),
-                          },
-                          focusNode: searchFocusNode,
-                          enableSuggestions: true,
-                          autocorrect: false,
-                          validator: (value) {
-                            if (value == null || value.isEmpty) {
-                              return 'Ingresa contraseña';
-                            }
-                            return null;
-                          },
-                          autofocus: false,
-                          style: const TextStyle(
-                            fontSize: 11,
-                            color: blackColor,
-                          ),
-                          decoration: InputDecoration(
-                          
-                            filled: true,
-                            fillColor: whiteColor,
-                            hintText: 'Ingresa tu comentario ... ',
-                            contentPadding: const EdgeInsets.only(
-                              left: 20,
-                              right: 20,
-                            ),
-                            errorStyle: const TextStyle(
-                              fontSize: 9,
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: greyColor,
-                              ),
-                              borderRadius: BorderRadius.circular(10),
-                            ),
-                            enabledBorder: UnderlineInputBorder(
-                              borderSide: const BorderSide(
-                                color: greyLightColor,
-                              ),
-                              borderRadius: BorderRadius.circular(
-                                10,
+              child: BlocBuilder<UserBloc, UserState>(
+                builder: (BuildContext context, UserState state) {
+                  String userName = "IN";
+                  try {
+                    UserInterface user = state.props[1] as UserInterface;
+                    if (user.logged) {
+                      userName = user.name.substring(0, 1).toUpperCase();
+                    }
+
+                    return Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            CircleAvatar(
+                              backgroundColor: greyColor,
+                              radius: 22,
+                              child: Text(
+                                userName,
+                                style: const TextStyle(
+                                  color: blackColor,
+                                ),
                               ),
                             ),
-                          ),
+                            Container(
+                              height: 40,
+                              width: screenWidth * 0.60,
+                              decoration: const BoxDecoration(
+                                borderRadius: BorderRadius.all(
+                                  Radius.circular(10),
+                                ),
+                                color: whiteColor,
+                              ),
+                              margin: const EdgeInsets.only(
+                                left: 10,
+                              ),
+                              child: TextFormField(
+                                controller: commentText,
+                                onFieldSubmitted: (value) => {
+                                  addComment(user),
+                                },
+                                focusNode: searchFocusNode,
+                                enableSuggestions: true,
+                                autocorrect: false,
+                                validator: (value) {
+                                  if (value == null || value.isEmpty) {
+                                    return 'Ingresa un comentario comentario';
+                                  }
+                                  return null;
+                                },
+                                autofocus: false,
+                                style: const TextStyle(
+                                  fontSize: 11,
+                                  color: blackColor,
+                                ),
+                                decoration: InputDecoration(
+                                  filled: true,
+                                  fillColor: whiteColor,
+                                  hintText: 'Ingresa tu comentario ... ',
+                                  contentPadding: const EdgeInsets.only(
+                                    left: 20,
+                                    right: 20,
+                                  ),
+                                  errorStyle: const TextStyle(
+                                    fontSize: 9,
+                                  ),
+                                  focusedBorder: OutlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: greyColor,
+                                    ),
+                                    borderRadius: BorderRadius.circular(10),
+                                  ),
+                                  enabledBorder: UnderlineInputBorder(
+                                    borderSide: const BorderSide(
+                                      color: greyLightColor,
+                                    ),
+                                    borderRadius: BorderRadius.circular(
+                                      10,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            IconButton(
+                              iconSize: 20,
+                              style: ButtonStyle(
+                                foregroundColor:
+                                    WidgetStateProperty.all<Color>(whiteColor),
+                                backgroundColor: WidgetStateProperty.all<Color>(
+                                  yellowColor,
+                                ),
+                              ),
+                              icon: const Icon(Icons.send),
+                              onPressed: () {
+                                if (user.logged) {
+                                  addComment(user);
+                                } else {
+                                  snackBarAddCart(context, "No permitido: ",
+                                      "Debes tener una cuenta para poder comentar");
+                                }
+                              },
+                            ),
+                          ],
                         ),
-                      ),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      IconButton(
-                        iconSize: 20,
-                        style: ButtonStyle(
-                          foregroundColor:
-                              WidgetStateProperty.all<Color>(whiteColor),
-                          backgroundColor: WidgetStateProperty.all<Color>(
-                            yellowColor,
-                          ),
-                        ),
-                        icon: const Icon(Icons.send),
-                        onPressed: () {
-                          addComment();
-                        },
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    );
+                  } catch (e) {
+                    print("Ha ocurrido un error en el login");
+                    return Text("Ha ocurrido un error");
+                  }
+                },
               ),
             ),
           ),

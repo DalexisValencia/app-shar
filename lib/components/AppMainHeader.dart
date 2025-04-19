@@ -16,7 +16,7 @@ class AppMainHeader extends StatefulWidget {
 
 class _AppMainHeaderState extends State<AppMainHeader> {
   late UserBloc userBlocInstance;
-  
+
   @override
   void initState() {
     super.initState();
@@ -121,7 +121,7 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                               child: CircleAvatar(
                                 backgroundColor: yellowColor,
                                 child: Text(
-                                  user.email.substring(0, 1).toUpperCase(),
+                                  user.name.substring(0, 1).toUpperCase(),
                                   style: const TextStyle(
                                     color: blackColor,
                                   ),
