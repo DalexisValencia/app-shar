@@ -337,12 +337,6 @@ class _RegisterState extends State<Register> {
                           user: registerUser,
                         ),
                       );*/
-
-                      userBlocInstance.add(
-                        FindUserOnLogin(
-                          user: registerUser,
-                        ),
-                      );
                       if (_formKey.currentState!.validate()) {
                         print(email.text);
                         print(password.text);

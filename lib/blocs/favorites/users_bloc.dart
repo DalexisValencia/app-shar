@@ -22,7 +22,8 @@ class AddUserToDB extends UserEvent {
 
 class FindUserOnLogin extends UserEvent {
   final UserInterface? user;
-  FindUserOnLogin({this.user});
+  final BuildContext context;
+  FindUserOnLogin({this.user, required this.context});
 }
 
 class RemoveUserFromDb extends UserEvent {
@@ -102,11 +103,8 @@ class UserBloc extends Bloc<UserEvent, UserState> {
           password: "",
           logged: false,
         );
-        print("userMaps");
-        print(userMaps);
-        print("userMaps");
         if (userMaps.isNotEmpty) {
-         for (final {
+          for (final {
                 'id': id as int,
                 'name': name as String,
                 'email': email as String,
@@ -124,7 +122,6 @@ class UserBloc extends Bloc<UserEvent, UserState> {
             }
           }
         }
-        print(initialuser);
         emit(
           UserFetched(
             database: database,
@@ -156,20 +153,38 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
     on<FindUserOnLogin>(
       (event, emit) async {
+        UserInterface? initialUser = event.user;
         Future<Database> database = state.props[0] as Future<Database>;
         final db = await database;
-
-        await db.update(
-          'user',
-          event.user!.toMap(),
-          where: 'email = ?',
-          whereArgs: [event.user!.email],
-        );
+        try {
+          await db.update(
+            'user',
+            event.user!.toMap(),
+            where: 'email = ? and password = ? ',
+            whereArgs: [event.user!.email, event.user!.password],
+          ).then(
+            (e) => {
+              if (e == 0)
+                {
+                  initialUser = UserInterface(
+                    id: 0,
+                    name: "",
+                    email: "",
+                    password: "",
+                    logged: false,
+                  ),
+                  // snackBarAddCart(event.context, "Error Login", "Los datos no son correctos"),
+                } else {
+                  //  snackBarAddCart(event.context, "Bien Login", "datos correctos"),
+                }
+            },
+          );
+        } catch (e) {}
 
         emit(
           UserFetched(
             database: database,
-            user: event.user,
+            user: initialUser,
           ),
         );
       },

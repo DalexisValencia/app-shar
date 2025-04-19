@@ -76,14 +76,14 @@ class AppMainHeader extends StatelessWidget {
                     margin: const EdgeInsets.only(right: 5),
                     child: BlocBuilder<UserBloc, UserState>(
                       builder: (BuildContext context, UserState state) {
-                        try {
+                        /*try {
                           UserInterface user = state.props[1] as UserInterface;
 
                           if (user.logged) {
                             return CircleAvatar(
                               backgroundColor: yellowColor,
                               child: Text(
-                                user.name.substring(0, 1).toUpperCase(),
+                                user.email.substring(0, 1).toUpperCase(),
                                 style: const TextStyle(
                                   color: blackColor,
                                 ),
@@ -92,7 +92,7 @@ class AppMainHeader extends StatelessWidget {
                           }
                         } catch (e) {
                           print("Ha ocurrido un error en el login");
-                        }
+                        }*/
 
                         return IconButton(
                           iconSize: 20,
