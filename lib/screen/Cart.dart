@@ -4,10 +4,13 @@ import 'package:shar/components/CartCard.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/components/fallbacks.dart';
+import 'package:shar/interfaces/BillInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/constants/contants.dart';
-// import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_email_sender/flutter_email_sender.dart';
+
+import 'package:mailer/mailer.dart';
+import 'package:mailer/smtp_server.dart';
+
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -97,41 +100,20 @@ class _CartState extends State<Cart> {
                   ),
                 ),
                 onPressed: isEmpty ? null : () async {
-                  final ui.PictureRecorder pictureRecorder = ui.PictureRecorder();
-                  final Canvas canvas = Canvas(pictureRecorder);
-                  canvas.drawRect(
-                    Rect.fromLTWH(0, 0, 100, 100),
-                    Paint()..color = Colors.red,
-                  );
-                  final ui.Picture picture = pictureRecorder.endRecording();
-                  final ui.Image image = await picture.toImage(100, 100);
 
+                  BillInterface generateBill = BillInterface(fecha: "fecha", cliente: "cliente", productos: carProducts, total: 0 );
+                 
+                  String html = renderizarTemplate(generateBill);
 
+                  final smtpServer = gmail('comunicationsappshar@gmail.com', 'kjli asvp hcbd fmiq');
+                  final message = Message()
+                    ..from = const Address('comunicationsappshar@gmail.com', 'SHAR Cotizaciones')
+                    ..recipients.add(const Address('d.alexis.valencia@gmail.com'))
+                    ..subject = 'Resumen de la cotización'
+                    ..html = html;
 
-                  var s1 = '''
-                    <h2><b>Cotización:</b></h2>
-                    <hr />
-                    <div class="product-card">
-                      <img class="product-image" src="https://static.wikia.nocookie.net/naruto/images/e/ed/El_dr%C3%A1stico_cambio_en_la_relaci%C3%B3n_entre_Naruto_y_Kurama.png/revision/latest/scale-to-width-down/1000?cb=20141223153155&path-prefix=es" alt="Producto Ejemplo">
-                      <div class="product-info">
-                        <div class="product-title"><b>Producto Ejemplo</b></div>
-                        <div class="product-description">Esta es una breve descripción del producto. Resalta sus características principales.</div>
-                        <div class="product-quantity">Cantidad: 7</div>
-                      </div>
-                    </div>
-                  ''';
-                  final Email email = Email(
-
-                    body: s1,
-                    subject: 'Cotización Via App',
-                    recipients: ['d.alexis.valencia@gmail.com'],
-                    cc: ['davalenciam@sanmateo.edu.co'],
-                    // bcc: ['davalenciam@sanmateo.edu.co'],
-                    // attachmentPaths: [image],
-                    isHTML: true,
-                  );
-
-                  await FlutterEmailSender.send(email);
+                  final sendReport = await send(message, smtpServer);
+                  print('Message sent: $sendReport');
                 },
                 child: Text(
                   'REALIZAR COTIZACIÓN',
