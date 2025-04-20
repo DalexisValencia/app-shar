@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'dart:ui' as ui;
 import 'package:shar/components/CartCard.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
@@ -7,7 +6,7 @@ import 'package:shar/components/fallbacks.dart';
 import 'package:shar/interfaces/BillInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/constants/contants.dart';
-
+import 'package:shar/constants/emailTheme.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
 
@@ -109,7 +108,7 @@ class _CartState extends State<Cart> {
                   final message = Message()
                     ..from = const Address('comunicationsappshar@gmail.com', 'SHAR Cotizaciones')
                     ..recipients.add(const Address('d.alexis.valencia@gmail.com'))
-                    ..subject = 'Resumen de la cotización'
+                    ..subject = 'Resumen de su cotización'
                     ..html = html;
 
                   final sendReport = await send(message, smtpServer);
