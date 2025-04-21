@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:shar/components/AvatarCircleWrapper.dart';
 import 'package:shar/components/CommentsWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
@@ -74,17 +75,18 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
     var screenHeight = mediaQuery.size.height - (60 + statusBarHeight);
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
             Container(
+              color: Colors.transparent,
               height: screenHeight,
               child: SingleChildScrollView(
                 reverse: true,
                 child: Column(
                   children: [
                     Container(
+                      color: Colors.transparent,
                       width: double.infinity,
                       height: screenWidth * 0.73,
                       child: Stack(
@@ -126,55 +128,67 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
-                                widget.product.name,
-                                overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.bold,
+                              Fadetransitionwrapper(
+                                widgetChild: Text(
+                                  widget.product.name,
+                                  overflow: TextOverflow.ellipsis,
+                                  style: const TextStyle(
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
+                                durationTime: 350,
                               ),
-                              Text(
-                                widget.product.shortDescription,
-                                style: const TextStyle(
-                                  fontSize: 11,
-                                  color: Color.fromRGBO(114, 114, 114, 0.7),
+                              Fadetransitionwrapper(
+                                widgetChild: Text(
+                                  widget.product.shortDescription,
+                                  style: const TextStyle(
+                                    fontSize: 11,
+                                    color: Color.fromRGBO(114, 114, 114, 0.7),
+                                  ),
                                 ),
+                                durationTime: 450,
                               ),
                             ],
                           ),
-                          Container(
-                            margin: const EdgeInsets.symmetric(
-                              vertical: 10,
-                            ),
-                            child: Row(
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                Ratingstarts(
-                                  stars: widget.product.rating,
-                                  size: 18,
-                                ),
-                                const SizedBox(
-                                  width: 5,
-                                ),
-                                const Text(
-                                  "400 Compradores",
-                                  style: TextStyle(
-                                    fontFamily: "Inter-SemiBold",
-                                    fontSize: 10,
+                          Fadetransitionwrapper(
+                            widgetChild: Container(
+                              margin: const EdgeInsets.symmetric(
+                                vertical: 10,
+                              ),
+                              child: Row(
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Ratingstarts(
+                                    stars: widget.product.rating,
+                                    size: 18,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Container(
-                            margin: const EdgeInsets.only(top: 10),
-                            child: Text(
-                              widget.product.longDescription,
-                              style: const TextStyle(
-                                fontWeight: FontWeight.w300,
+                                  const SizedBox(
+                                    width: 5,
+                                  ),
+                                  const Text(
+                                    "400 Compradores",
+                                    style: TextStyle(
+                                      fontFamily: "Inter-SemiBold",
+                                      fontSize: 10,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
+                            durationTime: 480,
+                          ),
+                          Fadetransitionwrapper(
+                            widgetChild: Container(
+                              margin: const EdgeInsets.only(top: 10),
+                              child: Text(
+                                widget.product.longDescription,
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ),
+                            durationTime: 500,
                           ),
                           Container(
                             margin: const EdgeInsets.only(
