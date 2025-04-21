@@ -18,6 +18,10 @@ class RemoveProductFromCart extends CartEvent {
   RemoveProductFromCart({this.product});
 }
 
+class ClearCart extends CartEvent {
+  ClearCart();
+}
+
 class UpdateAmountProductFromCart extends CartEvent {
   final ProductsInterface? product;
   final String? action;
@@ -95,6 +99,14 @@ class CartBloc extends Bloc<CartEvent, CartState> {
         }
         emit(CartFetched(
           products: resfinal,
+        ));
+      },
+    );
+
+     on<ClearCart>(
+      (event, emit) {
+        emit(CartFetched(
+          products: [],
         ));
       },
     );

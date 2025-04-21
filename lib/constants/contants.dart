@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 const blackColor = Color(0xFF000000); // GREY
 const whiteColor = Color(0xFFFBFBFB); // WHITE
@@ -30,4 +31,12 @@ snackBarAddCart(BuildContext context, name, alert) {
   );
 
   ScaffoldMessenger.of(context).showSnackBar(snackBarCar);
+}
+
+dateNow() {
+  final DateTime now = DateTime.now();
+  final DateFormat formatter = DateFormat('MM/dd/yyyy');
+  final String formattedDate = formatter.format(now);
+
+  return formattedDate;
 }

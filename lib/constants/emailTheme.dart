@@ -2,7 +2,7 @@ import 'package:shar/interfaces/BillInterface.dart';
 
 String renderizarTemplate(BillInterface factura) {
   String productosHtml = '';
-  double totalProducts = 0;
+  int totalProducts = 0;
   for (var producto in factura.productos) {
     totalProducts += producto.amount;
     productosHtml += '''
@@ -11,7 +11,7 @@ String renderizarTemplate(BillInterface factura) {
 
             </div>
             <div style="padding: 10px 20px 25px; position: relative; width: 100%; color: black !important;">
-                <h3 style="margin: 0px;">${producto.name}</h3>
+                <h3 style="margin: 0px 0 10px 0;">${producto.name}</h3>
                 <p style="margin: 0px;">
                   ${producto.shortDescription}
                 </p>
@@ -37,8 +37,8 @@ String renderizarTemplate(BillInterface factura) {
         <header
             style="padding: 20px 10px; border-bottom: 5px solid black;margin-bottom: 20px;">
             <img src="https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/images/logo.png"
-                width="70" style="float: left; "/>
-            <h2 style="float: right; color: black !important;">
+                width="70" style="float: left;"/>
+            <h2 style="float: right; color: black !important; width: 70%; text-align: right;">
                 Resumen de tu cotización
             </h2>
             <div style="clear: both"></div>
@@ -79,6 +79,15 @@ String renderizarTemplate(BillInterface factura) {
             $productosHtml
             
         </section>
+
+        <p style="text-align:center; border-top: 2px solid black; padding: 20px 10px;">
+        Este mensaje es confidencial y está destinado únicamente para el destinatario indicado. <br>
+        Si usted no es el destinatario, por favor elimine este mensaje y notifique al remitente. <br>
+        La información contenida en este mensaje es propiedad exclusiva de SHAR y está protegida por derechos de autor. <br>
+        Queda prohibida la reproducción, distribución o uso no autorizado de esta información sin el consentimiento expreso de SHAR.
+        <br/ >
+        Todos los derechos reservados 2025.
+        </p>
 
     </section>
     </body>

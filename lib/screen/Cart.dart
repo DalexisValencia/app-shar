@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/components/CartCard.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
@@ -9,7 +10,7 @@ import 'package:shar/constants/contants.dart';
 import 'package:shar/constants/emailTheme.dart';
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server.dart';
-
+import 'package:shar/interfaces/User.dart';
 
 class Cart extends StatefulWidget {
   const Cart({super.key});
@@ -20,6 +21,7 @@ class Cart extends StatefulWidget {
 
 class _CartState extends State<Cart> {
   late CartBloc cartBlocIntance;
+  bool sendingPricing = false;
 
   @override
   void initState() {
@@ -85,42 +87,92 @@ class _CartState extends State<Cart> {
               color: Colors.transparent,
               width: double.infinity,
               height: 60,
-              child: TextButton(
-                style: ButtonStyle(
-                  shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                     RoundedRectangleBorder(
-                      side: BorderSide(
-                        color: isEmpty ? greyLightColor : yellowColor,
+              child: BlocBuilder<UserBloc, UserState>(
+                builder: (BuildContext context, UserState state) {
+                  UserInterface user = state.props[1] as UserInterface;
+
+                  return TextButton(
+                    style: ButtonStyle(
+                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
+                        RoundedRectangleBorder(
+                          side: BorderSide(
+                            color: isEmpty || sendingPricing
+                                ? greyLightColor
+                                : yellowColor,
+                          ),
+                        ),
+                      ),
+                      backgroundColor: WidgetStateProperty.all<Color>(
+                        isEmpty || sendingPricing
+                            ? greyLightColor
+                            : yellowColor,
                       ),
                     ),
-                  ),
-                  backgroundColor: WidgetStateProperty.all<Color>(
-                    isEmpty ? greyLightColor : yellowColor,
-                  ),
-                ),
-                onPressed: isEmpty ? null : () async {
+                    onPressed: isEmpty || sendingPricing
+                        ? null
+                        : () async {
+                            if (user.logged) {
+                              BillInterface generateBill = BillInterface(
+                                fecha: dateNow(),
+                                cliente: user.name,
+                                productos: carProducts,
+                                total: 0,
+                              );
 
-                  BillInterface generateBill = BillInterface(fecha: "fecha", cliente: "cliente", productos: carProducts, total: 0 );
-                 
-                  String html = renderizarTemplate(generateBill);
+                              setState(() {
+                                sendingPricing = true;
+                              });
 
-                  final smtpServer = gmail('comunicationsappshar@gmail.com', 'kjli asvp hcbd fmiq');
-                  final message = Message()
-                    ..from = const Address('comunicationsappshar@gmail.com', 'SHAR Cotizaciones')
-                    ..recipients.add(const Address('d.alexis.valencia@gmail.com'))
-                    ..subject = 'Resumen de su cotización'
-                    ..html = html;
+                              String html = renderizarTemplate(generateBill);
 
-                  final sendReport = await send(message, smtpServer);
-                  print('Message sent: $sendReport');
+                              final smtpServer = gmail(
+                                  'comunicationsappshar@gmail.com',
+                                  'kjli asvp hcbd fmiq');
+                              final message = Message()
+                                ..from = const Address(
+                                    'comunicationsappshar@gmail.com',
+                                    'SHAR Cotizaciones')
+                                ..recipients.add(const Address(
+                                    'd.alexis.valencia@gmail.com'))
+                                ..recipients.add(Address(user.email))
+                                ..subject = 'Resumen de su cotización'
+                                ..html = html;
+                              try {
+                                await send(message, smtpServer).then((e) {
+                                  setState(() {
+                                    sendingPricing = false;
+                                  });
+                                  snackBarAddCart(context, "",
+                                    "Se ha enviado la cotización correctamente");
+                                    cartBlocIntance.add(
+                                      ClearCart()
+                                    );
+                                });
+                                // print('Message sent: $sendReport');
+                              } catch (e) {
+                                snackBarAddCart(context, "Error: ",
+                                    "Un error ha ocurrido, intente más tarde.");
+                                setState(() {
+                                  sendingPricing = false;
+                                });
+                              }
+                            } else {
+                              snackBarAddCart(context, "No permitido: ",
+                                  "Debes tener una cuenta para poder realizar cotizaiones");
+                            }
+                          },
+                    child: Text(
+                      sendingPricing
+                          ? 'ENVIANDO COTIZACIÓN'
+                          : 'REALIZAR COTIZACIÓN',
+                      style: TextStyle(
+                        color:
+                            isEmpty || sendingPricing ? greyColor : blackColor,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  );
                 },
-                child: Text(
-                  'REALIZAR COTIZACIÓN',
-                  style: TextStyle(
-                    color: isEmpty ? greyColor : blackColor ,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
               ),
             );
           },
