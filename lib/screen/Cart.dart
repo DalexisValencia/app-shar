@@ -39,6 +39,7 @@ class _CartState extends State<Cart> {
     return Column(
       children: [
         Container(
+          color: Colors.transparent,
           height: screenHeight - statusBarHeight - bottomBarHeight,
           child: SingleChildScrollView(
             child: Container(
