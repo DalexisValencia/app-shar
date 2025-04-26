@@ -105,7 +105,7 @@ class _CartCardState extends State<CartCard> {
                             bottomLeft: Radius.circular(10),
                           ),
                           image: DecorationImage(
-                            image: AssetImage(widget.product.image),
+                            image: NetworkImage("$urlBaseAssets/${widget.product.image}"),
                             fit: BoxFit.cover,
                           ),
                         ),

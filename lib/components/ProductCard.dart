@@ -131,8 +131,9 @@ class _ProductCardState extends State<ProductCard> {
                           topLeft: Radius.circular(5),
                           topRight: Radius.circular(5),
                         ),
-                        child: Image(
-                          image: AssetImage(widget.product.image),
+                        child: Image.network(
+                          "$urlBaseAssets/${widget.product.image}",
+                          // image: AssetImage(widget.product.image),
                           fit: BoxFit.contain,
                         ),
                       ),
@@ -174,7 +175,7 @@ class _ProductCardState extends State<ProductCard> {
                                       width: 10,
                                       child: Image(
                                         image: AssetImage(
-                                            "images/icons/star-filled.png"),
+                                            "images/icons/star-filled.png",),
                                         fit: BoxFit.cover,
                                       ),
                                     ),

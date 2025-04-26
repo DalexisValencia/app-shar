@@ -96,8 +96,8 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               topLeft: Radius.circular(5),
                               topRight: Radius.circular(5),
                             ),
-                            child: Image(
-                              image: AssetImage(widget.product.image),
+                            child: Image.network(
+                              "$urlBaseAssets/${widget.product.image}",
                               fit: BoxFit.fitWidth,
                             ),
                           ),

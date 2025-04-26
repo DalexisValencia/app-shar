@@ -9,7 +9,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "ejemplo de descripcion",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -27,7 +27,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "ejemplo de descripcion",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -45,7 +45,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sin promocion",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: ["tag 5", "tag 6", "tag 8"],
     comments: commentsList,
@@ -63,7 +63,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sin Comentarios",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: ["tagcito numerado", "tag #2", "tag 8"],
     comments: [],
@@ -81,7 +81,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sin promocion",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -99,7 +99,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sin tags",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 4,
     tagsMenu: [],
     comments: commentsList,
@@ -117,7 +117,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sin tags ni comentarios",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 2,
     tagsMenu: [],
     comments: [],
@@ -135,7 +135,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 10", "tag 21", "tag 33"],
     comments: commentsList,
@@ -153,7 +153,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 10", "tag 21", "tag 33"],
     comments: commentsList,
@@ -171,7 +171,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 10", "tag 21", "tag 33"],
     comments: commentsList,
@@ -189,7 +189,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 5", "tag 6", "tag 7"],
     comments: commentsList,
@@ -207,7 +207,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 6", "tag 7", "tag 8"],
     comments: commentsList,
@@ -225,7 +225,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -243,7 +243,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating mediano",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 3,
     tagsMenu: ["tag 11", "tag 12", "tag 13"],
     comments: commentsList,
@@ -261,7 +261,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 3", "tag 12", "tag 2"],
     comments: commentsList,
@@ -279,7 +279,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 3", "tag 12", "tag 2"],
     comments: commentsList,
@@ -297,7 +297,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -315,7 +315,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -333,7 +333,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 2", "tag 8", "tag 9"],
     comments: commentsList,
@@ -351,7 +351,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 11", "tag 12", "tag 14"],
     comments: commentsList,
@@ -369,7 +369,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 11", "tag 12", "tag 14"],
     comments: commentsList,
@@ -387,7 +387,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Producto con rating alto",
     longDescription:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "images/base-product.png",
+    image: "base-product.png",
     rating: 5,
     tagsMenu: ["tag 11", "tag 12", "tag 14"],
     comments: commentsList,
