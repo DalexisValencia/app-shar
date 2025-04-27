@@ -206,9 +206,7 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Winche", "toneladas"],
     comments: commentsList,
     categories: [
-      categoryList[4],
       categoryList[5],
-      categoryList[6],
     ],
     promotion: false,
     amount: 1,
