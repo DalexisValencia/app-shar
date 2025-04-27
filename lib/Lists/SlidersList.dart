@@ -9,7 +9,7 @@ List<slideInterface> sliderList = [
   ),
   slideInterface(
     id: "slider-02",
-    image: "images/Sliders/slider-aniversary.jpg",
+    image: "images/Sliders/slider-aniversary.png",
     action: "https://www.instagram.com/p/DIHgXS_yFO0/",
     external: true,
   ),

@@ -1,3 +1,4 @@
+import 'package:shar/constants/contants.dart';
 import 'package:shar/interfaces/BillInterface.dart';
 
 String renderizarTemplate(BillInterface factura) {
@@ -7,7 +8,14 @@ String renderizarTemplate(BillInterface factura) {
     totalProducts += producto.amount;
     productosHtml += '''
         <div style="background-color: white; margin: 5px; border-radius: 5px; display: flex; min-height: 100px; margin-bottom: 10px">
-            <div style="border-top-left-radius: 5px; border-bottom-left-radius: 5px; width: 200px;background-image: url(https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/images/1.base-product.png);background-size: cover;background-position: center;">
+            <div style="
+              border-top-left-radius: 5px;
+              border-bottom-left-radius: 5px;
+              width: 200px;
+              background-image: url($urlBaseAssets/${producto.image});
+              background-size: cover;
+              background-position: center;
+            ">
 
             </div>
             <div style="padding: 10px 20px 25px; position: relative; width: 100%; color: black !important;">

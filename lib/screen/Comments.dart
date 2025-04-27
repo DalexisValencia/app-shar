@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:shar/components/CommentCard.dart';
 import 'package:shar/components/barPercentageRating.dart';
+import 'package:shar/components/fallbacks.dart';
 import 'package:shar/components/ratingStarts.dart';
 import 'package:shar/interfaces/CommentsInterface.dart';
 import 'package:shar/constants/contants.dart';
@@ -83,9 +84,7 @@ class Comments extends StatelessWidget {
                                         ),
                                       ],
                                     ),
-                                  )
-                                  /* 
-                              */
+                                  ),
                                 ],
                               ),
                             ),
@@ -119,6 +118,10 @@ class Comments extends StatelessWidget {
                                 ),
                               );
                             }).toList();
+
+                            if (allComments.isEmpty) {
+                              return const Fallbacks(description: "Aún no se han añadido comentarios");
+                            }
                             return Column(
                               children: allComments,
                             );

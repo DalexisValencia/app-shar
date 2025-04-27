@@ -3,32 +3,32 @@ import 'package:shar/interfaces/CategoryInterface.dart';
 List<CategoryInterface> categoryList = [
   CategoryInterface(
     id: "category-01",
-    name: "first-category",
+    name: "Bombas hidráulicas",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-02",
-    name: "second-category",
+    name: "Enfriadores",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-03",
-    name: "third-category",
+    name: "Válvulas hidráulicas",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-04",
-    name: "fourth-category",
+    name: "Mandos hidráulicos",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-05",
-    name: "fiveth-category",
+    name: "Filtros hidráulicos",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-06",
-    name: "sixth-category",
+    name: "Winches hidráulicos",
     image: "images/logo.png",
   ),
   CategoryInterface(

@@ -85,9 +85,10 @@ flutter:
     - images/icons/cart-active.png
     - images/icons/favorite-white.png
     - images/icons/favorite-active.png
-    - images/Sliders/slider-1.png
-    - images/Sliders/slider-2.png
     - images/Sliders/slider-3.png
+    - images/Sliders/slider-aniversary.png
+    - images/Sliders/Slider-IG.jpg
+    
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

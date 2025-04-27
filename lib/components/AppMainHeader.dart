@@ -56,17 +56,19 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                     transform: Matrix4.translationValues(0.0, 10.0, 0.0),
                     child: const Text(
                       'Ubicación',
-                      style:
-                          TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                   TextButton.icon(
                     onPressed: () {
-                      Navigator.of(context).push(
+                      /*Navigator.of(context).push(
                         MaterialPageRoute(
                           builder: (context) => const MapScreen(),
                         ),
-                      );
+                      );*/
                     },
                     icon: const Icon(
                       Icons.pin_drop,
