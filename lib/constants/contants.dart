@@ -7,7 +7,7 @@ const yellowColor = Color(0xFFF4AF31); // YELLOW BLUE
 const greyColor = Color(0xFF727272); // DARK GRAY
 const greyLightColor = Color.fromARGB(255, 201, 201, 201); // LIGHT GRAY}
 
-const urlBaseAssets = "https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/images";
+const urlBaseAssets = "https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/Products";
 
 snackBarAddCart(BuildContext context, name, alert) {
   final snackBarCar = SnackBar(
