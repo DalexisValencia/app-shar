@@ -9,7 +9,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Genera presión y flujo de fluido para realizar trabajos en sistemas hidráulicos.",
     longDescription:
         "Componente que transforma la energía mecánica, generalmente proporcionada por un motor o una fuente de energía externa, en energía hidráulica, lo que permite realizar trabajos como levantar cargas pesadas, accionar cilindros hidráulicos o impulsar maquinaria en diversas aplicaciones industriales y móviles. Son cruciales en una amplia gama de sectores, desde la construcción y la manufactura hasta la aviación y la agricultura, debido a su capacidad para proporcionar fuerza y control precisos en sistemas complejos.",
-    image: "base-product.png",
+    image: "1-Bomba-hidráulica.jpg",
     rating: 4,
     tagsMenu: ["tag 1", "tag 2", "tag 3"],
     comments: commentsList,
@@ -25,7 +25,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Dispositivo que enfría el fluido hidráulico en un sistema, utilizando aire para disipar el calor y mantener la temperatura del fluido dentro de límites operativos seguros.",
     longDescription:
         "Al mantener la temperatura del fluido dentro de límites operativos seguros, los enfriadores de aire hidráulico evitan el sobrecalentamiento, que puede causar daños a los componentes del sistema, degradación del fluido y pérdida de eficiencia. Estos enfriadores suelen consistir en un intercambiador de calor donde el fluido hidráulico caliente circula a través de tubos o serpentines mientras el aire es forzado a través de ellos por ventiladores, transfiriendo el calor del fluido al aire y enfriándose en el proceso.",
-    image: "base-product.png",
+    image: "2-Enfriadores-de-aire.jpg",
     rating: 4,
     tagsMenu: ["Enfriadores", "Aire"],
     comments: commentsList,
@@ -41,7 +41,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Componente modular que se inserta en un bloque de válvulas para controlar el flujo de fluido en un sistema hidráulico.",
     longDescription:
         "Permite un control preciso del flujo de fluido en sistemas hidráulicos. Estas válvulas son modulares y se pueden configurar según las necesidades específicas del sistema, ofreciendo flexibilidad y eficiencia en el diseño y mantenimiento. Las válvulas de cartucho se utilizan para realizar diversas funciones, como el control de dirección, presión y flujo de fluido, y pueden ser operadas manual o automáticamente según la aplicación.",
-    image: "base-product.png",
+    image: "3-valvula-de-cartucho.jpg",
     rating: 4,
     tagsMenu: ["Válvula", "cartucho"],
     comments: commentsList,
@@ -57,7 +57,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sistema que utiliza fluido a presión para transmitir fuerza y controlar el movimiento de componentes mecánicos.",
     longDescription:
         "Genera la presión necesaria en el fluido, que luego se transmite a través de tuberías y mangueras a los componentes que realizan el trabajo, como cilindros hidráulicos que convierten la presión del fluido en movimiento lineal o motores hidráulicos que convierten la presión en movimiento rotativo. ",
-    image: "base-product.png",
+    image: "4-Mando-hidráulico-de-6-palancas.jpg",
     rating: 4,
     tagsMenu: ["Mando", "hidráulico", "palancas"],
     comments: [],
@@ -73,7 +73,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sistema que utiliza fluido a presión para transmitir fuerza y controlar el movimiento de componentes mecánicos.",
     longDescription:
         "Genera la presión necesaria en el fluido, que luego se transmite a través de tuberías y mangueras a los componentes que realizan el trabajo, como cilindros hidráulicos que convierten la presión del fluido en movimiento lineal o motores hidráulicos que convierten la presión en movimiento rotativo. ",
-    image: "base-product.png",
+    image: "5-mando-de-3-palancas.jpg",
     rating: 4,
     tagsMenu: ["Mando", "hidráulico", "palancas"],
     comments: commentsList,
@@ -89,7 +89,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sistema que utiliza fluido a presión para transmitir fuerza y controlar el movimiento de componentes mecánicos.",
     longDescription:
         "Genera la presión necesaria en el fluido, que luego se transmite a través de tuberías y mangueras a los componentes que realizan el trabajo, como cilindros hidráulicos que convierten la presión del fluido en movimiento lineal o motores hidráulicos que convierten la presión en movimiento rotativo. ",
-    image: "base-product.png",
+    image: "6-mando-1p40.jpg",
     rating: 4,
     tagsMenu: ["Mando", "hidráulico", "palancas"],
     comments: commentsList,
@@ -105,7 +105,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sistema que utiliza fluido a presión para transmitir fuerza y controlar el movimiento de componentes mecánicos.",
     longDescription:
         "Genera la presión necesaria en el fluido, que luego se transmite a través de tuberías y mangueras a los componentes que realizan el trabajo, como cilindros hidráulicos que convierten la presión del fluido en movimiento lineal o motores hidráulicos que convierten la presión en movimiento rotativo. ",
-    image: "base-product.png",
+    image: "7-mando-de-3-palancas.jpg",
     rating: 4,
     tagsMenu: ["Mando", "hidráulico", "palancas"],
     comments: commentsList,
@@ -121,7 +121,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sistema que utiliza fluido a presión para transmitir fuerza y controlar el movimiento de componentes mecánicos.",
     longDescription:
         "Genera la presión necesaria en el fluido, que luego se transmite a través de tuberías y mangueras a los componentes que realizan el trabajo, como cilindros hidráulicos que convierten la presión del fluido en movimiento lineal o motores hidráulicos que convierten la presión en movimiento rotativo. ",
-    image: "base-product.png",
+    image: "8-mando-de-2-palancas.jpg",
     rating: 4,
     tagsMenu: ["Mando", "hidráulico", "palancas"],
     comments: commentsList,
@@ -137,7 +137,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Utiliza pistones para generar presión y flujo de fluido en sistemas hidráulicos.",
     longDescription:
         "Convierte la energía mecánica en energía hidráulica mediante el movimiento de pistones dentro de un cilindro. Alta eficiencia y capacidad para generar altas presiones, lo que las hace ideales para aplicaciones que requieren un control preciso y potente del flujo de fluido. En una bomba de pistones hidráulica, los pistones se mueven alternativamente dentro de un bloque de cilindros, aspirando fluido hidráulico durante el movimiento de retroceso y comprimiendo durante el movimiento de avance. ",
-    image: "base-product.png",
+    image: "9-bomba-de-pistones.jpg",
     rating: 4,
     tagsMenu: ["bomba", "hidráulicas", "pistones"],
     comments: commentsList,
@@ -153,7 +153,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Utiliza tres conjuntos de engranajes para generar flujo de fluido a alta presión en sistemas hidráulicos.",
     longDescription:
         "Están compuestas por tres conjuntos de engranajes que trabajan en conjunto para generar un flujo de fluido a alta presión. Cada conjunto de engranajes puede ser configurado para suministrar fluido a diferentes partes del sistema hidráulico o para operar a diferentes presiones según las necesidades específicas de la aplicación.",
-    image: "base-product.png",
+    image: "10-bomba-de-engranajes-triple.jpg",
     rating: 3,
     tagsMenu: ["Bomba", "Engranajes"],
     comments: commentsList,
@@ -169,7 +169,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Dispositivos que limpian el fluido hidráulico antes de que regrese al tanque, eliminando contaminantes y partículas para proteger los componentes del sistema.",
     longDescription:
         "Estos filtros están ubicados en la línea de retorno del sistema, donde capturan partículas y contaminantes que pueden haberse acumulado en el fluido durante su circulación a través de los componentes hidráulicos. Al eliminar estos contaminantes, los filtros de retorno hidráulicos protegen los componentes del sistema, como bombas, válvulas y cilindros, de daños causados por partículas abrasivas y prolongan la vida útil del fluido hidráulico. ",
-    image: "base-product.png",
+    image: "11-Filtro-de-retorno.jpg",
     rating: 3,
     tagsMenu: ["Filtro"],
     comments: commentsList,
@@ -185,7 +185,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Controla el movimiento de cargas pesadas en sistemas hidráulicos, evitando que se desplacen incontroladamente debido a la gravedad o fuerzas externas.",
     longDescription:
         "Manejan cargas pesadas o movimientos verticales, como en maquinaria de construcción, grúas y equipos de manipulación de materiales. Su función principal es proporcionar control y estabilidad al movimiento de estas cargas, evitando que se desplacen de manera incontrolada debido a la gravedad o fuerzas externas.",
-    image: "base-product.png",
+    image: "12-Válvula-de-contrabalance.jpg",
     rating: 3,
     tagsMenu: ["Válvula", "hidráulicas"],
     comments: commentsList,
@@ -201,7 +201,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Utiliza la potencia hidráulica para enrollar y desenrollar cables o cuerdas, permitiendo levantar, arrastrar o mover cargas pesadas de manera controlada.",
     longDescription:
         "Equipo potente y versátil diseñado para realizar trabajos que requieren fuerza y control en la manipulación de cargas pesadas, utilizan la energía hidráulica para enrollar y desenrollar cables o cuerdas, lo que les permite levantar, arrastrar o mover objetos pesados de manera precisa y segura. Ampliamente utilizados en diversas industrias y aplicaciones, como la construcción, la minería, la agricultura, la pesca y la industria marítima, debido a su capacidad para proporcionar una gran fuerza de tracción y control sobre las cargas. ",
-    image: "base-product.png",
+    image: "13-Winche-de-6-toneladas.jpg",
     rating: 3,
     tagsMenu: ["Winche", "toneladas"],
     comments: commentsList,
@@ -217,7 +217,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Limpia el fluido hidráulico antes de que ingrese a la bomba, eliminando partículas y contaminantes para proteger los componentes del sistema.",
     longDescription:
         "Su función principal es proteger la bomba y otros componentes del sistema de partículas y contaminantes que pueden estar presentes en el fluido hidráulico. Al eliminar estos contaminantes antes de que ingresen a la bomba, el filtro de succión hidráulica ayuda a prevenir daños y desgaste prematuro en los componentes del sistema, lo que puede llevar a fallas costosas y tiempo de inactividad.",
-    image: "base-product.png",
+    image: "14-filtros-de-succión.jpg",
     rating: 3,
     tagsMenu: ["tag 11", "tag 12", "tag 13"],
     comments: commentsList,
@@ -233,135 +233,9 @@ List<ProductsInterface> productsList = [
     shortDescription: "Utilizan engranajes internos y externos para generar flujo de fluido hidráulico y presión en sistemas hidráulicos.",
     longDescription:
         "Estas bombas constan de dos engranajes, uno interno y otro externo, que giran en conjunto para crear cámaras que aspiran y expulsan fluido hidráulico. A medida que los engranajes giran, el fluido es atrapado en las cámaras formadas entre los dientes de los engranajes y la carcasa de la bomba, y luego es forzado a salir hacia el sistema hidráulico. Las bombas de piñón hidráulicas son conocidas por su simplicidad, fiabilidad y eficiencia en la generación de flujo de fluido hidráulico. ",
-    image: "base-product.png",
+    image: "15-bombas-de-piñón.jpg",
     rating: 5,
     tagsMenu: ["Bombas", "piñón"],
-    comments: commentsList,
-    categories: [
-      categoryList[10],
-      categoryList[11],
-      categoryList[12],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-15",
-    name: "quinceavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 3", "tag 12", "tag 2"],
-    comments: commentsList,
-    categories: [
-      categoryList[13],
-      categoryList[14],
-      categoryList[11],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-16",
-    name: "dieciseisavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 1", "tag 2", "tag 3"],
-    comments: commentsList,
-    categories: [
-      categoryList[1],
-      categoryList[2],
-      categoryList[3],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-16",
-    name: "dieciseisavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 1", "tag 2", "tag 3"],
-    comments: commentsList,
-    categories: [
-      categoryList[1],
-      categoryList[2],
-      categoryList[3],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-17",
-    name: "diecicieteavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 2", "tag 8", "tag 9"],
-    comments: commentsList,
-    categories: [
-      categoryList[4],
-      categoryList[5],
-      categoryList[6],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-18",
-    name: "dieciochoavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 11", "tag 12", "tag 14"],
-    comments: commentsList,
-    categories: [
-      categoryList[7],
-      categoryList[8],
-      categoryList[9],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-19",
-    name: "diecinueveavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 11", "tag 12", "tag 14"],
-    comments: commentsList,
-    categories: [
-      categoryList[7],
-      categoryList[8],
-      categoryList[9],
-    ],
-    promotion: false,
-    amount: 1,
-  ),
-  ProductsInterface(
-    id: "product-20",
-    name: "veinteavo producto con texto largo",
-    shortDescription: "Producto con rating alto",
-    longDescription:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec imperdiet libero. Etiam vehicula luctus dui a malesuada. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Interdum et malesuada fames ac ante ipsum primis in faucibus. Morbi egestas laoreet est non lacinia. ",
-    image: "base-product.png",
-    rating: 5,
-    tagsMenu: ["tag 11", "tag 12", "tag 14"],
     comments: commentsList,
     categories: [
       categoryList[10],
