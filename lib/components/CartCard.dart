@@ -120,7 +120,7 @@ class _CartCardState extends State<CartCard> {
                           bool isFavorite = !favorites.contains(widget.product);
 
                           return IconButton(
-                            color: isFavorite ? whiteColor : yellowColor,
+                            color: isFavorite ? yellowColor : redColor,
                             icon: const Icon(Icons.favorite),
                             onPressed: () {
                               isFavorite

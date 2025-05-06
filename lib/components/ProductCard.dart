@@ -153,7 +153,7 @@ class _ProductCardState extends State<ProductCard> {
                                   horizontal: 10,
                                 ),
                                 decoration: const BoxDecoration(
-                                  color: whiteColor,
+                                  color: blackColor,
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(50),
                                   ),
@@ -166,6 +166,7 @@ class _ProductCardState extends State<ProductCard> {
                                         fontSize: 11,
                                         fontFamily: "Inter-SemiBold",
                                         fontWeight: FontWeight.w600,
+                                        color: whiteColor,
                                       ),
                                     ),
                                     const SizedBox(
@@ -192,7 +193,7 @@ class _ProductCardState extends State<ProductCard> {
 
                                   return IconButton(
                                     color:
-                                        isFavorite ? whiteColor : yellowColor,
+                                        isFavorite ? yellowColor : redColor,
                                     icon: const Icon(Icons.favorite),
                                     onPressed: () {
                                       isFavorite
