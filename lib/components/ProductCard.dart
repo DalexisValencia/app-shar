@@ -123,13 +123,14 @@ class _ProductCardState extends State<ProductCard> {
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
+                    color: Color.fromARGB(255, 255, 255, 255),
                   ),
                   child: Stack(
                     children: [
                       ClipRRect(
                         borderRadius: const BorderRadius.only(
-                          topLeft: Radius.circular(5),
-                          topRight: Radius.circular(5),
+                          topLeft: Radius.circular(10),
+                          topRight: Radius.circular(10),
                         ),
                         child: Image.network(
                           "$urlBaseAssets/${widget.product.image}",
@@ -176,7 +177,8 @@ class _ProductCardState extends State<ProductCard> {
                                       width: 10,
                                       child: Image(
                                         image: AssetImage(
-                                            "images/icons/star-filled.png",),
+                                          "images/icons/star-filled.png",
+                                        ),
                                         fit: BoxFit.cover,
                                       ),
                                     ),
@@ -192,8 +194,7 @@ class _ProductCardState extends State<ProductCard> {
                                       !favorites.contains(widget.product);
 
                                   return IconButton(
-                                    color:
-                                        isFavorite ? yellowColor : redColor,
+                                    color: isFavorite ? yellowColor : redColor,
                                     icon: const Icon(Icons.favorite),
                                     onPressed: () {
                                       isFavorite
@@ -212,8 +213,17 @@ class _ProductCardState extends State<ProductCard> {
                 ),
                 Container(
                   padding: const EdgeInsets.symmetric(
-                    vertical: 10,
+                    vertical: 15,
                     horizontal: 15,
+                  ),
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      top: BorderSide(
+                        color: greyLightColor,
+                        width: 1,
+                      ),
+                    ),
+                    color: whiteColor,
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
