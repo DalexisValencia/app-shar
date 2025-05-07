@@ -91,25 +91,27 @@ class _CartCardState extends State<CartCard> {
           },
           child: Card(
             elevation: 1.5,
+            color: whiteColor,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Stack(
                   children: [
                     Container(
-                        width: screenWidth * 0.3,
-                        height: heightCard,
-                        decoration: BoxDecoration(
-                          borderRadius: const BorderRadius.only(
-                            topLeft: Radius.circular(10),
-                            bottomLeft: Radius.circular(10),
-                          ),
-                          image: DecorationImage(
-                            image: NetworkImage("$urlBaseAssets/${widget.product.image}"),
-                            fit: BoxFit.cover,
-                          ),
+                      width: screenWidth * 0.3,
+                      height: heightCard,
+                      decoration: BoxDecoration(
+                        borderRadius: const BorderRadius.only(
+                          topLeft: Radius.circular(10),
+                          bottomLeft: Radius.circular(10),
+                        ),
+                        image: DecorationImage(
+                          image: NetworkImage(
+                              "$urlBaseAssets/${widget.product.image}"),
+                          fit: BoxFit.cover,
                         ),
                       ),
+                    ),
                     Positioned(
                       top: 0,
                       right: 0,
@@ -135,10 +137,19 @@ class _CartCardState extends State<CartCard> {
                 ),
                 Flexible(
                   child: Container(
+                    decoration: const BoxDecoration(
+                      border: Border(
+                        left: BorderSide(
+                          color: greyLightColor,
+                          width: 1,
+                        ),
+                      ),
+                      color: whiteColor,
+                    ),
                     height: heightCard,
                     padding: const EdgeInsets.symmetric(
                       vertical: 10,
-                      horizontal: 10,
+                      horizontal: 15,
                     ),
                     width: screenWidth * 0.60,
                     child: Column(
@@ -157,7 +168,7 @@ class _CartCardState extends State<CartCard> {
                           height: 5,
                         ),
                         Text(
-                          widget.product.name,
+                          widget.product.longDescription,
                           overflow: TextOverflow.ellipsis,
                           maxLines: 4,
                           style: const TextStyle(
@@ -177,6 +188,7 @@ class _CartCardState extends State<CartCard> {
                     ProductsInterface currentElement = allProducts[idexCurrent];
 
                     return Container(
+                      color: whiteColor,
                       height: heightCard,
                       margin: const EdgeInsets.only(
                         right: 10,
