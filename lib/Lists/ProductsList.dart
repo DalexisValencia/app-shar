@@ -600,7 +600,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-36",
     name: "Piñon Principal",
     shortDescription:
@@ -617,7 +617,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-   ProductsInterface(
+  ProductsInterface(
     id: "product-37",
     name: "Tapa Delantera Izquierda para Montacargas",
     shortDescription:
@@ -634,7 +634,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-   ProductsInterface(
+  ProductsInterface(
     id: "product-38",
     name: "Buje para Bomba",
     shortDescription:
@@ -685,7 +685,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-41",
     name: "Manguera con HG",
     shortDescription:
@@ -807,8 +807,7 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-48",
     name: "Filtro Hidráulico",
-    shortDescription:
-        "Elimina partículas contaminantes del fluido.",
+    shortDescription: "Elimina partículas contaminantes del fluido.",
     longDescription:
         "Este componente protege los circuitos hidráulicos eliminando impurezas como polvo, metal o residuos que pueden dañar válvulas, bombas o cilindros. Existen filtros de presión, de retorno y de succión, cada uno con aplicaciones específicas.",
     image: "48-Filtro-Hidráulico.jpg",
@@ -824,8 +823,7 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-49",
     name: "Cilindro Hidráulico",
-    shortDescription:
-        "Actuador que produce movimiento lineal con presión.",
+    shortDescription: "Actuador que produce movimiento lineal con presión.",
     longDescription:
         "Común en maquinaria industrial y de construcción, los cilindros hidráulicos transforman la energía del fluido en movimiento lineal. Tienen múltiples aplicaciones, desde brazos mecánicos hasta sistemas de elevación.",
     image: "49-Cilindro-Hidráulico.jpg",
@@ -858,8 +856,7 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-51",
     name: "Válvula de Mariposa",
-    shortDescription:
-        "Regula el flujo mediante un disco giratorio.",
+    shortDescription: "Regula el flujo mediante un disco giratorio.",
     longDescription:
         "La válvula de mariposa utiliza un disco montado en un eje que gira para abrir o cerrar el paso del fluido. Es compacta, ligera y adecuada para controlar grandes volúmenes de fluido con baja presión.",
     image: "51-Válvula-de-Mariposa.jpg",
@@ -892,8 +889,7 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-53",
     name: "Válvula Solenoide",
-    shortDescription:
-        "Controla el flujo mediante una señal eléctrica.",
+    shortDescription: "Controla el flujo mediante una señal eléctrica.",
     longDescription:
         "Una válvula solenoide utiliza un electroimán para mover un émbolo que abre o cierra el paso del fluido. Es común en sistemas automatizados donde se requiere control remoto del flujo.",
     image: "53-Válvula-de-Aguja.jpg",
