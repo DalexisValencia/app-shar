@@ -515,4 +515,395 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
+  ProductsInterface(
+    id: "product-31",
+    name: "kit neumático para bomba",
+    shortDescription:
+        "Conjunto de componentes diseñados para convertir una bomba hidráulica o de otro tipo en una bomba neumática, utilizando aire comprimido como fuente de energía.",
+    longDescription:
+        "Conjunto completo de componentes diseñados para convertir una bomba hidráulica o de otro tipo en una bomba neumática, utilizando aire comprimido como fuente de energía. Estos kits suelen incluir cilindros neumáticos, válvulas, tuberías y otros componentes necesarios para operar la bomba de manera segura y eficiente. Los kits neumáticos para bombas son ideales para aplicaciones industriales y móviles donde se requiere una fuente de energía neumática fiable y segura. Su uso es común en industrias como la manufactura, la minería y la construcción, donde se necesitan bombas para transferir fluidos o gases de manera eficiente.",
+    image: "31.jpg",
+    rating: 5,
+    tagsMenu: ["kit", "neumático"],
+    comments: commentsList,
+    categories: [
+      categoryList[0],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-32",
+    name: "Anillo de bronce P30",
+    shortDescription:
+        "Componente utilizado en aplicaciones hidráulicas y neumáticas para proporcionar una guía y soporte a los pistones o vástagos.",
+    longDescription:
+        "El anillo de bronce P30 es un componente de alta calidad utilizado en aplicaciones hidráulicas y neumáticas para proporcionar una guía y soporte a los pistones o vástagos. Estos anillos están fabricados con bronce, un material conocido por su resistencia al desgaste y su capacidad para soportar cargas pesadas. El anillo de bronce P30 es ideal para aplicaciones que requieren una guía precisa y un funcionamiento suave, como en cilindros hidráulicos, bombas y válvulas. Su diseño y material aseguran una larga vida útil y un rendimiento óptimo en condiciones de alta presión y carga.",
+    image: "32.jpg",
+    rating: 5,
+    tagsMenu: ["Anillo", "P30"],
+    comments: commentsList,
+    categories: [
+      categoryList[10],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-33",
+    name: "Bearing Carrier",
+    shortDescription:
+        "Componente que alberga y soporta rodamientos en sistemas mecánicos, proporcionando estabilidad y reduciendo la fricción.",
+    longDescription:
+        "Componente mecánico diseñado para albergar y soportar rodamientos en sistemas mecánicos complejos. Estos carriers proporcionan una base estable y segura para los rodamientos, permitiendo un funcionamiento suave y eficiente de los sistemas. Los Bearing Carriers son ideales para aplicaciones industriales y móviles que requieren una alta precisión y fiabilidad, como en maquinaria pesada, equipos de minería y construcción. Su diseño y material aseguran una larga vida útil y un rendimiento óptimo en condiciones de alta carga y velocidad.",
+    image: "33.jpg",
+    rating: 5,
+    tagsMenu: ["Bearing"],
+    comments: commentsList,
+    categories: [
+      categoryList[10],
+    ],
+    promotion: true,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-34",
+    name: "Coupling connector",
+    shortDescription:
+        "Es un dispositivo que conecta dos ejes o componentes mecánicos, permitiendo la transmisión de potencia y movimiento.",
+    longDescription:
+        "Es un dispositivo mecánico diseñado para conectar dos ejes o componentes mecánicos, permitiendo la transmisión de potencia y movimiento entre ellos. Estos dispositivos son ideales para aplicaciones industriales y móviles que requieren una conexión segura y fiable entre componentes mecánicos. Son adecuados para aplicaciones que involucran alta torsión y velocidad, como en maquinaria pesada, bombas y motores. Su diseño y material aseguran una larga vida útil y un rendimiento óptimo en condiciones exigentes.",
+    image: "34.jpg",
+    rating: 5,
+    tagsMenu: ["Coupling"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: true,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-35",
+    name: "Bomba montacarga",
+    shortDescription:
+        "Es un componente hidráulico que proporciona la potencia necesaria para operar sistemas hidráulicos, permitiendo la elevación y el descenso de cargas pesadas.",
+    longDescription:
+        "Es un componente hidráulico diseñado para suministrar un flujo constante de fluido hidráulico a alta presión, lo que permite un funcionamiento suave y eficiente en aplicaciones industriales y móviles. Está fabricado con materiales resistentes y duraderos que aseguran una larga vida útil y un rendimiento óptimo en condiciones de trabajo exigentes.",
+    image: "35.jpg",
+    rating: 5,
+    tagsMenu: ["Bomba"],
+    comments: commentsList,
+    categories: [
+      categoryList[0],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+    ProductsInterface(
+    id: "product-36",
+    name: "Piñon Principal",
+    shortDescription:
+        "Es un componente mecánico que transmite la potencia y el movimiento en sistemas de transmisión.",
+    longDescription:
+        "Es un componente mecánico crítico que transmite la potencia y el movimiento en sistemas de transmisión complejos, diseñado para soportar altas cargas y velocidades. Está fabricado con materiales de alta resistencia y durabilidad, asegurando una larga vida útil y un rendimiento óptimo en aplicaciones industriales y móviles.",
+    image: "36.jpg",
+    rating: 5,
+    tagsMenu: ["Piñon"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+   ProductsInterface(
+    id: "product-37",
+    name: "Tapa Delantera Izquierda para Montacargas",
+    shortDescription:
+        "Es un componente que cubre y protege la parte delantera izquierda de una montacargas, proporcionando seguridad y durabilidad.",
+    longDescription:
+        "Es un componente diseñado para cubrir y proteger la parte delantera izquierda de una montacargas, fabricado con materiales resistentes y duraderos que pueden soportar las condiciones de trabajo exigentes en entornos industriales y de almacenamiento. Su diseño y material aseguran una larga vida útil y un rendimiento óptimo.",
+    image: "37.jpg",
+    rating: 5,
+    tagsMenu: ["Tapa"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+   ProductsInterface(
+    id: "product-38",
+    name: "Buje para Bomba",
+    shortDescription:
+        "Es un componente que reduce la fricción y el desgaste en bombas hidráulicas.",
+    longDescription:
+        "Es un componente mecánico diseñado para reducir la fricción y el desgaste en bombas hidráulicas, permitiendo un funcionamiento suave y eficiente. Está fabricado con materiales resistentes al desgaste y la corrosión, asegurando una larga vida útil y un rendimiento óptimo en condiciones de alta presión y velocidad.",
+    image: "38.jpg",
+    rating: 5,
+    tagsMenu: ["Buje"],
+    comments: commentsList,
+    categories: [
+      categoryList[0],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-39",
+    name: "Retenedor Bomba Pistón",
+    shortDescription:
+        "Es un componente que sella y retiene el fluido hidráulico dentro de la bomba de pistón.",
+    longDescription:
+        "Es un componente crítico que sella y retiene el fluido hidráulico dentro de la bomba de pistón, evitando fugas y pérdidas de presión. Está diseñado para soportar altas presiones y velocidades, y está fabricado con materiales resistentes al desgaste y la corrosión, asegurando una larga vida útil y un rendimiento óptimo.",
+    image: "39.jpg",
+    rating: 5,
+    tagsMenu: ["Retenedor"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-40",
+    name: "Cartucho ON OFF N/C",
+    shortDescription:
+        "Es un componente que controla el flujo de fluido o aire en un sistema, permitiendo o bloqueando el paso según su configuración.",
+    longDescription:
+        "Es un componente de control que funciona como una válvula de encendido y apagado (ON/OFF) normalmente cerrada (N/C), diseñado para controlar el flujo de fluido o aire en sistemas hidráulicos o neumáticos. Está fabricado con materiales resistentes y duraderos que aseguran una larga vida útil y un rendimiento óptimo en condiciones de trabajo exigentes.",
+    image: "40.jpg",
+    rating: 5,
+    tagsMenu: ["Cartucho", "ON", "OFF"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+    ProductsInterface(
+    id: "product-41",
+    name: "Manguera con HG",
+    shortDescription:
+        "Es una manguera flexible diseñada para transportar fluidos a alta presión, con un diámetro interior de 3/8 de pulgada.",
+    longDescription:
+        "Es una manguera hidráulica flexible diseñada para transportar fluidos a alta presión en sistemas hidráulicos, con un diámetro interior de 3/8 de pulgada. Está fabricada con materiales resistentes a la presión, la corrosión y el desgaste, asegurando una larga vida útil y un rendimiento óptimo en aplicaciones industriales y móviles.",
+    image: "40.jpg",
+    rating: 5,
+    tagsMenu: ["Manguera", "HG"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-42",
+    name: "Campana GRUPO 2",
+    shortDescription:
+        "Es un componente eléctrico que forma parte de un sistema de arranque o control, posiblemente relacionado con un motor de 3 HP.",
+    longDescription:
+        "Es un componente eléctrico conocido como 'campana' o 'contactor', diseñado para controlar y proteger motores eléctricos, en este caso, de 3 caballos de fuerza (HP) y perteneciente al grupo 2. Está fabricado para asegurar un funcionamiento seguro y eficiente en aplicaciones industriales y comerciales.",
+    image: "42.jpg",
+    rating: 5,
+    tagsMenu: ["Campana", "GRUPO"],
+    comments: commentsList,
+    categories: [
+      categoryList[12],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-43",
+    name: "Acople 28mm GRUPO 1",
+    shortDescription:
+        "Es un componente de conexión que se utiliza para unir tubos o mangueras de 28mm de diámetro.",
+    longDescription:
+        "Es un acople rápido o conexión diseñada para unir tubos o mangueras de 28mm de diámetro, perteneciente al grupo 1. Está fabricado para asegurar una conexión segura y eficiente en sistemas hidráulicos o neumáticos, permitiendo un fácil montaje y desmontaje.",
+    image: "43.jpg",
+    rating: 5,
+    tagsMenu: ["Acople", "28mm"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-44",
+    name: "Orbitol Abierto",
+    shortDescription:
+        "Es un componente hidráulico que controla la dirección y velocidad de un motor o cilindro hidráulico.",
+    longDescription:
+        "Es un componente hidráulico conocido como 'orbitrol' o 'válvula de control de dirección', diseñado para controlar la dirección y velocidad de motores o cilindros hidráulicos en sistemas de dirección hidráulica. El diseño 'abierto' permite un flujo de fluido más libre y eficiente, asegurando un funcionamiento suave y preciso en aplicaciones móviles y estacionarias.",
+    image: "44.jpg",
+    rating: 5,
+    tagsMenu: ["Acople", "28mm"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-45",
+    name: "Subplaca Cetop 5",
+    shortDescription:
+        "Es una placa base para montar válvulas CETOP 5 en sistemas hidráulicos.",
+    longDescription:
+        "Es una subplaca diseñada para montar válvulas CETOP 5 en sistemas hidráulicos, proporcionando una base estable y segura para el montaje de estas válvulas. Está fabricada según las normas CETOP (Comité Europeo de Transmisiones Oleohidráulicas y Neumáticas) para asegurar compatibilidad y rendimiento óptimo en aplicaciones industriales.",
+    image: "44.jpg",
+    rating: 5,
+    tagsMenu: ["Subplaca", "Cetop"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-46",
+    name: "Válvula Aisladora para Manómetro",
+    shortDescription:
+        "Es una válvula que aísla y protege el manómetro de sobrepresiones y daños.",
+    longDescription:
+        "Es una válvula diseñada para aislar y proteger los manómetros de sobrepresiones, picos de presión y daños causados por vibraciones o fluidos corrosivos. Permite realizar mantenimiento y calibración del manómetro sin afectar al sistema, asegurando una medición precisa y prolongando la vida útil del equipo.",
+    image: "46.jpg",
+    rating: 5,
+    tagsMenu: ["Válvula", "Manómetro"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-47",
+    name: "Acumulador hidráulico",
+    shortDescription:
+        "Dispositivo que almacena energía en forma de fluido presurizado.",
+    longDescription:
+        "Es un recipiente que acumula fluido hidráulico bajo presión para compensar picos de demanda, absorber impactos o mantener la presión en un sistema hidráulico. Puede usar gas comprimido, un resorte o un peso para mantener la presión interna.",
+    image: "47.jpg",
+    rating: 5,
+    tagsMenu: ["Acumulador", "hidráulico"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-48",
+    name: "Filtro Hidráulico",
+    shortDescription:
+        "Elimina partículas contaminantes del fluido.",
+    longDescription:
+        "Este componente protege los circuitos hidráulicos eliminando impurezas como polvo, metal o residuos que pueden dañar válvulas, bombas o cilindros. Existen filtros de presión, de retorno y de succión, cada uno con aplicaciones específicas.",
+    image: "47.jpg",
+    rating: 5,
+    tagsMenu: ["Filtro", "hidráulico"],
+    comments: commentsList,
+    categories: [
+      categoryList[4],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-49",
+    name: "Cilindro Hidráulico",
+    shortDescription:
+        "Actuador que produce movimiento lineal con presión.",
+    longDescription:
+        "Común en maquinaria industrial y de construcción, los cilindros hidráulicos transforman la energía del fluido en movimiento lineal. Tienen múltiples aplicaciones, desde brazos mecánicos hasta sistemas de elevación.",
+    image: "49.jpg",
+    rating: 5,
+    tagsMenu: ["Cilindro", "hidráulico"],
+    comments: commentsList,
+    categories: [
+      categoryList[11],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-50",
+    name: "Válvula de Bola",
+    shortDescription:
+        "Controla el paso del fluido mediante una esfera perforada.",
+    longDescription:
+        "Este tipo de válvula utiliza una bola con un orificio central que, al girar, permite o bloquea el paso del fluido. Es conocida por su durabilidad y sellado hermético, siendo ideal para aplicaciones de encendido/apagado rápido.",
+    image: "50.jpg",
+    rating: 5,
+    tagsMenu: ["Válvula"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-51",
+    name: "Válvula de Mariposa",
+    shortDescription:
+        "Regula el flujo mediante un disco giratorio.",
+    longDescription:
+        "La válvula de mariposa utiliza un disco montado en un eje que gira para abrir o cerrar el paso del fluido. Es compacta, ligera y adecuada para controlar grandes volúmenes de fluido con baja presión.",
+    image: "51.jpg",
+    rating: 5,
+    tagsMenu: ["Válvula", "Mariposa"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-52",
+    name: "Válvula de Aguja",
+    shortDescription:
+        "Permite ajustes precisos del flujo en sistemas de baja presión.",
+    longDescription:
+        "Esta válvula tiene un vástago cónico que se inserta en un asiento, permitiendo un control fino del flujo. Es ideal para aplicaciones donde se requiere una regulación precisa del caudal.",
+    image: "52.jpg",
+    rating: 5,
+    tagsMenu: ["Válvula", "Aguja"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-53",
+    name: "Válvula Solenoide",
+    shortDescription:
+        "Controla el flujo mediante una señal eléctrica.",
+    longDescription:
+        "Una válvula solenoide utiliza un electroimán para mover un émbolo que abre o cierra el paso del fluido. Es común en sistemas automatizados donde se requiere control remoto del flujo.",
+    image: "53.jpg",
+    rating: 5,
+    tagsMenu: ["Válvula", "Solenoide"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
 ];

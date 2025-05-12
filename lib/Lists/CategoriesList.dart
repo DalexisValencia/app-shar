@@ -52,18 +52,18 @@ List<CategoryInterface> categoryList = [
     image: "images/logo.png",
   ),
   CategoryInterface(
+    id: "category-10",
+    name: "Anillos hidráulicos",
+    image: "images/logo.png",
+  ),
+  CategoryInterface(
     id: "category-11",
-    name: "once-category",
+    name: "Conectores",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-12",
-    name: "doce-category",
-    image: "images/logo.png",
-  ),
-  CategoryInterface(
-    id: "category-13",
-    name: "cetre-category",
+    name: "Campanas hidráulicas",
     image: "images/logo.png",
   ),
   CategoryInterface(
