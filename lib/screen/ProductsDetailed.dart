@@ -75,6 +75,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
     var screenHeight = mediaQuery.size.height - (60 + statusBarHeight);
 
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
         child: Column(
           children: [
@@ -82,7 +83,6 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
               color: Colors.transparent,
               height: screenHeight,
               child: SingleChildScrollView(
-                reverse: true,
                 child: Column(
                   children: [
                     Container(
@@ -234,7 +234,6 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                             right: 5,
                                           ),
                                           width: 100,
-                                          child: Expanded(
                                             child: Row(
                                               children: [
                                                 Stack(
@@ -270,7 +269,6 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                                 )
                                               ],
                                             ),
-                                          ),
                                         ),
                                         const Flexible(
                                           child: Text(

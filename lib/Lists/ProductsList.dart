@@ -902,4 +902,132 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
+  ProductsInterface(
+    id: "product-54",
+    name: "Válvula Proporcional",
+    shortDescription: "Regula el flujo o presión de manera continua según una señal eléctrica.",
+    longDescription:
+        "A diferencia de las válvulas todo/nada, las válvulas proporcionales permiten un control variable del flujo o presión en función de una señal eléctrica, ofreciendo una respuesta más precisa y suave en sistemas hidráulicos complejos.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Proporcional"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-55",
+    name: "Válvula de Cartucho",
+    shortDescription: "Diseñada para ser insertada en cavidades estándar, facilitando el mantenimiento.",
+    longDescription:
+        "Estas válvulas compactas se montan dentro de bloques o manifolds, permitiendo configuraciones modulares y simplificando el diseño de sistemas hidráulicos. Son comunes en maquinaria móvil e industrial.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Cartucho"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-56",
+    name: "Válvula de Contrabalance",
+    shortDescription: "Mantiene la carga en posición cuando se detiene el flujo.",
+    longDescription:
+        "Esta válvula evita el movimiento indeseado de una carga cuando el flujo se interrumpe, proporcionando estabilidad y seguridad en aplicaciones como grúas o plataformas elevadoras.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Contrabalance"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-57",
+    name: "Válvula de Secuencia",
+    shortDescription: "Controla el orden de operación de distintos actuadores en un sistema hidráulico.",
+    longDescription:
+        "La válvula de secuencia permite que un actuador funcione solo después de que otro haya completado su movimiento. Esto se logra manteniendo una presión específica hasta que se alcanza un punto determinado, asegurando una operación ordenada y segura en sistemas complejos.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Secuencia"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-58",
+    name: "Válvula Reductora de Presión",
+    shortDescription: "Disminuye la presión del fluido a un nivel seguro para componentes sensibles.",
+    longDescription:
+        "Esta válvula mantiene una presión de salida constante menor que la de entrada, protegiendo componentes que no pueden soportar altas presiones. Es esencial en sistemas donde se requiere una presión específica para ciertos elementos.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Reductora"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-59",
+    name: "Válvula de Cierre Rápido",
+    shortDescription: "Permite detener rápidamente el flujo de fluido en situaciones de emergencia.",
+    longDescription:
+        "Diseñada para cerrar el paso del fluido de manera instantánea, esta válvula es crucial en sistemas donde una parada rápida puede prevenir daños mayores o garantizar la seguridad del personal.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Cierre"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-60",
+    name: "Válvula de Purga",
+    shortDescription: "Elimina aire o contaminantes del sistema hidráulico.",
+    longDescription:
+        "La válvula de purga se utiliza para liberar aire atrapado o impurezas del sistema, asegurando un funcionamiento eficiente y evitando daños por cavitación o corrosión.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Purga"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
+  ProductsInterface(
+    id: "product-61",
+    name: "Válvula de Retención de Disco",
+    shortDescription: "Utiliza un disco para controlar el flujo en una sola dirección.",
+    longDescription:
+        "Similar a la válvula de retención de bola, pero utiliza un disco que se mueve para permitir o bloquear el flujo. Ofrece un cierre más suave y es adecuada para aplicaciones con cambios frecuentes de flujo.",
+    image: "",
+    rating: 5,
+    tagsMenu: ["Válvula", "Retención"],
+    comments: commentsList,
+    categories: [
+      categoryList[2],
+    ],
+    promotion: false,
+    amount: 1,
+  ),
 ];
