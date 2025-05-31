@@ -68,12 +68,12 @@ List<CategoryInterface> categoryList = [
   ),
   CategoryInterface(
     id: "category-14",
-    name: "catorce-category",
+    name: "Niples",
     image: "images/logo.png",
   ),
   CategoryInterface(
     id: "category-15",
-    name: "quince-category",
+    name: "Sensor",
     image: "images/logo.png",
   ),
 ];
