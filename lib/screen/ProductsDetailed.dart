@@ -217,7 +217,8 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                             }).toList();
                                             var isEmpty = carProducts.isEmpty;
 
-                                            const carIcon = Icon(Icons.shopping_cart);
+                                            const carIcon =
+                                                Icon(Icons.shopping_cart);
 
                                             return isEmpty
                                                 ? carIcon
@@ -320,6 +321,44 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                             durationTime: 500,
                           ),
                           Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: 10,
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Text(
+                                  "Categorías",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Container(
+                                  padding: const EdgeInsets.only(
+                                    top: 10,
+                                  ),
+                                  child: Builder(
+                                  builder: (BuildContext context) {
+                                    List<Widget> categories = [];
+                                    widget.product.categories
+                                        .asMap()
+                                        .entries
+                                        .map((e) {
+                                      categories.add(Text("hiii!!"));
+                                    }).toList();
+                                    return Wrap(
+                                      alignment: WrapAlignment.start,
+                                      children: categories,
+                                    );
+                                  },
+                                ),
+                                ),
+                                
+                              ],
+                            ),
+                          ),
+                          Container(
                             margin: const EdgeInsets.only(
                               top: 10,
                             ),
@@ -376,19 +415,22 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                                   const Positioned(
                                                     left: 10,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "/avatar-2.png",
+                                                      avatarUrl:
+                                                          "/avatar-2.png",
                                                     ),
                                                   ),
                                                   const Positioned(
                                                     left: 20,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "/avatar-3.png",
+                                                      avatarUrl:
+                                                          "/avatar-3.png",
                                                     ),
                                                   ),
                                                   const Positioned(
                                                     left: 30,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "/avatar-4.png",
+                                                      avatarUrl:
+                                                          "/avatar-4.png",
                                                     ),
                                                   ),
                                                 ],
