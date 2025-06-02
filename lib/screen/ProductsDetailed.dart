@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
+import 'package:shar/blocs/favorites/favorites_bloc.dart';
 import 'package:shar/components/AvatarCircleWrapper.dart';
 import 'package:shar/components/CommentsWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
@@ -21,12 +22,14 @@ class ProductsDetailed extends StatefulWidget {
 }
 
 class _ProductsDetailedState extends State<ProductsDetailed> {
+  late FavoritesBloc favoriteBlocIntance;
   late CartBloc cartBlocIntance;
 
   @override
   void initState() {
     super.initState();
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
+    favoriteBlocIntance = BlocProvider.of<FavoritesBloc>(context);
   }
 
   addToCart() {
@@ -67,6 +70,26 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
     );
   }
 
+  void addToFavorites() {
+    String alert = " Se ha añadido a favoritos";
+    favoriteBlocIntance.add(
+      AddProductToFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name, alert);
+  }
+
+  void removeFromFavorites() {
+    String alert = " Se ha removido de favoritos";
+    favoriteBlocIntance.add(
+      RemoveProductFromFavorite(
+        product: widget.product,
+      ),
+    );
+    snackBarAddCart(context, widget.product.name, alert);
+  }
+
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
@@ -91,7 +114,18 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                       height: screenWidth * 0.73,
                       child: Stack(
                         children: [
-                          ClipRRect(
+                          Container(
+                            width: double.infinity,
+                            height: 300,
+                            decoration: BoxDecoration(
+                              image: DecorationImage(
+                                image: NetworkImage(
+                                    "$urlBaseAssets/${widget.product.image}"), // o NetworkImage
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          /*ClipRRect(
                             borderRadius: const BorderRadius.only(
                               topLeft: Radius.circular(5),
                               topRight: Radius.circular(5),
@@ -100,16 +134,111 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               "$urlBaseAssets/${widget.product.image}",
                               fit: BoxFit.fitWidth,
                             ),
-                          ),
+                          ),*/
                           Positioned(
                             top: 10,
-                            right: 20,
-                            child: IconButton(
-                              color: blackColor,
-                              icon: const Icon(Icons.close),
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
+                            left: 0,
+                            child: Container(
+                              width: screenWidth,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    style: ElevatedButton.styleFrom(
+                                      shape: const CircleBorder(),
+                                      padding: const EdgeInsets.all(10),
+                                      backgroundColor: greyLightColor,
+                                      foregroundColor: blackColor,
+                                    ),
+                                    child: const Icon(
+                                      Icons.arrow_back,
+                                      size: 22,
+                                    ),
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      BlocBuilder<FavoritesBloc,
+                                          FavoritesState>(
+                                        builder: (BuildContext context,
+                                            FavoritesState state) {
+                                          List<ProductsInterface> favorites =
+                                              state.props[0]
+                                                  as List<ProductsInterface>;
+                                          bool isFavorite = !favorites
+                                              .contains(widget.product);
+
+                                          return ElevatedButton(
+                                            onPressed: () {
+                                              isFavorite
+                                                  ? addToFavorites()
+                                                  : removeFromFavorites();
+                                            },
+                                            style: ElevatedButton.styleFrom(
+                                              shape: const CircleBorder(),
+                                              padding: const EdgeInsets.all(10),
+                                              backgroundColor: isFavorite
+                                                  ? blackColor
+                                                  : yellowColor,
+                                              foregroundColor: isFavorite
+                                                  ? yellowColor
+                                                  : blackColor,
+                                            ),
+                                            child: const Icon(Icons.favorite),
+                                          );
+                                        },
+                                      ),
+                                      ElevatedButton(
+                                        onPressed: () {
+                                          // Navigator.pop(context);
+                                        },
+                                        style: ElevatedButton.styleFrom(
+                                          shape: const CircleBorder(),
+                                          padding: const EdgeInsets.all(10),
+                                          backgroundColor: yellowColor,
+                                          foregroundColor: blackColor,
+                                        ),
+                                        child: BlocBuilder<CartBloc, CartState>(
+                                          builder: (BuildContext context,
+                                              CartState state) {
+                                            List<ProductsInterface>
+                                                carProducts = state.props[0]
+                                                    as List<ProductsInterface>;
+                                            int totalProducts = 0;
+                                            carProducts
+                                                .asMap()
+                                                .entries
+                                                .map((e) {
+                                              totalProducts += e.value.amount;
+                                            }).toList();
+                                            var isEmpty = carProducts.isEmpty;
+
+                                            const carIcon = Icon(Icons.shopping_cart);
+
+                                            return isEmpty
+                                                ? carIcon
+                                                : Badge(
+                                                    label: Text(
+                                                      totalProducts.toString(),
+                                                      style: const TextStyle(
+                                                        fontSize: 11,
+                                                        fontFamily:
+                                                            "Inter-SemiBold",
+                                                      ),
+                                                    ),
+                                                    child: carIcon,
+                                                  );
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ],
@@ -234,41 +363,38 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                             right: 5,
                                           ),
                                           width: 100,
-                                            child: Row(
-                                              children: [
-                                                Stack(
-                                                  children: [
-                                                    Container(
-                                                      width: 100,
-                                                    ),
-                                                    const Avatarcirclewrapper(
+                                          child: Row(
+                                            children: [
+                                              Stack(
+                                                children: [
+                                                  Container(
+                                                    width: 100,
+                                                  ),
+                                                  const Avatarcirclewrapper(
+                                                    avatarUrl: "",
+                                                  ),
+                                                  const Positioned(
+                                                    left: 10,
+                                                    child: Avatarcirclewrapper(
                                                       avatarUrl: "",
                                                     ),
-                                                    const Positioned(
-                                                      left: 10,
-                                                      child:
-                                                          Avatarcirclewrapper(
-                                                        avatarUrl: "",
-                                                      ),
+                                                  ),
+                                                  const Positioned(
+                                                    left: 20,
+                                                    child: Avatarcirclewrapper(
+                                                      avatarUrl: "",
                                                     ),
-                                                    const Positioned(
-                                                      left: 20,
-                                                      child:
-                                                          Avatarcirclewrapper(
-                                                        avatarUrl: "",
-                                                      ),
+                                                  ),
+                                                  const Positioned(
+                                                    left: 30,
+                                                    child: Avatarcirclewrapper(
+                                                      avatarUrl: "",
                                                     ),
-                                                    const Positioned(
-                                                      left: 30,
-                                                      child:
-                                                          Avatarcirclewrapper(
-                                                        avatarUrl: "",
-                                                      ),
-                                                    ),
-                                                  ],
-                                                )
-                                              ],
-                                            ),
+                                                  ),
+                                                ],
+                                              )
+                                            ],
+                                          ),
                                         ),
                                         const Flexible(
                                           child: Text(
