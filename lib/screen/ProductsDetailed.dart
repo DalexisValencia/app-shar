@@ -296,7 +296,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                     width: 5,
                                   ),
                                   const Text(
-                                    "400 Compradores",
+                                    "Reseñas de compradores",
                                     style: TextStyle(
                                       fontFamily: "Inter-SemiBold",
                                       fontSize: 10,
@@ -341,7 +341,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                         width: 5,
                                       ),
                                       Text(
-                                        "${widget.product.comments.length} comentarios",
+                                        "(${widget.product.comments.length}) comentarios",
                                         style: const TextStyle(
                                           fontFamily: "Inter-SemiBold",
                                           fontSize: 10,
@@ -371,24 +371,24 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                                     width: 100,
                                                   ),
                                                   const Avatarcirclewrapper(
-                                                    avatarUrl: "",
+                                                    avatarUrl: "/avatar-1.png",
                                                   ),
                                                   const Positioned(
                                                     left: 10,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "",
+                                                      avatarUrl: "/avatar-2.png",
                                                     ),
                                                   ),
                                                   const Positioned(
                                                     left: 20,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "",
+                                                      avatarUrl: "/avatar-3.png",
                                                     ),
                                                   ),
                                                   const Positioned(
                                                     left: 30,
                                                     child: Avatarcirclewrapper(
-                                                      avatarUrl: "",
+                                                      avatarUrl: "/avatar-4.png",
                                                     ),
                                                   ),
                                                 ],
@@ -398,7 +398,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                         ),
                                         const Flexible(
                                           child: Text(
-                                            "Otros compradores han opinado sobre este producto, también puedes dejar tus comentarios y preguntas.",
+                                            "Otros compradores han opinado sobre este producto, también puedes dejar tus comentarios y preguntas dando clic.",
                                             style: TextStyle(fontSize: 10),
                                           ),
                                         ),

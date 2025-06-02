@@ -15,9 +15,9 @@ class Avatarcirclewrapper extends StatelessWidget {
         ),
         borderRadius: BorderRadius.circular(50),
       ),
-      child: const CircleAvatar(
+      child: CircleAvatar(
         backgroundImage: NetworkImage(
-          "https://avatars.githubusercontent.com/u/61495501?v=4",
+          urlBaseAvatars + avatarUrl,
         ),
         radius: 22,
       ),
