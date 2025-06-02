@@ -905,7 +905,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-54",
     name: "Válvula Proporcional",
-    shortDescription: "Regula el flujo o presión de manera continua según una señal eléctrica.",
+    shortDescription:
+        "Regula el flujo o presión de manera continua según una señal eléctrica.",
     longDescription:
         "A diferencia de las válvulas todo/nada, las válvulas proporcionales permiten un control variable del flujo o presión en función de una señal eléctrica, ofreciendo una respuesta más precisa y suave en sistemas hidráulicos complejos.",
     image: "",
@@ -921,7 +922,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-55",
     name: "Válvula de Cartucho",
-    shortDescription: "Diseñada para ser insertada en cavidades estándar, facilitando el mantenimiento.",
+    shortDescription:
+        "Diseñada para ser insertada en cavidades estándar, facilitando el mantenimiento.",
     longDescription:
         "Estas válvulas compactas se montan dentro de bloques o manifolds, permitiendo configuraciones modulares y simplificando el diseño de sistemas hidráulicos. Son comunes en maquinaria móvil e industrial.",
     image: "",
@@ -937,7 +939,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-56",
     name: "Válvula de Contrabalance",
-    shortDescription: "Mantiene la carga en posición cuando se detiene el flujo.",
+    shortDescription:
+        "Mantiene la carga en posición cuando se detiene el flujo.",
     longDescription:
         "Esta válvula evita el movimiento indeseado de una carga cuando el flujo se interrumpe, proporcionando estabilidad y seguridad en aplicaciones como grúas o plataformas elevadoras.",
     image: "",
@@ -953,7 +956,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-57",
     name: "Válvula de Secuencia",
-    shortDescription: "Controla el orden de operación de distintos actuadores en un sistema hidráulico.",
+    shortDescription:
+        "Controla el orden de operación de distintos actuadores en un sistema hidráulico.",
     longDescription:
         "La válvula de secuencia permite que un actuador funcione solo después de que otro haya completado su movimiento. Esto se logra manteniendo una presión específica hasta que se alcanza un punto determinado, asegurando una operación ordenada y segura en sistemas complejos.",
     image: "",
@@ -969,7 +973,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-58",
     name: "Válvula Reductora de Presión",
-    shortDescription: "Disminuye la presión del fluido a un nivel seguro para componentes sensibles.",
+    shortDescription:
+        "Disminuye la presión del fluido a un nivel seguro para componentes sensibles.",
     longDescription:
         "Esta válvula mantiene una presión de salida constante menor que la de entrada, protegiendo componentes que no pueden soportar altas presiones. Es esencial en sistemas donde se requiere una presión específica para ciertos elementos.",
     image: "",
@@ -985,7 +990,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-59",
     name: "Válvula de Cierre Rápido",
-    shortDescription: "Permite detener rápidamente el flujo de fluido en situaciones de emergencia.",
+    shortDescription:
+        "Permite detener rápidamente el flujo de fluido en situaciones de emergencia.",
     longDescription:
         "Diseñada para cerrar el paso del fluido de manera instantánea, esta válvula es crucial en sistemas donde una parada rápida puede prevenir daños mayores o garantizar la seguridad del personal.",
     image: "",
@@ -1017,7 +1023,8 @@ List<ProductsInterface> productsList = [
   ProductsInterface(
     id: "product-61",
     name: "Válvula de Retención de Disco",
-    shortDescription: "Utiliza un disco para controlar el flujo en una sola dirección.",
+    shortDescription:
+        "Utiliza un disco para controlar el flujo en una sola dirección.",
     longDescription:
         "Similar a la válvula de retención de bola, pero utiliza un disco que se mueve para permitir o bloquear el flujo. Ofrece un cierre más suave y es adecuada para aplicaciones con cambios frecuentes de flujo.",
     image: "",
@@ -1046,12 +1053,12 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-63",
     name: "Te (T)",
     shortDescription: "Une tres líneas hidráulicas",
     longDescription:
-        "Conector en forma de “T” que permite dividir el flujo hidráulico en dos ramas o combinar dos flujos en uno solo, muy útil en redes ramificadas.",
+        "Conector en forma de 'T' que permite dividir el flujo hidráulico en dos ramas o combinar dos flujos en uno solo, muy útil en redes ramificadas.",
     image: "",
     rating: 5,
     tagsMenu: ["Te", "Conector"],
@@ -1121,12 +1128,12 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Niple", "Tubo corto"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-68",
     name: "Brida hidráulica",
     shortDescription: "Conexión plana atornillada para unir tubos.",
@@ -1137,7 +1144,7 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Brida", "Tubos"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
@@ -1153,12 +1160,12 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Acople", "Tubos"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-70",
     name: "Válvula de retención",
     shortDescription: "Permite flujo en una sola dirección.",
@@ -1254,7 +1261,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-76",
     name: "Conector giratorio",
     shortDescription: "Permite rotación sin fugas.",
@@ -1270,7 +1277,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-   ProductsInterface(
+  ProductsInterface(
     id: "product-77",
     name: "Acumulador de vejiga",
     shortDescription: "Almacena energía con nitrógeno.",
@@ -1286,7 +1293,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-     ProductsInterface(
+  ProductsInterface(
     id: "product-78",
     name: "Acumulador de pistón",
     shortDescription: "Usa pistón para separar gas y fluido.",
@@ -1318,7 +1325,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-80",
     name: "Indicador de filtro obstruido",
     shortDescription: "Alerta cuando el filtro está sucio.",
@@ -1361,7 +1368,7 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Sensor", "presión"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
@@ -1377,12 +1384,12 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Sensor", "presión"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
   ),
-   ProductsInterface(
+  ProductsInterface(
     id: "product-84",
     name: "Acoplamiento flexible",
     shortDescription: "Une ejes con cierta movilidad.",
@@ -1393,12 +1400,12 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Acoplamiento", "flexible"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
   ),
-     ProductsInterface(
+  ProductsInterface(
     id: "product-85",
     name: "Engranaje de transmisión",
     shortDescription: "Transfiere movimiento mecánico.",
@@ -1409,7 +1416,7 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Acoplamiento", "flexible"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
@@ -1425,12 +1432,12 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-87",
     name: "Tope mecánico de cilindro",
     shortDescription: "Limita el recorrido del pistón.",
@@ -1494,7 +1501,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-91",
     name: "Junta tórica (O-ring)",
     shortDescription: "Sella uniones contra fugas.",
@@ -1510,7 +1517,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-92",
     name: "Sensor de posición",
     shortDescription: "Detecta la posición de un actuador.",
@@ -1542,7 +1549,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-94",
     name: "Racores hidráulicos",
     shortDescription: "Conectan mangueras y tubos.",
@@ -1553,7 +1560,7 @@ List<ProductsInterface> productsList = [
     tagsMenu: ["Racores", "mangueras"],
     comments: commentsList,
     categories: [
-      categoryList[15],
+      categoryList[14],
     ],
     promotion: false,
     amount: 1,
@@ -1590,7 +1597,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-97",
     name: "Muelle o resorte de retorno",
     shortDescription: "Regresa pistón o válvula a posición inicial.",
@@ -1622,7 +1629,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-    ProductsInterface(
+  ProductsInterface(
     id: "product-99",
     name: "Cuerpo de cilindro",
     shortDescription: "Contiene el pistón y fluido.",

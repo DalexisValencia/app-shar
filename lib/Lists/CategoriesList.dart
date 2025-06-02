@@ -67,12 +67,12 @@ List<CategoryInterface> categoryList = [
     image: "images/logo.png",
   ),
   CategoryInterface(
-    id: "category-14",
+    id: "category-13",
     name: "Niples",
     image: "images/logo.png",
   ),
   CategoryInterface(
-    id: "category-15",
+    id: "category-14",
     name: "Sensor",
     image: "images/logo.png",
   ),
