@@ -343,11 +343,9 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                   builder: (BuildContext context) {
                                     List<Widget> categories = [];
                                     widget.product.categories
-                                        .asMap()
-                                        .entries
-                                        .map((e, category) {
-                                      categories.add(Text("hiii!!"));
-                                    } as Function(MapEntry<int, CategoryInterface> e)).toList();
+                                        .map((e)  {
+                                      categories.add(Text(e.name));
+                                    }).toList();
                                     return Wrap(
                                       alignment: WrapAlignment.start,
                                       children: categories,

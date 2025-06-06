@@ -45,7 +45,7 @@ class _ProductsState extends State<Products> {
             widgetChild: Categorychipwrapper(),
           ),
           Container(
-            color: Colors.red,
+            color: Colors.transparent,
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: BlocBuilder<ProductsBloc, ProductsState>(
               builder: (BuildContext context, ProductsState state) {

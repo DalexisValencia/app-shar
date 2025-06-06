@@ -108,7 +108,7 @@ class _ProductCardState extends State<ProductCard> {
           );
         },
         child: Container(
-          color: whiteColor,
+          color: Colors.transparent,
           width: cardWidth,
           child: Card(
             elevation: 2,
@@ -252,7 +252,7 @@ class _ProductCardState extends State<ProductCard> {
                   ),
                 ),
                 Container(
-                  color: const Color.fromARGB(255, 227, 227, 227),
+                  color: Colors.transparent,
                   width: double.infinity,
                   height: 40,
                   child: BlocBuilder<CartBloc, CartState>(
