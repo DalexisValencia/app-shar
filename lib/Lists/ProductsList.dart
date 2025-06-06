@@ -1565,7 +1565,7 @@ List<ProductsInterface> productsList = [
     promotion: false,
     amount: 1,
   ),
-  ProductsInterface(
+  ProductsInterface( 
     id: "product-95",
     name: "Filtro de succión",
     shortDescription: "Protege la bomba de partículas.",
@@ -1587,7 +1587,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Une elementos sin movimiento.",
     longDescription:
         "Conecta ejes o componentes hidráulicos sin permitir movimiento relativo, garantizando alineación precisa.",
-    image: "",
+    image: "96-Acoplamiento-rígido.jpg",
     rating: 5,
     tagsMenu: ["Acoplamiento"],
     comments: commentsList,
@@ -1603,7 +1603,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Regresa pistón o válvula a posición inicial.",
     longDescription:
         "Elemento mecánico que aplica fuerza para devolver componentes a su estado inicial tras operación hidráulica.",
-    image: "",
+    image: "96-Acoplamiento-rígido.jpg",
     rating: 5,
     tagsMenu: ["Acoplamiento"],
     comments: commentsList,
@@ -1619,7 +1619,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Transmite fuerza del pistón.",
     longDescription:
         "Barra metálica que conecta el pistón con la carga, transmitiendo la fuerza generada por el fluido.",
-    image: "",
+    image: "98-Vástago-de-cilindro.jpg",
     rating: 5,
     tagsMenu: ["Acoplamiento"],
     comments: commentsList,
@@ -1635,7 +1635,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Contiene el pistón y fluido.",
     longDescription:
         "Parte principal del cilindro donde se desplaza el pistón, soportando la presión hidráulica.",
-    image: "",
+    image: "99-Cuerpo-de-cilindro.jpg",
     rating: 5,
     tagsMenu: ["cilindro"],
     comments: commentsList,
@@ -1651,7 +1651,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Mide la temperatura del fluido.",
     longDescription:
         "Dispositivo que detecta y reporta la temperatura del aceite hidráulico para evitar sobrecalentamientos.",
-    image: "",
+    image: "100-Sensor-de-temperatura.jpg",
     rating: 5,
     tagsMenu: ["cilindro"],
     comments: commentsList,
