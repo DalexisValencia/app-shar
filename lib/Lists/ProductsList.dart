@@ -909,7 +909,7 @@ List<ProductsInterface> productsList = [
         "Regula el flujo o presión de manera continua según una señal eléctrica.",
     longDescription:
         "A diferencia de las válvulas todo/nada, las válvulas proporcionales permiten un control variable del flujo o presión en función de una señal eléctrica, ofreciendo una respuesta más precisa y suave en sistemas hidráulicos complejos.",
-    image: "",
+    image: "54-válvula-proporcional.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Proporcional"],
     comments: commentsList,
@@ -926,7 +926,7 @@ List<ProductsInterface> productsList = [
         "Diseñada para ser insertada en cavidades estándar, facilitando el mantenimiento.",
     longDescription:
         "Estas válvulas compactas se montan dentro de bloques o manifolds, permitiendo configuraciones modulares y simplificando el diseño de sistemas hidráulicos.\n\n Son comunes en maquinaria móvil e industrial.",
-    image: "",
+    image: "55-válvula-de-cartucho.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Cartucho"],
     comments: commentsList,
@@ -943,7 +943,7 @@ List<ProductsInterface> productsList = [
         "Mantiene la carga en posición cuando se detiene el flujo.",
     longDescription:
         "Esta válvula evita el movimiento indeseado de una carga cuando el flujo se interrumpe, proporcionando estabilidad y seguridad en aplicaciones como grúas o plataformas elevadoras.",
-    image: "",
+    image: "56-válvula-de-contrabalance.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Contrabalance"],
     comments: commentsList,
@@ -960,7 +960,7 @@ List<ProductsInterface> productsList = [
         "Controla el orden de operación de distintos actuadores en un sistema hidráulico.",
     longDescription:
         "La válvula de secuencia permite que un actuador funcione solo después de que otro haya completado su movimiento.\n\n Esto se logra manteniendo una presión específica hasta que se alcanza un punto determinado, asegurando una operación ordenada y segura en sistemas complejos.",
-    image: "",
+    image: "57-válvula-de-secuencia.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Secuencia"],
     comments: commentsList,
@@ -977,7 +977,7 @@ List<ProductsInterface> productsList = [
         "Disminuye la presión del fluido a un nivel seguro para componentes sensibles.",
     longDescription:
         "Esta válvula mantiene una presión de salida constante menor que la de entrada, protegiendo componentes que no pueden soportar altas presiones.\n\n Es esencial en sistemas donde se requiere una presión específica para ciertos elementos.",
-    image: "",
+    image: "58-válvula-reductora-de-presión.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Reductora"],
     comments: commentsList,
@@ -994,7 +994,7 @@ List<ProductsInterface> productsList = [
         "Permite detener rápidamente el flujo de fluido en situaciones de emergencia.",
     longDescription:
         "Diseñada para cerrar el paso del fluido de manera instantánea, esta válvula es crucial en sistemas donde una parada rápida puede prevenir daños mayores o garantizar la seguridad del personal.",
-    image: "",
+    image: "59-válvula-de-cierre-rápido.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Cierre"],
     comments: commentsList,
@@ -1010,7 +1010,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Elimina aire o contaminantes del sistema hidráulico.",
     longDescription:
         "La válvula de purga se utiliza para liberar aire atrapado o impurezas del sistema, asegurando un funcionamiento eficiente y evitando daños por cavitación o corrosión.",
-    image: "",
+    image: "60-válvula-de-purga.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Purga"],
     comments: commentsList,
@@ -1027,7 +1027,7 @@ List<ProductsInterface> productsList = [
         "Utiliza un disco para controlar el flujo en una sola dirección.",
     longDescription:
         "Similar a la válvula de retención de bola, pero utiliza un disco que se mueve para permitir o bloquear el flujo.\n\n Ofrece un cierre más suave y es adecuada para aplicaciones con cambios frecuentes de flujo.",
-    image: "",
+    image: "61-válvula-de-retención-de-disco.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "Retención"],
     comments: commentsList,
@@ -1043,7 +1043,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Conector que cambia la dirección del flujo",
     longDescription:
         "Pieza utilizada para redirigir el flujo del fluido hidráulico en ángulos específicos (comúnmente 90° o 45°), permitiendo una instalación eficiente en espacios reducidos o complejos.",
-    image: "",
+    image: "62-Codo.jpg",
     rating: 5,
     tagsMenu: ["Codo", "Conectores"],
     comments: commentsList,
@@ -1059,7 +1059,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Une tres líneas hidráulicas",
     longDescription:
         "Conector en forma de 'T' que permite dividir el flujo hidráulico en dos ramas o combinar dos flujos en uno solo, muy útil en redes ramificadas.",
-    image: "",
+    image: "63-Te.jpg",
     rating: 5,
     tagsMenu: ["Te", "Conector"],
     comments: commentsList,
@@ -1075,7 +1075,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Conecta dos tubos en línea recta.",
     longDescription:
         "Pieza que une firmemente dos secciones de tubería o manguera en línea recta para asegurar la continuidad del circuito hidráulico sin desvíos.",
-    image: "",
+    image: "64-Unión-Recta.jpg",
     rating: 5,
     tagsMenu: ["Unión", "Conector"],
     comments: commentsList,
@@ -1091,7 +1091,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Une tubos de diferentes diámetros.",
     longDescription:
         "Adaptador que permite conectar una tubería o manguera de mayor diámetro a una de menor (o viceversa), regulando el caudal y presión del sistema.",
-    image: "",
+    image: "65-Reductor.jpg",
     rating: 5,
     tagsMenu: ["Te", "líneas"],
     comments: commentsList,
@@ -1107,7 +1107,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Tubo corto roscado en ambos extremos.",
     longDescription:
         "Cilindro metálico con roscas en ambos extremos usado para conectar componentes hidráulicos de forma rígida y segura.",
-    image: "",
+    image: "66-Niple-Hidráulico.jpg",
     rating: 5,
     tagsMenu: ["Niple", "Tubo corto"],
     comments: commentsList,
@@ -1123,7 +1123,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Conecta dos elementos roscados.",
     longDescription:
         "Acoplador cilíndrico que permite unir dos extremos roscados, especialmente útil en zonas de mantenimiento o reemplazo frecuente.",
-    image: "",
+    image: "67-Manguito.jpg",
     rating: 5,
     tagsMenu: ["Niple", "Tubo corto"],
     comments: commentsList,
@@ -1139,7 +1139,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Conexión plana atornillada para unir tubos.",
     longDescription:
         "Elemento circular o cuadrado con orificios para pernos, que permite una conexión firme y estanca entre tramos de tubería hidráulica, ideal en sistemas de alta presión.",
-    image: "",
+    image: "68-Brida-Hidráulica.jpg",
     rating: 5,
     tagsMenu: ["Brida", "Tubos"],
     comments: commentsList,
@@ -1155,7 +1155,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Permite conexión y desconexión rápida.",
     longDescription:
         "Dispositivo que conecta mangueras o componentes sin necesidad de herramientas, muy usado para cambios rápidos en equipos móviles o accesorios.",
-    image: "",
+    image: "69-Acople-Rápido.jpg",
     rating: 5,
     tagsMenu: ["Acople", "Tubos"],
     comments: commentsList,
@@ -1171,7 +1171,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Permite flujo en una sola dirección.",
     longDescription:
         "Evita el retroceso del fluido en una línea hidráulica, asegurando que el flujo se mantenga en la dirección deseada para proteger componentes sensibles.",
-    image: "",
+    image: "70-Válvula-de-retención.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "retención"],
     comments: commentsList,
@@ -1187,7 +1187,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Controla el paso del fluido con una esfera.",
     longDescription:
         "Válvula interna con una bola perforada que gira para abrir o cerrar el paso del fluido, proporcionando un control rápido y confiable.",
-    image: "",
+    image: "71-Válvula-de-bola.jpg",
     rating: 5,
     tagsMenu: ["Válvula", "bola"],
     comments: commentsList,
@@ -1203,7 +1203,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Une piezas con diferentes tipos de rosca.",
     longDescription:
         "Permite la conexión entre componentes con roscas incompatibles (por ejemplo, NPT a BSP), asegurando estanqueidad.",
-    image: "",
+    image: "72-Adaptador-roscado.jpg",
     rating: 5,
     tagsMenu: ["Adaptador", "bola"],
     comments: commentsList,
@@ -1219,7 +1219,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sella extremos no usados.",
     longDescription:
         "Componente que bloquea la salida de un puerto hidráulico para evitar fugas o contaminaciones cuando no está en uso.",
-    image: "",
+    image: "73-Tapa-hidráulica.jpg",
     rating: 5,
     tagsMenu: ["Tapa", "hidráulica"],
     comments: commentsList,
@@ -1235,7 +1235,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Permite liberar aire del sistema.",
     longDescription:
         "Tornillo o válvula pequeña que se abre temporalmente para eliminar bolsas de aire y mejorar el rendimiento hidráulico.",
-    image: "",
+    image: "74-Tapón-de-purga.jpg",
     rating: 5,
     tagsMenu: ["Tapa", "hidráulica"],
     comments: commentsList,
@@ -1251,7 +1251,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sujeta mangueras y tubos.",
     longDescription:
         "Pieza metálica o plástica que mantiene firmes los conductos hidráulicos, minimizando vibraciones y protegiendo contra desgaste.",
-    image: "",
+    image: "75-Abrazadera-hidráulica.jpg",
     rating: 5,
     tagsMenu: ["Abrazadera", "hidráulica"],
     comments: commentsList,
@@ -1267,7 +1267,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Permite rotación sin fugas.",
     longDescription:
         "Unión especial que permite rotar componentes conectados (como brazos móviles) sin desconectar el flujo hidráulico.",
-    image: "",
+    image: "76-Conector-giratorio.jpg",
     rating: 5,
     tagsMenu: ["Conector", "componentes"],
     comments: commentsList,
@@ -1283,7 +1283,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Almacena energía con nitrógeno.",
     longDescription:
         "Acumulador que usa una vejiga interna con gas para almacenar presión hidráulica y compensar variaciones de caudal.",
-    image: "",
+    image: "77-Acumulador-de-vejiga.jpg",
     rating: 5,
     tagsMenu: ["Acumulador", "presión"],
     comments: commentsList,
@@ -1299,7 +1299,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Usa pistón para separar gas y fluido.",
     longDescription:
         "Tiene un pistón móvil que separa gas presurizado del aceite, regulando presión y absorbiendo golpes.",
-    image: "",
+    image: "78-Acumulador-de-pistón.jpg",
     rating: 5,
     tagsMenu: ["Acumulador", "presión"],
     comments: commentsList,
@@ -1315,7 +1315,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Muestra cantidad de fluido.",
     longDescription:
         "Dispositivo visual montado en el tanque que indica el nivel del fluido hidráulico para control y mantenimiento.",
-    image: "",
+    image: "79-Indicador-de-nivel.jpg",
     rating: 5,
     tagsMenu: ["Acumulador", "presión"],
     comments: commentsList,
@@ -1331,7 +1331,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Alerta cuando el filtro está sucio.",
     longDescription:
         "Sensor o señal mecánica que muestra si el filtro hidráulico necesita limpieza o reemplazo.",
-    image: "",
+    image: "80-Indicador-de-filtro-obstruido.jpg",
     rating: 5,
     tagsMenu: ["Indicador", "filtro"],
     comments: commentsList,
@@ -1347,7 +1347,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Controla la temperatura del sistema.",
     longDescription:
         "Interruptor o sensor que apaga el sistema o emite una alarma si el fluido supera una temperatura segura.",
-    image: "",
+    image: "81-Protector-térmico.jpg",
     rating: 5,
     tagsMenu: ["Indicador", "filtro"],
     comments: commentsList,
@@ -1363,7 +1363,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Detecta presión y envía señal.",
     longDescription:
         "Transductor que convierte la presión hidráulica en señal eléctrica para monitoreo en sistemas automatizados.",
-    image: "",
+    image: "82-Sensor-de-presión.jpg",
     rating: 5,
     tagsMenu: ["Sensor", "presión"],
     comments: commentsList,
@@ -1379,7 +1379,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Mide velocidad del flujo.",
     longDescription:
         "Detecta la cantidad de fluido que pasa por un conducto por unidad de tiempo, útil en procesos precisos",
-    image: "",
+    image: "83-Sensor-de-caudal.jpg",
     rating: 5,
     tagsMenu: ["Sensor", "presión"],
     comments: commentsList,
@@ -1395,7 +1395,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Une ejes con cierta movilidad.",
     longDescription:
         "Conecta motores o bombas con cilindros o transmisiones, permitiendo pequeñas desalineaciones sin daño.",
-    image: "",
+    image: "84-Acoplamiento-flexible.jpg",
     rating: 5,
     tagsMenu: ["Acoplamiento", "flexible"],
     comments: commentsList,
@@ -1411,7 +1411,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Transfiere movimiento mecánico.",
     longDescription:
         "Pieza que se acopla a motores hidráulicos para transmitir potencia a otros elementos mecánicos.",
-    image: "",
+    image: "85-Engranaje-de-transmisión.jpg",
     rating: 5,
     tagsMenu: ["Acoplamiento", "flexible"],
     comments: commentsList,
@@ -1427,7 +1427,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Integra múltiples conexiones en un bloque.",
     longDescription:
         "Bloque de aluminio o acero mecanizado que permite centralizar conexiones hidráulicas, reduciendo mangueras y espacio.",
-    image: "",
+    image: "86-Placa-de-conexión.jpg",
     rating: 5,
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
@@ -1443,7 +1443,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Limita el recorrido del pistón.",
     longDescription:
         "Dispositivo físico que impide que un cilindro hidráulico sobrepase cierto punto, protegiendo componentes.",
-    image: "",
+    image: "87-Tope-mecánico-de-cilindro.jpg",
     rating: 5,
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
@@ -1459,7 +1459,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Controla hasta dónde se extiende un actuador.",
     longDescription:
         "Mecanismo ajustable que restringe el recorrido de un cilindro para evitar impactos o posiciones no deseadas.",
-    image: "",
+    image: "88-Limitador-de-carrera.jpg",
     rating: 5,
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
@@ -1475,7 +1475,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Alinea el eje del cilindro.",
     longDescription:
         "Pieza de soporte que mantiene alineado el vástago de un cilindro, reduciendo el desgaste y prolongando su vida útil.",
-    image: "",
+    image: "89-Cojinete-guía.jpg",
     rating: 5,
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
@@ -1491,7 +1491,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Evita fugas en el vástago",
     longDescription:
         "Sello interno en cilindros y bombas que impide el escape de fluido por el vástago móvil.",
-    image: "",
+    image: "90-Retén-hidráulico.jpg",
     rating: 5,
     tagsMenu: ["Placa", "manifold"],
     comments: commentsList,
@@ -1507,7 +1507,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Sella uniones contra fugas.",
     longDescription:
         "Aro de goma redondo que se comprime entre dos superficies para crear una barrera hermética contra el fluido.",
-    image: "",
+    image: "91-Junta-tórica .jpg",
     rating: 5,
     tagsMenu: ["Junta", "superficies"],
     comments: commentsList,
@@ -1523,7 +1523,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Detecta la posición de un actuador.",
     longDescription:
         "Dispositivo que mide y reporta la posición exacta de un cilindro o componente móvil en un sistema hidráulico para control preciso.",
-    image: "",
+    image: "92-Sensor-de-posición.jpg",
     rating: 5,
     tagsMenu: ["Junta", "superficies"],
     comments: commentsList,
@@ -1539,7 +1539,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Filtra partículas grandes.",
     longDescription:
         "Elemento de filtro que retiene partículas sólidas grandes para proteger componentes sensibles del sistema hidráulico.",
-    image: "",
+    image: "93-Filtro-de-malla.jpg",
     rating: 5,
     tagsMenu: ["Junta", "superficies"],
     comments: commentsList,
@@ -1555,7 +1555,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Conectan mangueras y tubos.",
     longDescription:
         "Accesorios que aseguran la unión firme y estanca entre diferentes tipos de mangueras y tuberías hidráulicas.",
-    image: "",
+    image: "94-Racores-hidráulicos.jpg",
     rating: 5,
     tagsMenu: ["Racores", "mangueras"],
     comments: commentsList,
@@ -1571,7 +1571,7 @@ List<ProductsInterface> productsList = [
     shortDescription: "Protege la bomba de partículas.",
     longDescription:
         "Filtro colocado antes de la bomba para evitar que partículas grandes entren y dañen la bomba hidráulica.",
-    image: "",
+    image: "95-Filtro-de-succión.jpg",
     rating: 5,
     tagsMenu: ["Racores", "mangueras"],
     comments: commentsList,

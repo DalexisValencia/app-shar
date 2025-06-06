@@ -5,6 +5,7 @@ import 'package:shar/components/AvatarCircleWrapper.dart';
 import 'package:shar/components/CommentsWrapper.dart';
 import 'package:shar/components/promotionWrapper.dart';
 import 'package:shar/components/ratingStarts.dart';
+import 'package:shar/interfaces/CategoryInterface.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
@@ -344,9 +345,9 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                     widget.product.categories
                                         .asMap()
                                         .entries
-                                        .map((e) {
+                                        .map((e, category) {
                                       categories.add(Text("hiii!!"));
-                                    }).toList();
+                                    } as Function(MapEntry<int, CategoryInterface> e)).toList();
                                     return Wrap(
                                       alignment: WrapAlignment.start,
                                       children: categories,
