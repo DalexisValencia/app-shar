@@ -11,6 +11,8 @@ const greyLightColor = Color.fromARGB(255, 201, 201, 201); // LIGHT GRAY}
 const urlBaseAssets = "https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/Products";
 const urlBaseAvatars = "https://raw.githubusercontent.com/DalexisValencia/app-shar/refs/heads/master/images/avatars";
 
+const horizontalPadding = 10.0;
+
 snackBarAddCart(BuildContext context, name, alert) {
   final snackBarCar = SnackBar(
     behavior: SnackBarBehavior.floating,

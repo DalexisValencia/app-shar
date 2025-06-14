@@ -88,6 +88,21 @@ flutter:
     - images/Sliders/slider-3.png
     - images/Sliders/slider-aniversary.png
     - images/Sliders/Slider-IG.jpg
+    - images/Categories/0-Bombas hidráulicas.png
+    - images/Categories/01-enfriadores.png
+    - images/Categories/02-Válvulas-hidráulicas.png
+    - images/Categories/03-Mandos-hidráulicos.png
+    - images/Categories/04-Filtros-hidráulicos.png
+    - images/Categories/05-Winches-hidráulicos.png
+    - images/Categories/06-Unidades-hidraulicas.png
+    - images/Categories/07-Electroválvulas.png
+    - images/Categories/08-termovisores.png
+    - images/Categories/09-Motores-hidráulicos.png
+    - images/Categories/10-Anillos-hidráulicos.png
+    - images/Categories/11-conectores.png
+    - images/Categories/12-campanas-hidraulicas.png
+    - images/Categories/13-Niples.png
+    - images/Categories/14-Sensor.png
     
 
   # An image asset can refer to one or more resolution-specific "variants", see
