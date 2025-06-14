@@ -128,7 +128,7 @@ class _SearchfullState extends State<Searchfull> {
                     Container(
                       margin: const EdgeInsets.symmetric(
                         vertical: 0,
-                        horizontal: 20,
+                        horizontal: horizontalPadding,
                       ),
                       child: BlocBuilder<ProductsBloc, ProductsState>(
                         builder: (BuildContext context, ProductsState state) {

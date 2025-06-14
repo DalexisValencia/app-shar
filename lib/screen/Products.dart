@@ -6,6 +6,7 @@ import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:shar/Lists/ProductsList.dart';
 import 'package:shar/blocs/favorites/products_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/constants/contants.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 
 class Products extends StatefulWidget {
@@ -46,7 +47,9 @@ class _ProductsState extends State<Products> {
           ),
           Container(
             color: Colors.transparent,
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(
+              horizontal: horizontalPadding,
+            ),
             child: BlocBuilder<ProductsBloc, ProductsState>(
               builder: (BuildContext context, ProductsState state) {
                 List<ProductsInterface> allProducts =

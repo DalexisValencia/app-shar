@@ -92,7 +92,7 @@ class _ProductCardState extends State<ProductCard> {
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = (mediaQuery.size.width - 40);
-    double cardWidth = widget.isMiddlePage ? screenWidth * 0.50 : 250;
+    double cardWidth = widget.isMiddlePage ? screenWidth * 0.525 : 250;
     double cardHeight = widget.isMiddlePage ? screenWidth * 0.355 : 177.3;
 
     return Fadetransitionwrapper(

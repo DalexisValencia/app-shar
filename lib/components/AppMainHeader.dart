@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/interfaces/User.dart';
-import 'package:shar/screen/MapScreen.dart';
 import 'package:shar/screen/LoginPage.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/SearchFull.dart';
@@ -31,7 +30,7 @@ class _AppMainHeaderState extends State<AppMainHeader> {
     return Container(
       margin: EdgeInsets.only(top: statusBarHeight),
       padding: EdgeInsets.symmetric(
-        horizontal: 20,
+        horizontal: horizontalPadding,
         vertical: statusBarHeight > 0 ? 5 : 15,
       ),
       color: whiteColor,

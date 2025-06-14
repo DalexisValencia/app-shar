@@ -4,6 +4,7 @@ import 'package:shar/components/ProductCard.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
+import 'package:shar/constants/contants.dart';
 
 class Favorites extends StatelessWidget {
   const Favorites({super.key});
@@ -15,8 +16,8 @@ class Favorites extends StatelessWidget {
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
-              horizontal: 20,
-              vertical: 20,
+              horizontal: horizontalPadding,
+              vertical: 10,
             ),
             child: BlocBuilder<FavoritesBloc, FavoritesState>(
               builder: (BuildContext context, FavoritesState state) {

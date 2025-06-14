@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/CategoryChip.dart';
 import 'package:shar/Lists/CategoriesList.dart';
-import 'package:shar/interfaces/CategoryInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Categorychipwrapper extends StatelessWidget {
   const Categorychipwrapper({super.key});
@@ -12,8 +12,8 @@ class Categorychipwrapper extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       child: Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 20,
+          horizontal: horizontalPadding,
+          vertical: 0,
         ),
         child: Builder(
             builder: (BuildContext context) {

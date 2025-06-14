@@ -6,6 +6,7 @@ import 'package:shar/components/ProductCard.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
+import 'package:shar/constants/contants.dart';
 
 class Search extends StatefulWidget {
   const Search({super.key});
@@ -31,8 +32,8 @@ class _SearchState extends State<Search> {
           */
           Container(
             margin: const EdgeInsets.symmetric(
-              vertical: 10,
-              horizontal: 20,
+              vertical: 0,
+              horizontal: horizontalPadding,
             ),
             child: BlocBuilder<ProductsBloc, ProductsState>(
               builder: (BuildContext context, ProductsState state) {

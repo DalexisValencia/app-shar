@@ -5,6 +5,7 @@ import 'package:shar/Lists/ProductsList.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/products_bloc.dart';
 import 'package:shar/screen/SearchFull.dart';
+import 'package:shar/constants/contants.dart';
 
 class PromotionWrapper extends StatefulWidget {
   const PromotionWrapper({super.key});
@@ -27,7 +28,7 @@ class _PromotionWrapperState extends State<PromotionWrapper> {
     return Container(
       margin: const EdgeInsets.symmetric(
         vertical: 20,
-        horizontal: 20,
+        horizontal: horizontalPadding,
       ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,

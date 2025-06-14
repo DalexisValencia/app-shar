@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shar/components/categoryWrapper.dart';
+import 'package:shar/constants/contants.dart';
 
 class Categoriesfull extends StatefulWidget {
   const Categoriesfull({super.key});
@@ -20,8 +21,8 @@ class _CategoriesfullState extends State<Categoriesfull> {
               Padding(
                 padding: EdgeInsets.only(
                   top: 15,
-                  left: 20,
-                  right: 20,
+                  left: horizontalPadding,
+                  right: horizontalPadding,
                 ),
                 child: Text("Todas las categorías"),
               ),

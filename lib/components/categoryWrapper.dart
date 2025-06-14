@@ -2,9 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:shar/components/categoryItem.dart';
 import 'package:shar/components/wrapperHeadline.dart';
 import 'package:shar/Lists/CategoriesList.dart';
-import 'package:shar/interfaces/CategoryInterface.dart';
 import 'package:shar/screen/CategoriesFull.dart';
-import 'package:shar/screen/SearchFull.dart';
+import 'package:shar/constants/contants.dart';
 
 class CategoryWrapper extends StatelessWidget {
   final bool full;
@@ -16,15 +15,15 @@ class CategoryWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double cardSize = full ? 0.425 : 0.275;
+    double cardSize = full ? 0.440 : 0.290;
     return Container(
       margin: const EdgeInsets.symmetric(
         vertical: 20,
-        horizontal: 20,
+        horizontal: horizontalPadding,
       ),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           !full
               ? Wrapperheadline(

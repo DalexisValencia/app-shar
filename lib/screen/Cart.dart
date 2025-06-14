@@ -44,8 +44,8 @@ class _CartState extends State<Cart> {
           child: SingleChildScrollView(
             child: Container(
               padding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 20,
+                horizontal: horizontalPadding,
+                vertical: 10,
               ),
               child: BlocBuilder<CartBloc, CartState>(
                 builder: (BuildContext context, CartState state) {
