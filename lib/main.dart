@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:shar/blocs/favorites/navigation_bloc.dart';
 import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/screen/tabs/Tabswrapper.dart';
 import 'package:shar/screen/Splash.dart';
@@ -52,6 +53,9 @@ class _MyAppState extends State<MyApp> {
         ),
         BlocProvider<UserBloc>(
           create: (context) => UserBloc(),
+        ),
+        BlocProvider<NavigationBloc>(
+          create: (context) => NavigationBloc(),
         ),
       ],
       child: MaterialApp(
