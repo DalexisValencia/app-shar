@@ -272,12 +272,16 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                 widgetChild: Text(
                                   widget.product.name,
                                   overflow: TextOverflow.ellipsis,
+                                  maxLines: 3,
                                   style: const TextStyle(
                                     fontSize: 18,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 durationTime: 350,
+                              ),
+                              const SizedBox(
+                                height: 10,
                               ),
                               Fadetransitionwrapper(
                                 widgetChild: Text(
