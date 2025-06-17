@@ -52,9 +52,15 @@ class _CartState extends State<Cart> {
                   List<ProductsInterface> carList =
                       state.props[0] as List<ProductsInterface>;
                   if (carList.isEmpty) {
-                    return const Fallbacks(
-                      description:
-                          "Aún no has agregado ningún producto a tu carrito",
+                    return Container(
+                      width: mediaQuery.size.width * 0.70,
+                      padding: const EdgeInsets.only(
+                        top: 40,
+                      ),
+                      child: const Image(
+                      image: AssetImage('images/screens/empty-cart.png'),
+                      fit: BoxFit.cover,
+                      ),
                     );
                   }
 
@@ -144,10 +150,8 @@ class _CartState extends State<Cart> {
                                     sendingPricing = false;
                                   });
                                   snackBarAddCart(context, "",
-                                    "Se ha enviado la cotización correctamente");
-                                    cartBlocIntance.add(
-                                      ClearCart()
-                                    );
+                                      "Se ha enviado la cotización correctamente");
+                                  cartBlocIntance.add(ClearCart());
                                 });
                                 // print('Message sent: $sendReport');
                               } catch (e) {

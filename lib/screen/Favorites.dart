@@ -13,6 +13,7 @@ class Favorites extends StatelessWidget {
   Widget build(BuildContext context) {
     return SingleChildScrollView(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             padding: const EdgeInsets.symmetric(
@@ -21,12 +22,24 @@ class Favorites extends StatelessWidget {
             ),
             child: BlocBuilder<FavoritesBloc, FavoritesState>(
               builder: (BuildContext context, FavoritesState state) {
+                var mediaQuery = MediaQuery.of(context);
                 List<ProductsInterface> favorites =
                     state.props[0] as List<ProductsInterface>;
                 if (favorites.isEmpty) {
-                  return const Fallbacks(
-                    description:
-                        "Aún no has agregado ningún producto a tus favoritos",
+                  return Container(
+                    width: mediaQuery.size.width * 0.80,
+                    margin: EdgeInsets.only( 
+                      left: (mediaQuery.size.width * 0.09) - 5,
+                    ),
+                    padding: const EdgeInsets.only(
+                      top: 30,
+                    ),
+                    child: const Center(
+                      child: Image(
+                        image: AssetImage('images/screens/empty-favorites.png'),
+                        fit: BoxFit.cover,
+                      ),
+                    ),
                   );
                 }
 

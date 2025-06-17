@@ -64,6 +64,7 @@ class _MyAppState extends State<MyApp> {
         theme: ThemeData(
           fontFamily: "Cocogoose",
           useMaterial3: true,
+          scaffoldBackgroundColor: Colors.white, // Define the background color for the app
         ),
         home: splashScreen ? const Splash() : const Tabswrapper(),
       ),
