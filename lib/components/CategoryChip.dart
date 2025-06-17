@@ -42,22 +42,23 @@ class _CategorychipState extends State<Categorychip> {
           builder: (BuildContext context, ProductsState state) {
             CategoryInterface resultsFilter =
                 state.props[1] as CategoryInterface;
-                Color active = yellowColor;
-                Color inActive = greyLightColor;
+                Color activeColor = yellowColor;
+                Color inactiveColor = greyLightColor;
+                bool isActive = resultsFilter == widget.category;
 
                 return Chip(
                   label: Text(
                     widget.category.name,
-                    style: const TextStyle(
+                    style: TextStyle(
                       fontSize: 11,
-                      color: greyColor,
+                      color: isActive ? blackColor : greyColor,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  backgroundColor: resultsFilter == widget.category ? active : inActive,
+                  backgroundColor: isActive ? activeColor : inactiveColor,
                   shape: RoundedRectangleBorder(
-                    side: const BorderSide(
-                      color: greyLightColor,
+                    side: BorderSide(
+                      color: isActive ? yellowColor : greyLightColor,
                     ),
                     borderRadius: BorderRadius.circular(
                       20,

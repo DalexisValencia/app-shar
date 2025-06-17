@@ -55,7 +55,7 @@ class _PromotionWrapperState extends State<PromotionWrapper> {
                 var promotions = productsList
                     .where((i) => i.promotion)
                     .toList()
-                    .sublist(0, 2);
+                    .sublist(0, 6);
                 promotions.asMap().entries.map((e) {
                   categories.add(
                     ProductCard(
@@ -69,16 +69,6 @@ class _PromotionWrapperState extends State<PromotionWrapper> {
                 );
               },
             ),
-            /*Row(
-            children: [
-              ProductCard(isMiddlePage: false,),
-              ProductCard(isMiddlePage: false,),
-              ProductCard(isMiddlePage: false,),
-              ProductCard(isMiddlePage: false,),
-              ProductCard(isMiddlePage: false,),
-              ProductCard(isMiddlePage: false,),
-            ],
-          ),*/
           ),
         ],
       ),
