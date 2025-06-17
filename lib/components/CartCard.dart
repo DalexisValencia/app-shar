@@ -205,11 +205,12 @@ class _CartCardState extends State<CartCard> {
                             constraints: const BoxConstraints(maxHeight: 40),
                             style: IconButton.styleFrom(
                               backgroundColor: yellowColor,
+                              disabledBackgroundColor: greyLightColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(5),
                               ),
                             ),
-                            onPressed: () => addAmount(),
+                            onPressed: () => currentElement.amount >= 99 ? () => null : addAmount(),
                             icon: const Icon(
                               Icons.add,
                               size: 15,

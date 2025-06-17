@@ -353,20 +353,18 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                     top: 10,
                                   ),
                                   child: Builder(
-                                  builder: (BuildContext context) {
-                                    List<Widget> categories = [];
-                                    widget.product.categories
-                                        .map((e)  {
-                                      categories.add(Text(e.name));
-                                    }).toList();
-                                    return Wrap(
-                                      alignment: WrapAlignment.start,
-                                      children: categories,
-                                    );
-                                  },
+                                    builder: (BuildContext context) {
+                                      List<Widget> categories = [];
+                                      widget.product.categories.map((e) {
+                                        categories.add(Text(e.name));
+                                      }).toList();
+                                      return Wrap(
+                                        alignment: WrapAlignment.start,
+                                        children: categories,
+                                      );
+                                    },
+                                  ),
                                 ),
-                                ),
-                                
                               ],
                             ),
                           ),
@@ -488,7 +486,17 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
               ),
             ),
             Container(
-              color: const Color.fromARGB(255, 227, 227, 227),
+              decoration: BoxDecoration(
+                color: whiteColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 0,
+                    blurRadius: 5,
+                    offset: Offset(0, -3), // Shadow only at the top
+                  ),
+                ],
+              ),
               width: double.infinity,
               height: 60,
               child: BlocBuilder<CartBloc, CartState>(
@@ -502,55 +510,96 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        IconButton(
-                          padding: const EdgeInsets.all(5),
-                          constraints: const BoxConstraints(
-                            maxHeight: 60,
-                            minHeight: 60,
-                            maxWidth: 40,
-                            minWidth: 40,
-                          ),
-                          style: IconButton.styleFrom(
-                            backgroundColor: yellowColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                        Expanded(
+                          child: Container(
+                            padding: const EdgeInsets.only(
+                              left: horizontalPadding,
+                            ),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                IconButton(
+                                  padding: const EdgeInsets.all(5),
+                                  constraints: const BoxConstraints(
+                                    maxHeight: 40,
+                                    minHeight: 40,
+                                    maxWidth: 40,
+                                    minWidth: 40,
+                                  ),
+                                  style: IconButton.styleFrom(
+                                    backgroundColor: blackColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                  ),
+                                  onPressed: () => currentElement.amount == 1
+                                      ? removeProduct()
+                                      : removeAmount(),
+                                  icon: const Icon(
+                                    Icons.remove,
+                                    color: yellowColor,
+                                    size: 24,
+                                  ),
+                                ),
+                                Text(
+                                  currentElement.amount.toString(),
+                                  style: const TextStyle(
+                                    fontSize: 16,
+                                    fontFamily: "Inter-SemiBold",
+                                  ),
+                                ),
+                                IconButton(
+                                  padding: const EdgeInsets.all(5),
+                                  constraints: const BoxConstraints(
+                                    maxHeight: 40,
+                                    minHeight: 40,
+                                    maxWidth: 40,
+                                    minWidth: 40,
+                                  ),
+                                  style: IconButton.styleFrom(
+                                    backgroundColor: blackColor,
+                                    disabledBackgroundColor: greyLightColor,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(50),
+                                    ),
+                                  ),
+                                  onPressed: currentElement.amount <= 99
+                                      ? () => addAmount()
+                                      : null,
+                                  icon: Icon(
+                                    Icons.add,
+                                    size: 24,
+                                    color: currentElement.amount <= 99
+                                        ? yellowColor
+                                        : blackColor,
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
-                          onPressed: () => currentElement.amount == 1
-                              ? removeProduct()
-                              : removeAmount(),
-                          icon: const Icon(
-                            Icons.remove,
-                            color: blackColor,
-                            size: 15,
-                          ),
                         ),
-                        Text(
-                          currentElement.amount.toString(),
-                          style: const TextStyle(
-                            fontSize: 16,
-                            fontFamily: "Inter-SemiBold",
-                          ),
+                        const SizedBox(
+                          width: 20,
                         ),
-                        IconButton(
-                          padding: const EdgeInsets.all(5),
-                          constraints: const BoxConstraints(
-                            maxHeight: 60,
-                            minHeight: 60,
-                            maxWidth: 40,
-                            minWidth: 40,
+                        Container(
+                          width: 240,
+                          padding: const EdgeInsets.only(
+                            right: horizontalPadding,
                           ),
-                          style: IconButton.styleFrom(
-                            backgroundColor: yellowColor,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(5),
+                          height: 50,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: yellowColor,
+                              foregroundColor: blackColor,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
                             ),
-                          ),
-                          onPressed: () => addAmount(),
-                          icon: const Icon(
-                            Icons.add,
-                            size: 15,
-                            color: blackColor,
+                            onPressed: () {
+                              Navigator.pop(context);
+                              goToTab(3);
+                            },
+                            child: const Text('COTIZAR'),
                           ),
                         ),
                       ],
