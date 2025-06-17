@@ -5,6 +5,7 @@ import 'package:shar/screen/LoginPage.dart';
 import 'package:shar/constants/contants.dart';
 import 'package:shar/screen/SearchFull.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:shar/blocs/favorites/navigation_bloc.dart';
 
 class AppMainHeader extends StatefulWidget {
   const AppMainHeader({super.key});
@@ -15,11 +16,19 @@ class AppMainHeader extends StatefulWidget {
 
 class _AppMainHeaderState extends State<AppMainHeader> {
   late UserBloc userBlocInstance;
+  late NavigationBloc navigationBlocIntance;
 
   @override
   void initState() {
     super.initState();
     userBlocInstance = BlocProvider.of<UserBloc>(context);
+    navigationBlocIntance = BlocProvider.of<NavigationBloc>(context);
+  }
+
+  goToTab(int index) {
+    navigationBlocIntance.add(
+      GoToTab(tabIndex: index),
+    );
   }
 
   @override
@@ -41,11 +50,16 @@ class _AppMainHeaderState extends State<AppMainHeader> {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              const SizedBox(
-                width: 45,
-                child: Image(
-                  image: AssetImage('images/logo.png'),
-                  fit: BoxFit.cover,
+              GestureDetector(
+                onTap: () {
+                  goToTab(0);
+                },
+                child: const SizedBox(
+                  width: 45,
+                  child: Image(
+                    image: AssetImage('images/logo.png'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
               Column(

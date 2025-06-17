@@ -9,6 +9,7 @@ import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:shar/blocs/favorites/navigation_bloc.dart';
 
 class ProductsDetailed extends StatefulWidget {
   final ProductsInterface product;
@@ -24,12 +25,20 @@ class ProductsDetailed extends StatefulWidget {
 class _ProductsDetailedState extends State<ProductsDetailed> {
   late FavoritesBloc favoriteBlocIntance;
   late CartBloc cartBlocIntance;
+  late NavigationBloc navigationBlocIntance;
 
   @override
   void initState() {
     super.initState();
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
     favoriteBlocIntance = BlocProvider.of<FavoritesBloc>(context);
+    navigationBlocIntance = BlocProvider.of<NavigationBloc>(context);
+  }
+
+  goToTab(int index) {
+    navigationBlocIntance.add(
+      GoToTab(tabIndex: index),
+    );
   }
 
   addToCart() {
@@ -194,7 +203,8 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                       ),
                                       ElevatedButton(
                                         onPressed: () {
-                                          // Navigator.pop(context);
+                                          Navigator.pop(context);
+                                          goToTab(3);
                                         },
                                         style: ElevatedButton.styleFrom(
                                           shape: const CircleBorder(),
