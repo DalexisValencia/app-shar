@@ -68,7 +68,7 @@ String renderizarTemplate(BillInterface factura) {
                 </p>
 
                 <p>
-                    Dentro de poco recibirá un correo con todos los detalles de cada uno de los siguientes productos.
+                    Dentro de poco recibirás un correo con todos los detalles de cada uno de los siguientes productos.
                 </p>
             </section>
 

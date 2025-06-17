@@ -42,13 +42,13 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
   }
 
   addToCart() {
-    String alert = " Se ha añadido al carrito";
+    // String alert = " Se ha añadido al carrito";
     cartBlocIntance.add(
       AddProductToCart(
         product: widget.product,
       ),
     );
-    snackBarAddCart(context, widget.product.name, alert);
+    // snackBarAddCart(context, widget.product.name, alert);
   }
 
   void removeProduct() {

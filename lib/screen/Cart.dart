@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shar/blocs/favorites/users_bloc.dart';
 import 'package:shar/components/CartCard.dart';
@@ -19,20 +21,39 @@ class Cart extends StatefulWidget {
   State<Cart> createState() => _CartState();
 }
 
-class _CartState extends State<Cart> {
+class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
   late CartBloc cartBlocIntance;
   bool sendingPricing = false;
+  bool contizationEnded = false;
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
 
   @override
   void initState() {
     super.initState();
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
+
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 500),
+      vsync: this,
+    );
+
+    _scaleAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOutBack),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
     var screenHeight = (mediaQuery.size.height - 245);
+    var screenWidth = mediaQuery.size.width;
     var statusBarHeight = mediaQuery.viewPadding.top;
     var bottomBarHeight = AppBar().preferredSize.height;
 
@@ -40,51 +61,96 @@ class _CartState extends State<Cart> {
       children: [
         Container(
           color: Colors.transparent,
-          height: screenHeight - statusBarHeight - bottomBarHeight,
+          height: !contizationEnded ? screenHeight - statusBarHeight - bottomBarHeight : screenHeight,
+          width: double.infinity,
           child: SingleChildScrollView(
-            child: Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: horizontalPadding,
-                vertical: 10,
-              ),
-              child: BlocBuilder<CartBloc, CartState>(
-                builder: (BuildContext context, CartState state) {
-                  List<ProductsInterface> carList =
-                      state.props[0] as List<ProductsInterface>;
-                  if (carList.isEmpty) {
-                    return Container(
-                      width: mediaQuery.size.width * 0.70,
-                      padding: const EdgeInsets.only(
-                        top: 40,
-                      ),
-                      child: const Image(
-                      image: AssetImage('images/screens/empty-cart.png'),
-                      fit: BoxFit.cover,
-                      ),
-                    );
-                  }
-
-                  return Builder(
-                    builder: (BuildContext context) {
-                      List<Widget> carProductsFinal = [];
-                      carList.asMap().entries.map((e) {
-                        carProductsFinal.add(
-                          CartCard(
-                            product: e.value,
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                Container(
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: horizontalPadding,
+                    vertical: 10,
+                  ),
+                  child: BlocBuilder<CartBloc, CartState>(
+                    builder: (BuildContext context, CartState state) {
+                      List<ProductsInterface> carList =
+                          state.props[0] as List<ProductsInterface>;
+                      if (carList.isEmpty) {
+                        return Container(
+                          width: mediaQuery.size.width * 0.70,
+                          padding: const EdgeInsets.only(
+                            top: 40,
+                          ),
+                          child: const Image(
+                            image: AssetImage('images/screens/empty-cart.png'),
+                            fit: BoxFit.cover,
                           ),
                         );
-                      }).toList();
-                      return Wrap(
-                        children: carProductsFinal,
+                      }
+
+                      return Builder(
+                        builder: (BuildContext context) {
+                          List<Widget> carProductsFinal = [];
+                          carList.asMap().entries.map((e) {
+                            carProductsFinal.add(
+                              CartCard(
+                                product: e.value,
+                              ),
+                            );
+                          }).toList();
+                          return Wrap(
+                            children: carProductsFinal,
+                          );
+                        },
                       );
                     },
-                  );
-                },
-              ),
+                  ),
+                ),
+                contizationEnded
+                    ? Positioned(
+                        child: ScaleTransition(
+                          scale: _scaleAnimation,
+                          child: Container(
+                            width: screenWidth,
+                            height: screenHeight,
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: horizontalPadding),
+                            decoration: BoxDecoration(
+                              color: yellowColor,
+                              borderRadius: BorderRadius.circular(0),
+                            ),
+                            child: const Center(
+                                child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.check_circle_outline,
+                                  size: 105,
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                                Text(
+                                  'Su cotización ha sido enviada correctamente a su correo electrónico.',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 17),
+                                ),
+                                SizedBox(
+                                  height: 20,
+                                ),
+                              ],
+                            )),
+                          ),
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ],
             ),
           ),
         ),
-        BlocBuilder<CartBloc, CartState>(
+        !contizationEnded ? BlocBuilder<CartBloc, CartState>(
           builder: (BuildContext context, CartState state) {
             List<ProductsInterface> carProducts =
                 state.props[0] as List<ProductsInterface>;
@@ -149,9 +215,11 @@ class _CartState extends State<Cart> {
                                   setState(() {
                                     sendingPricing = false;
                                   });
-                                  snackBarAddCart(context, "",
-                                      "Se ha enviado la cotización correctamente");
                                   cartBlocIntance.add(ClearCart());
+                                  setState(() {
+                                    contizationEnded = true;
+                                  });
+                                  _controller.forward();
                                 });
                                 // print('Message sent: $sendReport');
                               } catch (e) {
@@ -181,7 +249,7 @@ class _CartState extends State<Cart> {
               ),
             );
           },
-        ),
+        ) : const SizedBox(width: 0,),
       ],
     );
   }
