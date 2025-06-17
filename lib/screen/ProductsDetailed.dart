@@ -124,26 +124,22 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                       child: Stack(
                         children: [
                           Container(
-                            width: double.infinity,
-                            height: 300,
                             decoration: BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
                                     "$urlBaseAssets/${widget.product.image}"), // o NetworkImage
                                 fit: BoxFit.cover,
                               ),
+                              border: Border(
+                                bottom: BorderSide(
+                                  color: yellowColor.withOpacity(0.3),
+                                  width: 1.0,
+                                ),
+                              ),
                             ),
+                            width: double.infinity,
+                            height: 300,
                           ),
-                          /*ClipRRect(
-                            borderRadius: const BorderRadius.only(
-                              topLeft: Radius.circular(5),
-                              topRight: Radius.circular(5),
-                            ),
-                            child: Image.network(
-                              "$urlBaseAssets/${widget.product.image}",
-                              fit: BoxFit.fitWidth,
-                            ),
-                          ),*/
                           Positioned(
                             top: 10,
                             left: 0,
@@ -252,6 +248,28 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               ),
                             ),
                           ),
+                          Positioned(
+                            left: 10,
+                            bottom: 20,
+                            child: Container(
+                              padding: const EdgeInsets.symmetric(
+                                vertical: 8,
+                                horizontal: 30,
+                              ),
+                              decoration: BoxDecoration(
+                                color: yellowColor,
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              child: const Text(
+                                "Promoción",
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.w400,
+                                  color: Colors.black,
+                                ),
+                              ),
+                            ),
+                          )
                         ],
                       ),
                     ),

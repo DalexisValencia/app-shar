@@ -208,6 +208,28 @@ class _ProductCardState extends State<ProductCard> {
                           ),
                         ),
                       ),
+                      widget.product.promotion ?  Positioned(
+                        bottom: 10,
+                        right: 10,
+                        child: Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: 5,
+                            horizontal: 10,
+                          ),
+                          decoration: BoxDecoration(
+                            color: yellowColor,
+                            borderRadius: BorderRadius.circular(50),
+                          ),
+                          child: const Text(
+                            "Promoción",
+                            style: TextStyle(
+                              fontSize: 9,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                            ),
+                          ),
+                        ),
+                      ) : const SizedBox(width: 0,)
                     ],
                   ),
                 ),
