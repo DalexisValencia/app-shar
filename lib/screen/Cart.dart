@@ -34,7 +34,7 @@ class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
     cartBlocIntance = BlocProvider.of<CartBloc>(context);
 
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 500),
+      duration: const Duration(milliseconds: 250),
       vsync: this,
     );
 

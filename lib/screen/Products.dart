@@ -42,7 +42,7 @@ class _ProductsState extends State<Products> {
       child: Column(
         children: [
           const Fadetransitionwrapper(
-            durationTime: 800,
+            durationTime: 500,
             widgetChild: Categorychipwrapper(),
           ),
           Container(

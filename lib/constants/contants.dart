@@ -15,6 +15,7 @@ const horizontalPadding = 10.0;
 
 snackBarAddCart(BuildContext context, name, alert) {
   final snackBarCar = SnackBar(
+    duration: const Duration(seconds: 1),
     behavior: SnackBarBehavior.floating,
     backgroundColor: yellowColor,
     content: RichText(

@@ -7,7 +7,7 @@ String renderizarTemplate(BillInterface factura) {
   for (var producto in factura.productos) {
     totalProducts += producto.amount;
     productosHtml += '''
-      <div style="background-color: white; margin: 5px; border-radius: 5px; display: flex; min-height: 100px; margin-bottom: 10px">
+      <div style="background-color: white; margin: 5px; border-radius: 5px; display: flex; min-height: 100px; margin-bottom: 10px;border: 1px solid #e1e1e1;">
         <div style="
           border-top-left-radius: 5px;
           border-bottom-left-radius: 5px;
@@ -15,6 +15,7 @@ String renderizarTemplate(BillInterface factura) {
           background-image: url($urlBaseAssets/${producto.image});
           background-size: cover;
           background-position: center;
+          border-right: 1px solid #e1e1e1;
         "></div>
 
         <div style="padding: 10px 20px 25px; position: relative; width: 100%; color: black !important;">
