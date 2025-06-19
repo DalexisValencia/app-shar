@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:shar/animations/Fadetransitionwrapper.dart';
 import 'package:shar/blocs/favorites/favorites_bloc.dart';
@@ -49,6 +51,16 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
       ),
     );
     // snackBarAddCart(context, widget.product.name, alert);
+  }
+
+  goToCart() {
+    goToTab(3);
+    Timer(
+      const Duration(milliseconds: 250),
+      () {
+        Navigator.pop(context);
+      },
+    );
   }
 
   void removeProduct() {
@@ -199,8 +211,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                                       ),
                                       ElevatedButton(
                                         onPressed: () {
-                                          Navigator.pop(context);
-                                          goToTab(3);
+                                          goToCart();
                                         },
                                         style: ElevatedButton.styleFrom(
                                           shape: const CircleBorder(),
@@ -614,8 +625,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
                               ),
                             ),
                             onPressed: () {
-                              Navigator.pop(context);
-                              goToTab(3);
+                              goToCart();
                             },
                             child: const Text('COTIZAR'),
                           ),
