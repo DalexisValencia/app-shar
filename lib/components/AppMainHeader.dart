@@ -54,9 +54,10 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                 onTap: () {
                   goToTab(0);
                 },
-                child: const SizedBox(
+                child: Container(
+                  margin: const EdgeInsets.only(left: horizontalPadding,),
                   width: 45,
-                  child: Image(
+                  child: const Image(
                     image: AssetImage('images/logo.png'),
                     fit: BoxFit.cover,
                   ),
