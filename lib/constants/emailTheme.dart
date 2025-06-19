@@ -35,8 +35,8 @@ String renderizarTemplate(BillInterface factura) {
          <section>
         <div style="width: 100%;height: 50px;background-color: #fac464;"></div>
         <section style="
-        width: 80%;
-        max-width: 400px;
+        width: 90%;
+        max-width: 700px;
         margin: 0 auto;
     ">
         <div style="border: 1px solid #fac464;margin-top:20px" >

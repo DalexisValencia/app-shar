@@ -27,18 +27,24 @@ class Favorites extends StatelessWidget {
                     state.props[0] as List<ProductsInterface>;
                 if (favorites.isEmpty) {
                   return Container(
-                    width: mediaQuery.size.width * 0.80,
-                    margin: EdgeInsets.only( 
-                      left: (mediaQuery.size.width * 0.09) - 5,
+                    width: mediaQuery.size.width * 0.70,
+                    margin: EdgeInsets.only(
+                      left: (mediaQuery.size.width * 0.13) - 5,
                     ),
                     padding: const EdgeInsets.only(
                       top: 30,
                     ),
-                    child: const Center(
-                      child: Image(
-                        image: AssetImage('images/screens/empty-favorites.png'),
-                        fit: BoxFit.cover,
-                      ),
+                    child: const Column(
+                      children: [
+                        Image(
+                          image:
+                              AssetImage('images/screens/empty-favorites.png'),
+                          fit: BoxFit.cover,
+                        ),
+                        Fallbacks(
+                          description: 'No tienes productos favoritos',
+                        ),
+                      ],
                     ),
                   );
                 }

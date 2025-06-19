@@ -61,7 +61,9 @@ class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
       children: [
         Container(
           color: Colors.transparent,
-          height: !contizationEnded ? screenHeight - statusBarHeight - bottomBarHeight : screenHeight,
+          height: !contizationEnded
+              ? screenHeight - statusBarHeight - bottomBarHeight
+              : screenHeight,
           width: double.infinity,
           child: SingleChildScrollView(
             child: Stack(
@@ -78,15 +80,22 @@ class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
                           state.props[0] as List<ProductsInterface>;
                       if (carList.isEmpty) {
                         return Container(
-                          width: mediaQuery.size.width * 0.70,
-                          padding: const EdgeInsets.only(
-                            top: 40,
-                          ),
-                          child: const Image(
-                            image: AssetImage('images/screens/empty-cart.png'),
-                            fit: BoxFit.cover,
-                          ),
-                        );
+                            width: mediaQuery.size.width * 0.70,
+                            padding: const EdgeInsets.only(
+                              top: 40,
+                            ),
+                            child: const Column(
+                              children: [
+                                Image(
+                                  image: AssetImage(
+                                      'images/screens/empty-cart-icon.png'),
+                                  fit: BoxFit.cover,
+                                ),
+                                Fallbacks(
+                                  description: "No tienes productos en tu carrito",
+                                )
+                              ],
+                            ));
                       }
 
                       return Builder(
@@ -150,106 +159,113 @@ class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
             ),
           ),
         ),
-        !contizationEnded ? BlocBuilder<CartBloc, CartState>(
-          builder: (BuildContext context, CartState state) {
-            List<ProductsInterface> carProducts =
-                state.props[0] as List<ProductsInterface>;
-            var isEmpty = carProducts.isEmpty;
+        !contizationEnded
+            ? BlocBuilder<CartBloc, CartState>(
+                builder: (BuildContext context, CartState state) {
+                  List<ProductsInterface> carProducts =
+                      state.props[0] as List<ProductsInterface>;
+                  var isEmpty = carProducts.isEmpty;
 
-            return Container(
-              color: Colors.transparent,
-              width: double.infinity,
-              height: 60,
-              child: BlocBuilder<UserBloc, UserState>(
-                builder: (BuildContext context, UserState state) {
-                  UserInterface user = state.props[1] as UserInterface;
+                  return Container(
+                    color: Colors.transparent,
+                    width: double.infinity,
+                    height: 60,
+                    child: BlocBuilder<UserBloc, UserState>(
+                      builder: (BuildContext context, UserState state) {
+                        UserInterface user = state.props[1] as UserInterface;
 
-                  return TextButton(
-                    style: ButtonStyle(
-                      shape: WidgetStateProperty.all<RoundedRectangleBorder>(
-                        RoundedRectangleBorder(
-                          side: BorderSide(
-                            color: isEmpty || sendingPricing
-                                ? greyLightColor
-                                : yellowColor,
+                        return TextButton(
+                          style: ButtonStyle(
+                            shape:
+                                WidgetStateProperty.all<RoundedRectangleBorder>(
+                              RoundedRectangleBorder(
+                                side: BorderSide(
+                                  color: isEmpty || sendingPricing
+                                      ? greyLightColor
+                                      : yellowColor,
+                                ),
+                              ),
+                            ),
+                            backgroundColor: WidgetStateProperty.all<Color>(
+                              isEmpty || sendingPricing
+                                  ? greyLightColor
+                                  : yellowColor,
+                            ),
                           ),
-                        ),
-                      ),
-                      backgroundColor: WidgetStateProperty.all<Color>(
-                        isEmpty || sendingPricing
-                            ? greyLightColor
-                            : yellowColor,
-                      ),
-                    ),
-                    onPressed: isEmpty || sendingPricing
-                        ? null
-                        : () async {
-                            if (user.logged) {
-                              BillInterface generateBill = BillInterface(
-                                fecha: dateNow(),
-                                cliente: user.name,
-                                productos: carProducts,
-                                total: 0,
-                              );
+                          onPressed: isEmpty || sendingPricing
+                              ? null
+                              : () async {
+                                  if (user.logged) {
+                                    BillInterface generateBill = BillInterface(
+                                      fecha: dateNow(),
+                                      cliente: user.name,
+                                      productos: carProducts,
+                                      total: 0,
+                                    );
 
-                              setState(() {
-                                sendingPricing = true;
-                              });
+                                    setState(() {
+                                      sendingPricing = true;
+                                    });
 
-                              String html = renderizarTemplate(generateBill);
+                                    String html =
+                                        renderizarTemplate(generateBill);
 
-                              final smtpServer = gmail(
-                                  'comunicationsappshar@gmail.com',
-                                  'kjli asvp hcbd fmiq');
-                              final message = Message()
-                                ..from = const Address(
-                                    'comunicationsappshar@gmail.com',
-                                    'SHAR Cotizaciones')
-                                ..recipients.add(const Address(
-                                    'd.alexis.valencia@gmail.com'))
-                                ..recipients.add(Address(user.email))
-                                ..subject = 'Resumen de su cotización'
-                                ..html = html;
-                              try {
-                                await send(message, smtpServer).then((e) {
-                                  setState(() {
-                                    sendingPricing = false;
-                                  });
-                                  cartBlocIntance.add(ClearCart());
-                                  setState(() {
-                                    contizationEnded = true;
-                                  });
-                                  _controller.forward();
-                                });
-                                // print('Message sent: $sendReport');
-                              } catch (e) {
-                                snackBarAddCart(context, "Error: ",
-                                    "Un error ha ocurrido, intente más tarde.");
-                                setState(() {
-                                  sendingPricing = false;
-                                });
-                              }
-                            } else {
-                              snackBarAddCart(context, "No permitido: ",
-                                  "Debes tener una cuenta para poder realizar cotizaiones");
-                            }
-                          },
-                    child: Text(
-                      sendingPricing
-                          ? 'ENVIANDO COTIZACIÓN'
-                          : 'REALIZAR COTIZACIÓN',
-                      style: TextStyle(
-                        color:
-                            isEmpty || sendingPricing ? greyColor : blackColor,
-                        fontWeight: FontWeight.w600,
-                      ),
+                                    final smtpServer = gmail(
+                                        'comunicationsappshar@gmail.com',
+                                        'kjli asvp hcbd fmiq');
+                                    final message = Message()
+                                      ..from = const Address(
+                                          'comunicationsappshar@gmail.com',
+                                          'SHAR Cotizaciones')
+                                      ..recipients.add(const Address(
+                                          'd.alexis.valencia@gmail.com'))
+                                      ..recipients.add(Address(user.email))
+                                      ..subject = 'Resumen de su cotización'
+                                      ..html = html;
+                                    try {
+                                      await send(message, smtpServer).then((e) {
+                                        setState(() {
+                                          sendingPricing = false;
+                                        });
+                                        cartBlocIntance.add(ClearCart());
+                                        setState(() {
+                                          contizationEnded = true;
+                                        });
+                                        _controller.forward();
+                                      });
+                                      // print('Message sent: $sendReport');
+                                    } catch (e) {
+                                      snackBarAddCart(context, "Error: ",
+                                          "Un error ha ocurrido, intente más tarde.");
+                                      setState(() {
+                                        sendingPricing = false;
+                                      });
+                                    }
+                                  } else {
+                                    snackBarAddCart(context, "No permitido: ",
+                                        "Debes tener una cuenta para poder realizar cotizaiones");
+                                  }
+                                },
+                          child: Text(
+                            sendingPricing
+                                ? 'ENVIANDO COTIZACIÓN'
+                                : 'REALIZAR COTIZACIÓN',
+                            style: TextStyle(
+                              color: isEmpty || sendingPricing
+                                  ? greyColor
+                                  : blackColor,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   );
                 },
+              )
+            : const SizedBox(
+                width: 0,
               ),
-            );
-          },
-        ) : const SizedBox(width: 0,),
       ],
     );
   }
