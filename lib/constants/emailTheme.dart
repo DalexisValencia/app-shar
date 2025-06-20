@@ -12,6 +12,8 @@ String renderizarTemplate(BillInterface factura) {
           border-top-left-radius: 5px;
           border-bottom-left-radius: 5px;
           width: 200px;
+          background-size: 85%;
+          background-repeat: no-repeat;
           background-image: url($urlBaseAssets/${producto.image});
           background-size: cover;
           background-position: center;
@@ -19,12 +21,12 @@ String renderizarTemplate(BillInterface factura) {
         "></div>
 
         <div style="padding: 10px 20px 25px; position: relative; width: 100%; color: black !important;">
-            <h5 style="margin: 0px 0 10px 0;">${producto.name}</h5>
+            <h3 style="margin: 0px 0 10px 0;">${producto.name}</h3>
             <p style="margin: 0px; font-size: 15px;">
                 ${producto.shortDescription}
             </p>
 
-            <b style="position: absolute; right: 20px; bottom: 10px;font-size: 12px;">Cantidad ${producto.amount}</b>
+            <b style="position: absolute; right: 20px; bottom: 10px;font-size: 12px; margin-top: 15px;">Cantidad ${producto.amount}</b>
         </div>
       </div>
     ''';
@@ -63,7 +65,7 @@ String renderizarTemplate(BillInterface factura) {
 
             <section style="margin-bottom: 10px; font-size: 16px; color: black !important;border-bottom: 1px solid #e1e1e1;">
                 <p>
-                    A continuación te presentamos un resumen de tu cotización realizada el día ${factura.fecha} en la
+                    A continuación te presentamos un resumen de tu cotización realizada el día <b>${factura.fecha}</b> en la
                     <b>aplicación
                         de SHAR.</b>
                 </p>

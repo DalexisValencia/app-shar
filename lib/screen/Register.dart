@@ -81,7 +81,7 @@ class _RegisterState extends State<Register> {
                         top: 30,
                       ),
                       child: const Text(
-                        'REGISTRARSE',
+                        'REGISTRO',
                         textAlign: TextAlign.start,
                         style: TextStyle(
                             fontSize: 15, fontWeight: FontWeight.bold),
@@ -101,6 +101,7 @@ class _RegisterState extends State<Register> {
                       style: const TextStyle(
                         fontSize: 12,
                         color: blackColor,
+                        fontFamily: "Inter-SemiBold",
                       ),
                       decoration: InputDecoration(
                         errorStyle: const TextStyle(
@@ -161,6 +162,7 @@ class _RegisterState extends State<Register> {
                       style: const TextStyle(
                         fontSize: 12,
                         color: blackColor,
+                        fontFamily: "Inter-SemiBold",
                       ),
                       decoration: InputDecoration(
                         errorStyle: const TextStyle(
@@ -210,8 +212,7 @@ class _RegisterState extends State<Register> {
                         if (!regex.hasMatch(value)) {
                           return 'No es un correo electrónico';
                         }
-                        print(email);
-                        print(repeatEmail);
+
                         if (!(email.text == repeatEmail.text)) {
                           return 'Los correos electronicos no coinciden';
                         }
@@ -222,6 +223,7 @@ class _RegisterState extends State<Register> {
                       style: const TextStyle(
                         fontSize: 12,
                         color: blackColor,
+                        fontFamily: "Inter-SemiBold",
                       ),
                       decoration: InputDecoration(
                         errorStyle: const TextStyle(
@@ -267,6 +269,7 @@ class _RegisterState extends State<Register> {
                       style: const TextStyle(
                         fontSize: 12,
                         color: blackColor,
+                        fontFamily: "Inter-SemiBold",
                       ),
                       decoration: InputDecoration(
                         filled: true,
@@ -312,6 +315,7 @@ class _RegisterState extends State<Register> {
                       style: const TextStyle(
                         fontSize: 12,
                         color: blackColor,
+                        fontFamily: "Inter-SemiBold",
                       ),
                       decoration: InputDecoration(
                         filled: true,
@@ -349,8 +353,9 @@ class _RegisterState extends State<Register> {
                           'Al dar clic en registrarse acepta nuestra politica de datos y nuestros términos y condiciones.',
                           textAlign: TextAlign.center,
                           style: TextStyle(
-                            fontSize: 10.5,
-                            fontWeight: FontWeight.w400,
+                          fontSize: 10.5,
+                          fontWeight: FontWeight.w400,
+                          decoration: TextDecoration.underline,
                           ),
                         ),
                         onTap: () => {

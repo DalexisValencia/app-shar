@@ -112,6 +112,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: const TextStyle(
                       fontSize: 12,
                       color: blackColor,
+                      fontFamily: "Inter-SemiBold",
                     ),
                     decoration: InputDecoration(
                       errorStyle: const TextStyle(
@@ -154,6 +155,7 @@ class _LoginPageState extends State<LoginPage> {
                     style: const TextStyle(
                       fontSize: 12,
                       color: blackColor,
+                      fontFamily: "Inter-SemiBold",
                     ),
                     decoration: InputDecoration(
                       filled: true,
