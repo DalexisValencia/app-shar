@@ -117,7 +117,7 @@ class _SearchfullState extends State<Searchfull> {
               ),
             ),
             Container(
-              height: screenHeight - (statusBarHeight + 50),
+              height: screenHeight - (statusBarHeight + 100),
               child: SingleChildScrollView(
                 child: Column(
                   children: [

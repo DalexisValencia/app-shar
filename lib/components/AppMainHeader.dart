@@ -37,14 +37,15 @@ class _AppMainHeaderState extends State<AppMainHeader> {
     var statusBarHeight = mediaQuery.viewPadding.top;
 
     return Container(
-      margin: EdgeInsets.only(top: statusBarHeight),
-      padding: EdgeInsets.symmetric(
-        horizontal: horizontalPadding,
-        vertical: statusBarHeight > 0 ? 5 : 15,
+      // margin: EdgeInsets.only(top: statusBarHeight),
+      padding: EdgeInsets.only(
+        left: horizontalPadding,
+        right: horizontalPadding,
+        top: statusBarHeight,
       ),
-      color: whiteColor,
+      color: blackColor,
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -73,7 +74,9 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                       style: TextStyle(
                         fontSize: 12,
                         fontWeight: FontWeight.bold,
+                        color: whiteColor
                       ),
+                      
                     ),
                   ),
                   TextButton.icon(
@@ -93,7 +96,7 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                       'Bogotá, Colombia',
                       style: TextStyle(
                         fontSize: 10,
-                        color: greyColor,
+                        color: whiteColor,
                       ),
                     ),
                   ),
@@ -153,7 +156,7 @@ class _AppMainHeaderState extends State<AppMainHeader> {
                           iconSize: 20,
                           style: ButtonStyle(
                             foregroundColor:
-                                WidgetStateProperty.all<Color>(whiteColor),
+                                WidgetStateProperty.all<Color>(blackColor),
                             backgroundColor: WidgetStateProperty.all<Color>(
                               yellowColor,
                             ),

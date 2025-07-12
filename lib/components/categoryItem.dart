@@ -34,10 +34,21 @@ class _CategoryItemState extends State<CategoryItem> {
 
     return Card.outlined(
       elevation: 1,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(10),
+        side: const BorderSide(
+          color: yellowColor,
+          width: 0.5,
+        ),
+      ),
       child: Container(
-        color: whiteColor,
+        clipBehavior: Clip.hardEdge,
         width: screenWidth * widget.cardSize,
         height: screenWidth * widget.cardSize,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(12),
+          color: Color.fromARGB(255, 255, 244, 224),
+        ),
         child: InkWell(
           onTap: () {
             productsBlocIntance.add(
@@ -56,7 +67,7 @@ class _CategoryItemState extends State<CategoryItem> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               SizedBox(
-                width: screenWidth * (widget.cardSize / 2.5),
+                width: screenWidth * (widget.cardSize / 2),
                 child: Image(
                   image: AssetImage(widget.category.image),
                   fit: BoxFit.cover,

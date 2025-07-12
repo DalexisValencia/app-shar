@@ -9,6 +9,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:shar/blocs/favorites/cart_bloc.dart';
 import 'package:shar/interfaces/ProductsInterface.dart';
 import 'package:shar/constants/contants.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:shar/blocs/favorites/navigation_bloc.dart';
 
 class Tabswrapper extends StatefulWidget {
@@ -20,6 +21,20 @@ class Tabswrapper extends StatefulWidget {
 
 class _TabswrapperState extends State<Tabswrapper> {
   late NavigationBloc navigationBlocIntance;
+  final String phoneNumber = '+573042170374'; // Cambia a tu número
+  final String message = '¡Hola! Me gustaría más información.';
+
+  void openWhatsApp() async {
+    final Uri whatsappUrl = Uri.parse(
+      "https://wa.me/${phoneNumber.replaceAll('+', '')}?text=${Uri.encodeComponent(message)}",
+    );
+
+    if (await canLaunchUrl(whatsappUrl)) {
+      await launchUrl(whatsappUrl, mode: LaunchMode.externalApplication);
+    } else {
+      throw 'No se pudo abrir WhatsApp';
+    }
+  }
 
   @override
   void initState() {
@@ -42,6 +57,15 @@ class _TabswrapperState extends State<Tabswrapper> {
           appBar: AppBar(
             toolbarHeight: 130,
             flexibleSpace: const AppMainHeader(),
+          ),
+          floatingActionButton: FloatingActionButton(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(50),
+            ),
+            onPressed: openWhatsApp,
+            tooltip: 'Contactar por WhatsApp',
+            backgroundColor: Colors.green,
+            child: Image.asset('images/icons/whatsapp-icon.png', width: 30, height: 30),
           ),
           body: <Widget>[
             const Home(),

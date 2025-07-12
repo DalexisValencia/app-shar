@@ -4,7 +4,7 @@ List<CategoryInterface> categoryList = [
   CategoryInterface(
     id: "category-00",
     name: "Bombas hidráulicas",
-    image: "images/Categories/0-Bombas hidráulicas.png",
+    image: "images/Categories/0-Bombas-hidraulicas-bg-white.png",
   ),
   CategoryInterface(
     id: "category-01",

@@ -55,7 +55,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
   goToCart() {
     goToTab(3);
     Timer(
-      const Duration(milliseconds: 250),
+      const Duration(milliseconds: 500),
       () {
         Navigator.pop(context);
       },
@@ -115,7 +115,7 @@ class _ProductsDetailedState extends State<ProductsDetailed> {
     var mediaQuery = MediaQuery.of(context);
     var screenWidth = mediaQuery.size.width;
     var statusBarHeight = mediaQuery.viewPadding.top;
-    var screenHeight = mediaQuery.size.height - (60 + statusBarHeight);
+    var screenHeight = mediaQuery.size.height - (108 + statusBarHeight);
 
     return Scaffold(
       resizeToAvoidBottomInset: false,

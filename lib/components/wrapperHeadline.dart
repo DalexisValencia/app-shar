@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:shar/constants/contants.dart';
 
 class Wrapperheadline extends StatelessWidget {
   final String mainTitle;
@@ -38,8 +39,11 @@ class Wrapperheadline extends StatelessWidget {
                 "Ver más",
                 style: TextStyle(
                   fontSize: 11,
-                  fontWeight: FontWeight.w300,
+                  fontWeight: FontWeight.w600,
                   fontFamily: "Cocogoose",
+                    decoration: TextDecoration.underline,
+                    decorationColor: yellowColor,
+                  color: yellowColor,
                 ),
               ),
             ),

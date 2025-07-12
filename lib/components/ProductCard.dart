@@ -111,7 +111,14 @@ class _ProductCardState extends State<ProductCard> {
           color: Colors.transparent,
           width: cardWidth,
           child: Card(
-            elevation: 2,
+            elevation: 0.5,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+              side: const BorderSide(
+                color: yellowColor,
+                width: 0.5,
+              ),
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -245,7 +252,7 @@ class _ProductCardState extends State<ProductCard> {
                         width: 1,
                       ),
                     ),
-                    color: whiteColor,
+                    color: Color.fromARGB(255, 255, 244, 224),
                   ),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -371,7 +378,7 @@ class _ProductCardState extends State<ProductCard> {
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: whiteColor,
-                            fontWeight: FontWeight.w300,
+                            fontWeight: FontWeight.w400,
                           ),
                           textScaler: TextScaler.linear(0.78),
                         ),

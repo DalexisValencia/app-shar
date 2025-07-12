@@ -52,7 +52,7 @@ class _CartState extends State<Cart> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     var mediaQuery = MediaQuery.of(context);
-    var screenHeight = (mediaQuery.size.height - 245);
+    var screenHeight = (mediaQuery.size.height - 292);
     var screenWidth = mediaQuery.size.width;
     var statusBarHeight = mediaQuery.viewPadding.top;
     var bottomBarHeight = AppBar().preferredSize.height;
