@@ -54,9 +54,3 @@ Available now on **Google Play Store**
 3. **Run the app on an emulator or physical device:**  
    ```bash
    flutter run
-
-   
-
-
-
-
