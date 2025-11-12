@@ -32,7 +32,7 @@ The app was designed as a **testing and demonstration tool**, focusing on smooth
 
 ## 📲 Download  
 Available now on **Google Play Store**  
-👉 [View Developer Page on Google Play](https://play.google.com/store/apps/dev?id=7388974320378962972)
+👉 [View Developer Page on Google Play](https://play.google.com/store/apps/details?id=test.munka.shar.one)
 
 ---
 
