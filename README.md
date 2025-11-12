@@ -37,9 +37,26 @@ Available now on **Google Play Store**
 ---
 
 ## 🧑‍💻 Getting Started  
+💡 Make sure you have Flutter SDK properly installed and configured before running the app.
 
 1. **Clone this repository:**  
    ```bash
    git clone https://github.com/DalexisValencia/app-shar.git
+
+2. **Navigate to the project directory:**  
+   ```bash
+   cd app-shar
+
+3. **Navigate to the project directory:**  
+   ```bash
+   flutter pub get
+
+3. **Run the app on an emulator or physical device:**  
+   ```bash
+   flutter run
+
+   
+
+
 
 
